@@ -1,0 +1,52 @@
+% !TEX root = ../Diplombericht.tex
+\newpage
+\subsection{Projektziele} 
+\label{sec:Projektziele}
+
+\begin{table}[H]
+\begin{tabular}[t]{p{0.7cm}|p{6.1cm}p{6.1cm} >{\centering}p{0.6cm}c}
+\hline
+\rowcolor{heading}\textbf{Nr.} & \textbf{Ziel} & \textbf{Messgrösse} & \textbf{Kat.} & \textbf{Prio.} \\\hline
+01 & Die CPU des Clusters soll zu 90\% zum Schürfen von Kryptowährung  beansprucht werden & Log und Monitoring Auswertungen nach dem Testlauf & LZ & \textbf{M} \\\hline
+02 & Die Daten werden auf einem NAS mit RAID I gesichert & Die Festplatten werden einzeln überprüft, der Datenbestand muss identisch sein & BZ \newline TZ & \textbf{M} \\\hline
+03 & Der Cluster soll eine Verfügbarkeit von 98\% aufweisen & Dies kann erst nach dem Testlauf durch ein Monitoring der Laufzeit gemessen werden & LZ \newline BZ \newline TZ & \textbf{M} \\\hline
+04 & Es können während des Betriebs neue Computenodes hinzugefügt werden \& ausfallende Computenodes verursachen keinen Unterbruch des Betriebs & Während der Testphase werden neue Computenodes hinzugefügt und Computenodes vom Cluster getrennt  & LZ \newline BZ \newline TZ & \textbf{M} \\\hline 
+05 & Der Cluster kann für verschiedene Anwendungsgebiete eingesetzt werden & Während der Testphase werden andere Applikationen welche die Cluster Ressourcen verwenden sollen installiert & BZ & \textbf{M} \\\hline
+06 & Das Betriebssystem soll über das Netzwerk an die Computenodes verteilt werden um SD-Karten zu sparen und ein Betriebssystem zentral verwalten zu können & Wird während der Installation über Systemlogdateien ausgelesen und mit SSH-Zugriffen getestet. & WZ \newline BZ \newline TZ & \textbf{M} \\\hline
+07 & Das Schürfprogramm soll automatisiert die gewinnbringendste Währung abbauen & Nach der Testphase werden die Logdateien und Wallets ausgewertet und mit Daten der Währungskurse abgeglichen & LZ \newline WZ & \textbf{K} \\\hline
+08 & Mit der geschürften Währung soll auf Börsen gehandelt werden können & Kann nach der Realisierung durch Transaktionslogdaten gemessen werden & LZ \newline WZ & \textbf{K} \\\hline
+09 & Die Wartungsarbeiten sollen pro Monat nicht mehr als 3 Stunden betragen & Wird durch ein Eingriffsprotokoll nach der Realisierungsphase festgehalten & BZ & \textbf{K} \\\hline
+10 & Der Cluster soll einfach transportierbar und wiederaufbaubar sein & Der Cluster wird nach der Testphase physisch verschoben und neu Aufgebaut, dabei wird die Zeit des Wiederaufbaus gemessen & TZ & \textbf{K}\\\hline
+\end{tabular}
+\caption{Projektziele}
+\end{table}
+
+\textbf{Legende:} LZ = Leistungsziel, WZ = Wirtschaftsziel, BZ = Betriebsziel, TZ = Technisches Ziel, \newline M = Muss-Kriterium, K = Kann-Kriterium
+
+\subsubsection{Lieferobjekte}
+Folgende Dokumente werden während des Projektes erstellt und geliefert.
+
+\begin{table}[H]
+\begin{tabular}[t]{p{0.5cm}p{6.5cm}p{6.5cm}p{1.8cm}}
+\hline
+\rowcolor{heading}\textbf{Nr.} & \textbf{Dokument} & \textbf{Phase} & \textbf{Termin} \\\hline
+1 & Projektplan & Initialisierung & 15.02.2018 \\\hline
+2 & Projektlogo & Initialisierung & 20.02.2018 \\\hline
+3 & Projektauftrag & Initialisierung & 20.02.2018 \\\hline
+4 & Studie & Initialisierung & 25.02.2018 \\\hline
+5 & Detailkonzept & Konzept & 17.03.2018 \\\hline
+6 & Testkonzept & Konzept & 22.03.2018 \\\hline
+7 & Einführungskonzept & Konzept & 27.03.2018 \\\hline
+8 & Präsentation der Konzepte & Konzept & 28.03.2018 \\\hline
+9 & Installationshandbuch & Realisierung & 10.05.2018 \\\hline
+10 & Testprotokoll & Realisierung & 03.05.2018 \\\hline
+11 & Produktdokumentation & Realisierung & 10.05.2018 \\\hline
+12 & Betriebshandbuch & Realisierung & 13.05.2018 \\\hline
+13 & Diplombericht & Einführung & 22.05.2018 \\\hline
+
+\end{tabular}
+\caption{Lieferobjekte}
+\end{table}
+
+
+ 

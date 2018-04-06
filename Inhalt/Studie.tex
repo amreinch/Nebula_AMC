@@ -1,0 +1,44 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Studie} 
+\label{sec:Studie}
+Hier werden Grundsatzentscheide gefällt, es werden keine Details beschrieben!
+\begin{itemize}
+	\item Informationsbeschaffung
+	\item Anforderungskatalog
+	\item Schwachstellenkatalog
+	\item Pflichtenheft
+	\item Analyse welche Varianten möglich sind
+	\item Evaluation der möglichen Varianten
+	\item Entscheid mit welcher Varianten das Konzept realisiert wird
+	\item Wirtschaftlichkeit
+\end{itemize}
+
+
+\subsection{Informationsbeschaffung}
+Durch die Studie soll eine HPC Cluster Software Lösung welche mit Raspberry PI's kompatibel ist evaluiert werden.
+
+\subsubsection{Informationsbeschaffung}
+Es wurden über den Wikipedia Eintrag \hyperref[Wikipedia Eintrag]{https://en.wikipedia.org/wiki/Comparison\_of\_cluster\_software} die verschiedenen Cluster Software Angebote verglichen. Dabei wurde nur nach einer HPC Lösung gefiltert. Die Anforderungen an die Cluster Software ist, dass es eine gratis Lösung sein muss, zudem ist ein komplett Paket erwünscht und nicht nur eine minimale Softwarelösung. Durch diese Analyse hat sich die OpenHPC Lösung der Linux Foundation herauskristalisiert. Weiterhin wurden Suchbegriffe wie "HPC Raspberry PI" über Suchmaschinen im Internet eingegeben da die Computenodes des Cluster Raspberry PI's sein sollen. Folgender Artikel habe ich als interessant erachtet und wurde analysiert.\hyperref[TinyTitan]{http://www.hpctoday.com/best-practices/tinytitan-a-raspberry-pi-computing-based-cluster/}
+Mit einer weiteren Suche(hpc cluster software raspberry) bin ich auf einen Guide gestossen, der relativ simpel aussieht und einfach umzusetzen ist.\hyperref[Eigenbau]{http://thundaxsoftware.blogspot.ch/2016/07/creating-raspberry-pi-3-cluster.html}. Es gab durchaus noch weitere Guides und Softwarelösungen, welche ich aber nach einer genaueren Installationsanleitung verworfen habe, da diese mir zum Teil zu wenig Informationen lieferten. Während der Informationsbeschaffung wurden alle Installationsskripte und Anleitungen sorgfältig durchgelesen um diese als mögliche Variante zu empfehlen.
+
+\subsubsection{Anforderungskatalog}
+Es wurden folgende Anforderungen an die Cluster Software gestellt.
+
+\begin{itemize}
+\item Die Software soll auf einer 64 Bit Architektur betrieben werden können.
+\item Es müssen stabile Releases vorhanden sein
+\item Die Software soll eine skalierbare Funktion beinhalten.
+\item Die Software soll die CPU Ressourcen für Berechnungsaufgaben zu mindestens 90\% auslasten.
+\item Es sollen Monitoring Tools bereits in der Softwarelösung vorhanden sein
+\item Es sollen Logging Tools bereits in der Softwarelösung vorhanden sein
+\item Die Softwarelösung soll mit einem Netzwerkboot zurecht kommen.
+\item Die Software muss gratis sein.
+\item Die Installation soll einfach und nachvollziehbar sein.
+\item Es sollen mehrere Befehlssatzarchitekturen unterstützt werden.
+\item Die Softwarelösung soll eine Community für Fragen anbieten.
+\item Der Letzte Release soll nicht lange zurückliegen.
+\item Die Software soll bereits einen bekanntheitsgrad vorweisen.
+\end{itemize}
+
+
+
