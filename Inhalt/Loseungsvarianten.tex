@@ -47,3 +47,52 @@ Da es bei dieser Lösung selber zu entscheiden gibt, was und wie die Lösung ins
 
 \subsubsection{Voraussetzungen, Abhängigkeiten}
 Es werden 2 RPI's benötigt.
+
+\subsection{Anforderungsabdeckung der Varianten}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{2.5cm}p{2.2cm}p{10.3cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Kriterium} & \textbf{Gewichtung} &\textbf{Begründung} \\\hline
+1 & Installation & 40\% & Die Installation soll keine Hürden aufwei-sen, da der Zeitplan ansonsten nicht eingehalten werden kann. \\\hline
+2 & Partner & 10\% & Je mehr Partner vorhanden sind, desto grösser und innovativer ist die Software. Die Software hat dadurch einen fixen Standpunkt auf dem Markt und wird wei-terentwickelt. \\\hline
+3 & Aktualität & 20\% & Fördert den LifeCycle und die Sicherheit der Cluster-Software. \\\hline
+4 & Tools & 30\% & Mitgelieferte Tools \\\hline
+\end{tabular}
+\caption{Anforderungsabdeckung}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.6cm}p{2.2cm}p{1.cm}p{12.2cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Kriterium} & \textbf{Note} &\textbf{Begründung} \\\hline
+1 & Installation & 0/3/5 & 5 = Kann gemäss Anleitung direkt installiert werden \newline 3 = Veraltete Anleitung, es wird mit Kompatibilitätsproblemen gerechnet \newline
+0 = Keine Anleitung vorhanden
+ \\\hline
+2 & Partner & 0/2 & 2 = Viele Partner vorhanden \newline
+0 = keine Partner vorhanden \\\hline
+3 & Aktualität & 0/3/5 & 5 = Releases in den letzten 2 Monaten \newline 3 = Releases in den letzten 6 Monaten \newline 0 = Keine Releases seit einem Jahr \\\hline
+4 & Tools & 0/5 & 5 = Es werden Tools angeboten \newline 0 = Es werden keine angeboten \\\hline
+\end{tabular}
+\caption{Bewertung der Varianten}
+\end{table}
+
+\subsection{Bewertung der Varianten}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{2cm}p{2cm}p{4cm}p{4cm}p{4cm}}
+\hline
+\rowcolor{heading} \textbf{Kriterium} & \textbf{Gewicht} & \textbf{Variante 1} & \textbf{Variante 2}& \textbf{Variante 3} \\\hline
+Installation & 40\% & 5x40 = 200 & 4x40 = 160 & 5x40 = 200 \\\hline
+Partner & 10\% & 2x10 = 20 & 0x10 = 0 & 0x10 = 0 \\\hline
+Aktualität & 20\% & 5x20 = 100 & 0x20 = 0 & 5x20 = 100 \\\hline
+Tools & 30\% & 5x30 = 150 & 0x30 = 0 & 0x30 = 0\\\hline
+\textbf{Total} & \textbf{100\%}  & \textbf{470} & \textbf{160} & \textbf{260} \\\hline
+\end{tabular}
+\caption{Bewertung der Varianten}
+\end{table}
+
+\subsection{Variantenentscheid}
+Anhand der Bewertung wird empfohlen, die OpenHPC Lösung der Linux Foundation zu ver-wenden. Die Installation kann gemäss Anleitung in kürzester Zeit umgesetzt werden. Die Re-leases können mit kleinerem Aufwand installiert werden. Zudem runden die Möglichkeiten der Schnittstellen und Komponenten den Entscheid ab. Es ist möglich, Administrations- sowie Performance Monitoring Tools einzusetzen, welche mit der Lösung harmonieren. Als Hürde sehe ich die möglichen anfallenden Lizenzen und das zweite Netzwerk Interface, welches man für die Kommunikation unter den RPI’s benötigt.
