@@ -1,8 +1,8 @@
 % !TEX root = ../Diplombericht.tex
 
-\subsection{Kostenrechnung}
+\section{Kosten}
 
-\subsubsection{Einmalige Kosten}
+\subsection{Einmalige Kosten}
 \textbf{Beschaffungskosten}
 \begin{table}[H]
 \centering
@@ -39,7 +39,14 @@
 \caption{Aufwandskosten}
 \end{table}
 
-\subsubsection{Betriebskosten (Repetitiv)}
+\subsection{Betriebskosten (Repetitiv)}
+
+Folgende Voraussetzungen sind für die folgenden Berechnungen definiert.
+\begin{itemize}
+	\item 1000 Watt die Stunde kosten 0.2894 CHF.
+	\item Ein Monat hat 30 Tage
+	\item Ein Jahr hat 360 Tage
+\end{itemize}
 
 \textbf{Wartungskosten}
 \newline
@@ -47,12 +54,7 @@ Pro Monat sind 3 Stunden Wartungsaufwand einzuberechnen, dadurch ergeben sich mi
 \newline
 \textbf{Stromkosten}
 Der Strom wird durch die BKW über den Vertrag Energy Blue bezogen.
-Folgende Voraussetzungen sind für die folgenden Berechnungen definiert.
-\begin{itemize}
-	\item 1000 Watt die Stunde kosten 0.2894 CHF.
-	\item Ein Monat hat 30 Tage
-	\item Ein Jahr hat 360 Tage
-\end{itemize}
+
 \begin{table}[H]
 \centering
 \begin{tabular}{p{1.5cm}p{2cm}|p{2.75cm}p{2.75cm}p{2.75cm}p{2.75cm}}
@@ -64,8 +66,12 @@ Folgende Voraussetzungen sind für die folgenden Berechnungen definiert.
 \caption{Stromkostenrechnung}
 \end{table}
 
-\subsubsection{Gesamtkosten}
-Die Gesamtkosten werden auf 3 Jahre für den Amortisationsplan wie folgt gerechnet.
+\subsection{Gesamtkosten}
+
+\textbf{Jährliche Kosten} \newline
+Das Projekt ist Anfangs Juni abgeschlossen. Deshalb belaufen sich die Wartungs- und Stromkosten auf die Hälfte gegenüber den Folgejahren.
+Der Cluster soll innerhalb von 3 Jahren gewinnbringend wirken. Die jährlichen sowie täglichen Kosten sind unten zu entnehmen. 
+
 \begin{table}[H]
 \centering
 \begin{tabular}{p{4cm}p{4cm}p{4cm}p{4cm}}
@@ -73,22 +79,25 @@ Die Gesamtkosten werden auf 3 Jahre für den Amortisationsplan wie folgt gerechn
 \rowcolor{heading} \textbf{Kostengrund} & \textbf{Kosten 1.Jahr} & \textbf{Kosten 2.Jahr} & \textbf{Kosten 3.Jahr}\\\hline
 Beschaffung & 2'569.00 & - & - \\\hline
 Aufwand & 35'280.00 & - & - \\\hline
-Wartungskosten & 4'320.00 & 4'320.00 & 4'320.00 \\\hline
-Stromkosten & 1000.00 & 1000.00 & 1000.00 \\\hline
-\rowcolor{subheading}\textbf{Total} & \textbf{43'169.00} & \textbf{48'489.00} & \textbf{53'809.00} \\\hline
+Wartungskosten & 2'160.00 & 4'320.00 & 4'320.00 \\\hline
+Stromkosten & 500.00 & 1000.00 & 1000.00 \\\hline
+\rowcolor{subheading}\textbf{Total} & \textbf{40'509.00} & \textbf{45'829.00} & \textbf{51'149.00} \\\hline
 \end{tabular}
 \caption{Gesamtkosten}
 \end{table}
 
-\subsubsection{Amortisation}
+\textbf{Tägliche Kosten}
+
 \begin{table}[H]
 \centering
-\begin{tabular}{p{4cm}p{4cm}p{4cm}p{4cm}}
+\begin{tabular}{p{4cm}p{4cm}}
 \hline
-\rowcolor{heading} & \textbf{1.Jahr} & \textbf{2.Jahr} & \textbf{3.Jahr}\\\hline
-Kosten (CHF) & 43'169.00 & 48'489.00 & 53'809.00 \\\hline
-Dauer (Tage) & 360 & 720 & 1080 \\\hline
-\rowcolor{subheading}\textbf{Kosten pro Tag} & \textbf{119.91} & \textbf{67.36} & \textbf{49.82} \\\hline
+\rowcolor{heading} & \textbf{3.Jahr}\\\hline
+Kosten (CHF) & 53'809.00 \\\hline
+Dauer (Tage) & 1080 \\\hline
+\rowcolor{subheading}\textbf{Kosten pro Tag} & \textbf{47.36} \\\hline
 \end{tabular}
-\caption{Amortisation}
+\caption{tägliche Kosten}
 \end{table}
+
+
