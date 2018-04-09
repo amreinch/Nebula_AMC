@@ -1,15 +1,31 @@
-% !TEX root = ../Projektdokumentation.tex
+% !TEX root = ../Diplombericht.tex
 \section{Konzept} 
 \label{sec:Konzept}
+Das Konzept beschreibt das Vorgehen und Vorhaben der Realisierung. 
 
-\subsection{Konzeptionelle Aussagen zur Lösung}
-\begin{itemize}
-	\item Erklärung der technischen Umsetzung
-	\item Erklärungen wie Daten oder Benutzer migriert werden
-	\item Erklärungen wie die Tests durchgeführt werden
-	\item Erklärungen welche Schulungen notwendig sind
-	\item Erklärungen was für den Betrieb der Lösung beachtet werden muss
-\end{itemize}
+\subsection{Systemlandschaft}
+\subsubsection{Grafische Übersicht}
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6]{Systemlandschaft.jpg}
+\caption{Systemlandschaft}
+\label{fig:Systemlandschaft}
+\end{figure} 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{5cm}p{5cm}p{5cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Protokoll} & \textbf{Protokollfamilie} & Ports \\\hline
+1 & SSH & TCP & 22 \\\hline
+2 & SMB & TCP & 445 \\\hline
+3 & DHCP & UDP & 67 / 78 \\\hline
+4 & TFTP & UDP & 69 \\\hline
+5 & HTTP & TCP & 80 \\\hline
+\end{tabular}
+\caption{Systemlandschaft}
+\end{table}
+
 
 \subsection{Design der Lösung}
 \begin{itemize}
