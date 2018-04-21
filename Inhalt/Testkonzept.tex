@@ -1,0 +1,211 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Tests}
+\subsubsection{Testobjekte}
+Die folgende Hardware ist für die Tests der Funktionsfähigkeit des Clusters im Scope vorgesehen.
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{7.cm}p{7.5cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Objekt} & \textbf{Beschreibung} \\\hline
+1 & Managementnodes & Raspberry PI 3  \\\hline
+2 & Computenodes & Raspberry PI 3 \\\hline
+\end{tabular}
+\caption{Testobjekte}
+\end{table}
+
+\subsubsection{Testarten}
+Die Tests werden in folgende Kategorien eingestuft:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{3cm}p{12cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Testart} & \textbf{Beschreibung} \\\hline
+1 & Komponentetest & Die Lauffähigkeit und Erreichbarkeit der einzelnen Hardware Komponenten wird überprüft.  \\\hline
+2 & Integrationstest & Es wird die Zusammenarbeit der aktiven und neu Integrierten abhängigen Komponenten überprüft. \\\hline
+3 & Systemtest & Das System wird als Komplettlösung getestet. Hierbei soll geprüft werden ob die Lösung den Anforderungen der Anwendbarkeit und Nutzbarkeit dem Auftrag entspricht.  \\\hline
+\end{tabular}
+\caption{Testarten}
+\end{table}
+
+\subsubsection{Testvoraussetzungen}
+\textbf{Startbedingungen}\newline
+Für den Start der Tests müssen die administrativen Tools erreichbar sein und der Cluster muss einen aktiven Job bearbeiten.
+
+\textbf{Abbruchbedingungen}\newline
+Die Tests werden abgebrochen sobald Fehler auftauchen welche weitere Tests verhindern.
+
+\subsubsection{Fehlerklassen}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{4cm}p{11cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Fehlerklassen} & \textbf{Beschreibung} \\\hline
+1 & Fehlerfrei & Die Erwartungen sind erfüllt.  \\\hline
+2 & Harmloser Mangel & Es sind keine Betriebsverhinderungen zu erkennen. Die Erwartungen sind erfüllt. \\\hline
+3 & Kleiner Mangel & Der Betrieb kann aufgenommen werden, das Problem sollte aber über einen Zeitraum von 6 Monaten behoben werden.  \\\hline
+4 & Schwerer Mangel & Der Cluster kann nur teilweise in Betrieb genommen werden, der Mangel muss innerhalb zwei Wochen behoben werden. \\\hline
+5 & Kritischer Mangel & Der Cluster kann nicht in Betrieb genommen werden. Die Mängel müssen umgehend behoben werden. \\\hline
+\end{tabular}
+\caption{Fehlerklassen}
+\end{table}
+
+\subsubsection{Testhilfsmittel}
+Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests durchgeführt werden können wird ein PC oder Notebook benötigt welcher sich im selben Netzwerk befindet.
+
+\subsubsection{Testfälle}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-001} & Start Managementnode & Systemstart \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Managementnode wird auf die Erreichbarkeit nach einem Systemstart der Komponenten überprüft} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Managementnode und der Test PC befinden sich im selben Netzwerk} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Managementnode starten (Strom anschliessen)
+\item 30 Sekunden warten
+\item Computenodes an Strom anschliessen
+\item 5 Minuten warten
+\item auf Test PC mit dem Befehl \grqq nmap -sn 192.168.1.10 | grep Nmap scan report\grqq{}  auf erreichbare Geräte mit der IP 192.168.1.10 prüfen.
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Nmap scan report for nebula (192.168.1.10)} \\\hline
+\end{tabular}
+\caption{Testfall K-001}
+\label{Testfall K-001}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-002} & Start Computenodes & Systemstart \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Die Computenodes werden auf die Erreichbarkeit nach einem Systemstart überprüft} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Die Nodes und der Test PC befinden sich im selben Netzwerk, der Managementnode muss bereits in Betrieb sein} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Computenodes an Strom anschliessen
+\item 5 Minuten warten
+\item auf Test PC mit dem Befehl  \textit{nmap -sn 192.168.1.11-55 | grep Nmap scan report} auf erreichbare Geräte mit der IP Range 192.168.1.11 - 192.168.1.55 prüfen
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{
+Nmap scan report for c1 (192.168.1.11) \newline
+...}\\ \hline
+\end{tabular}
+\caption{Testfall K-002}
+\label{Testfall K-002}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-003} & Hostnamen \& IP Nodes & DHCP \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob alle Nodes die richtige IP Adresse und den richtigen Hostnamen zugewiesen erhalten haben} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Die Nodes und der Test PC befinden sich im selben Netzwerk, alle Nodes müssen gestartet sein. Dieser Test ist abhängig von K-001 und K-002} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Auf dem Test PC mit dem Befehl \textit{nmap -sn 192.168.1.10-55 | \grq grep Nmap scan report|MAC Address\grq} die IP, den Hostnamen und die MAC Adressen auslesen.
+\item Die Ausgabe mit der Hostnamenliste im Anhang vergleichen, diese muss identisch sein
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Nmap scan report for c1.home (192.168.1.11) \newline
+MAC Address: B8:27:EB:32:39:A7 (Raspberry Pi Foundation)\newline
+... \newline
+Es müssen 46 Einträge vorhanden sein}\\\hline
+\end{tabular}
+\caption{Testfall K-003}
+\label{Testfall K-003}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-004} & NAS-Share & SMB \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob das NAS erreichbar ist und ob der Samba Dienst läuft} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS und der Managementnode sind im selben Netzwerk und gestartet} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{Auf dem Managementnode mit dem Befehl nc -v nasbox 445 in der Shell die Verbindung prüfen.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Ncat: Version 6.40 ( http:\/\/nmap.org\/ncat )\newline
+Ncat: Connected to 2a02:1205:5012:90f0:211:32ff:fe54:1e69:445.}\\\hline
+\end{tabular}
+\caption{Testfall K-004}
+\label{Testfall K-004}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{I-001} & Installation & Skript \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Das Installationsskript soll automatisiert durchlaufen. Der Cluster soll danach direkt einsetzbar sein ohne zusätzliche Konfigurationen vornehmen zu müssen} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Alle Komponententests müssen fehlerfrei durchgelaufen sein} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Das Installationsskript aus dem Git Repository herunterladen
+\item Das Skript ausführen
+\item Installationsdurchlauf abwarten, ca. 1 Stunde
+\item Auf den Managementnode per SSH über den PC verbinden
+\item Den Befehl sinfo eingeben
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe muss die Computenodes im idle Status ausgeben.\newline
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST\newline
+normal*      up   infinite      1   idle c[1-45]}\\\hline
+\end{tabular}
+\caption{Testfall I-001}
+\label{Testfall I-001}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{I-002} & Netzerkboot & Betriebssystem \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Managementnode verteilt das Betriebssystem an alle Computenodes} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Dnsmasq und die Netzerkboot Verzeichnisse sind angelegt. Der Masternode ist erreichbar} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Die Computenodes mit Strom versorgen
+\item 5 Minuten warten
+\item Auf dem Managementnode in der Konsole folgendes eingeben: for ((i=1; i<=40; i++)); do ssh c\$i hostname; done eingeben
+\item Abwarten bis alle Computenodes durchgegangen wurden
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Für jeden Computenode wird der Hostname ausgegeben. c1, c2, c3, ... c45.}\\\hline
+\end{tabular}
+\caption{Testfall I-002}
+\label{Testfall I-002}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{I-003} & NAS Share & Verbindung \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der NAS-Share ist auf dem Masternode und den Computenodes angehängt} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Es ist ein NAS-Share eingerichtet} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Auf den Managementnode per SSH verbinden
+\item Den Befehl mount eingeben
+\item Den Mountpoint auf das NAS auslesen
+\item mit cd Dir in das Verzeichnis wechseln
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Mountpoint wird bei der Eingabe von mount angezeigt \newline
+Es kann in das Verzeichnis gewechselt werden \newline
+Falls bereits Daten auf dem Share vorhanden sind werden diese mit dem Befehl ls -lrtha angezeigt.}\\hline
+\end{tabular}
+\caption{Testfall I-003}
+\label{Testfall I-003}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{S-001} & NAS Share & Existenz \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird überprüft ob der NAS-Share nebula vorhanden ist} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS ist erreichbar und der Share ist eingerichtet} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Über den Browser auf dem PC auf http://nasbox:5000/ anmelden
+\item Logindaten eingeben
+\item Dem Pfad folgen Desktop/File Station/nebula
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das Verzeichnis ist vorhanden und kann gelesen und beschrieben werden}\\\hline
+\end{tabular}
+\caption{Testfall S-001}
+\label{Testfall S-001}
+\end{table}

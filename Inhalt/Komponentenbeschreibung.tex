@@ -1,0 +1,65 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Komponentenbeschreibung}
+\subsubsection{Router}
+
+Bei dem Router handelt es sich um eine Internet-Box Plus von Swisscom. Das Admin Interface ist über http://internetbox aufrufbar.
+
+\subsubsection{PC}
+Der PC ist selbst zusammengestellt und wird nur für Webzugriffe auf Applikationen welche auf dem Managementnode laufen verwendet. Zusätzlich wird per SSH auf den Managementnode zugegriffen.
+
+\subsubsection{Managementnode}
+Der Managementnode dient der Jobsteuerung sowie Clusterverwaltung. Alle zentralen Programme sind auf diesem Node installiert.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Hostname & nebula \\\hline
+Modell & Raspberry PI 3 \\\hline
+Betriebssystem & Centos 7.4 \\\hline
+Architektur & 64 Bit \\\hline
+\end{tabular}
+\caption{Komponente Managementnode}
+\end{table}
+
+\subsubsection{Netzteil Managementnode}
+Das Netzteil liefert eine konstante Spannung von 5V und Strom von mindestens 2 Ampere. Dabei handelt es sich um ein Noname Netzeil welches eine Mindestleistug von 10 Watt aufbringen muss.
+
+\subsubsection{NAS}
+Das NAS ist von der Firma Synology, das Modell lautet DS216 und wird als redundanter Datenspeicher benutzt.
+
+\subsubsection{Switch}
+Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Managementnode und den Computenodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebs verzichtet.
+
+\subsubsection{Computenodes}
+Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten und Leistung übernehmen.
+
+\textbf{Aktiv}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Hostname & c[1-40] \\\hline
+Modell & Raspberry PI 3 \\\hline
+Betriebssystem & Centos 7.4 \\\hline
+Architektur & 64 Bit \\\hline
+\end{tabular}
+\caption{Komponente aktive Copmputenodes}
+\end{table}
+
+\textbf{Passiv}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Hostname & c[41-45] \\\hline
+Modell & Raspberry PI 3 \\\hline
+Betriebssystem & Centos 7.4 \\\hline
+Architektur & 64 Bit \\\hline
+\end{tabular}
+\caption{Komponente passive Copmputenodes}
+\end{table}
+
+\subsubsection{Schaltnetzteil Computenodes}
+Das Schaltnetzteil RSP-750-5 von Mean Well liefert konstante 5 Volt aus Ausgangsspannung und kann eine Leistung bis zu 500 Watt aufbringen.
+

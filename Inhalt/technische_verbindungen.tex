@@ -1,0 +1,23 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Technische Verbindungen \& Kommunikation}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{1.5cm}p{1.5cm}p{2.2cm}p{8.8cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Quelle} & \textbf{Ziel }& \textbf{Betrifft} & \textbf{Beschreibung} \\\hline
+1 & NAS & Mgmt & Datenablage & Der NAS Share wird über das SMB Protkoll angehängt. \\\hline
+2 & NAS & Compute & Datenablage & Der NAS Share wird über das SMB Protkoll angehängt. \\\hline
+3 & Router & Mgmt & IP Adresse & Anhand der MAC Adresse wird eine statische IP Adresse zugewiesen. \\\hline
+4 & Router & Compute & IP Adressen & Anhand der MAC Adressen werden statische IP Adressen zugewiesen. \\\hline
+5 & Router & Mgmt &Hostname & Es wird über den Router ein definierter Hostname verteilt. \\\hline
+6 & Router & Compute & Hostnamen & Es werden über den Router definierte Hostnamen verteilt. \\\hline
+7 & Mgmt & Compute & Netzwerkboot & Der Managementnode beliefert die Computenodes über das TFT Protkoll mit dem Betriebssystem \\\hline
+8 & Internet & Mgmt & Zeitserver & Die aktuelle Zeit wird mit NTP über das Internet synchronisiert.\\\hline
+8 & Mgmt & Compute & Zeitserver & Die Computenodes beziehen die aktuelle Zeit über NTP.\\\hline
+9 & Internet & Compute & Internetzugriff & Die Computenodes können über ein routing über den Mgmt auf das Internet zugreifen. \\\hline
+10 & PC & Mgmt & Zugriff & Verbindungen über den PC können mit dem SSH Protokoll aufgebaut werden. \\\hline
+11 & PC & Compute & Zugriff & Verbindungen über den PC können mit dem SSH Protokoll aufgebaut werden. \\\hline
+\end{tabular}
+\caption{Verbindungen \& Kommunikation}
+\end{table}
+\textbf{Legende:} Mgmt = Managementnode, Compute = Computenode, PC = Home Computer
