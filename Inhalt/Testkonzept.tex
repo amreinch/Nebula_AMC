@@ -64,8 +64,6 @@ Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Managementnode und der Test PC
 Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
 \item Managementnode starten (Strom anschliessen)
 \item 30 Sekunden warten
-\item Computenodes an Strom anschliessen
-\item 5 Minuten warten
 \item auf Test PC mit dem Befehl \grqq nmap -sn 192.168.1.10 | grep Nmap scan report\grqq{}  auf erreichbare Geräte mit der IP 192.168.1.10 prüfen.
 \end{itemize}} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Nmap scan report for nebula (192.168.1.10)} \\\hline
@@ -120,8 +118,8 @@ Es müssen 46 Einträge vorhanden sein}\\\hline
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{K-004} & NAS-Share & SMB \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob das NAS erreichbar ist und ob der Samba Dienst läuft} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS und der Managementnode sind im selben Netzwerk und gestartet} \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getest ob das NAS erreichbar ist und der Samba Dienst läuft} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS und der Managementnode sind gestartet} \\\hline
 Testschritte & \multicolumn{3}{p{12cm}|}{Auf dem Managementnode mit dem Befehl nc -v nasbox 445 in der Shell die Verbindung prüfen.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Ncat: Version 6.40 ( http:\/\/nmap.org\/ncat )\newline
 Ncat: Connected to 2a02:1205:5012:90f0:211:32ff:fe54:1e69:445.}\\\hline
@@ -162,7 +160,7 @@ Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Dnsmasq und die Netzerkboot Verzei
 Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
 \item Die Computenodes mit Strom versorgen
 \item 5 Minuten warten
-\item Auf dem Managementnode in der Konsole folgendes eingeben: for ((i=1; i<=40; i++)); do ssh c\$i hostname; done eingeben
+\item Auf dem Managementnode in der Konsole folgendes eingeben: for ((i=1; i<=45; i++)); do ssh c\$i hostname; done eingeben
 \item Abwarten bis alle Computenodes durchgegangen wurden
 \end{itemize}} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Für jeden Computenode wird der Hostname ausgegeben. c1, c2, c3, ... c45.}\\\hline
@@ -186,10 +184,26 @@ Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
 \end{itemize}} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Mountpoint wird bei der Eingabe von mount angezeigt \newline
 Es kann in das Verzeichnis gewechselt werden \newline
-Falls bereits Daten auf dem Share vorhanden sind werden diese mit dem Befehl ls -lrtha angezeigt.}\\hline
+Falls bereits Daten auf dem Share vorhanden sind werden diese mit dem Befehl ls -lrtha angezeigt.}\\\hline
 \end{tabular}
 \caption{Testfall I-003}
 \label{Testfall I-003}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{I-004} & Computenodes Internet & Konnektivität \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird überprüft ob die Computenodes eine Verbindung zum Internet aufbauen können.} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Managementnode und Computenodes sind gestartet} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{Auf jedem Computenode muss in der Kommandozeile ping google.com eingeben werden} \\\hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{PING google.com (216.58.205.46) 56(84) bytes of data.
+64 bytes from mil04s24-in-f46.1e100.net (216.58.205.46)
+64 bytes from mil04s24-in-f46.1e100.net (216.58.205.46)}\\\hline
+\end{tabular}
+\caption{Testfall I-004}
+\label{Testfall I-004}
 \end{table}
 
 \begin{table}[H]
@@ -208,4 +222,57 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das Verzeichnis ist vorhanden un
 \end{tabular}
 \caption{Testfall S-001}
 \label{Testfall S-001}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{S-002} & Ausfall Computenode & Ausfallsicherheit \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es soll getestet werden ob der Cluster weiterhin stabil läuft, nachdem ein Computenode vom Strom entfernt wird} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster ist in Betrieb} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item Job in Auftrag geben (srun)
+\item Die Stromzufuhr eines aktiven Computenodes unterbrechen
+\item Den Job mit sinfo oder squeue abrufen
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Job läuft weiter und ist auf einen passiven Node ausgelagert worden}\\\hline
+\end{tabular}
+\caption{Testfall S-002}
+\label{Testfall S-002}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{S-003} & Slurm & Jobverwaltung \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es soll getestet werden, ob Slurm richtig konfiguriert wurde und Jobs auf dem Cluster gestartet werden können} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Managementnode und Computenodes sind gestartet} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item srun --nodes=40-40 --ntasks=40 --cpus-per-task=4 testslurm.sh in der Kommandozeile eingeben
+\item squeue in der Kommandozeile eingeben
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das testslrum.sh Script wird in der Queue angezeigt und der Status ist auf Running}\\\hline
+\end{tabular}
+\caption{Testfall S-003}
+\label{Testfall S-003}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{S-004} & Nagios & Monitoring \\\hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Die Installation und Konfiguration von Nagios soll überprüft werden} \\\hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Nagios ist installiert und Konfiguriert} \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
+\item http://nebula/nagios aufrufen
+\item Anmeldedaten eingeben
+\item 
+\end{itemize}} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das testslrum.sh Script wird in der Queue angezeigt und der Status ist auf Running}\\\hline
+\end{tabular}
+\caption{Testfall S-004}
+\label{Testfall S-004}
 \end{table}

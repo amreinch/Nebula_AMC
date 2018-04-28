@@ -1,0 +1,24 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Monitoring}
+Es werden zwei Überwachungsapplikationen eingesetzt, welche über einen Browser aufrufbar sind. Dabei wird zwischen Service- und Performancemonitoring unterschieden.
+
+\subsubsection{Service Monitoring}
+Als Servicemonitoring wird die Applikation Nagios eingesetzt. Alle Abfragen auf sämtliche Nodes finden automatisiert vom Managementnode aus statt. Sämtliche Fehler werden per E-Mail gemeldet. Adresse gemeldetDabei müssen folgende Überwachungen implementiert werden.
+
+\begin{table}[H]
+\begin{tabular}[t]{p{0.6cm}p{2.5cm}p{2.2cm}p{1.5cm}p{8.8cm}}
+\hline
+\rowcolor{heading}\textbf{Nr.} & \textbf{Überwachung} & \textbf{Schweregrad} & \textbf{Intervall} &\textbf{Beschreibung} \\\hline
+1 & Erreichbarkeit & Kritisch & 5 & Es wird mittels Ping eine Statusüberprüfung der Nodes durchgeführt \\\hline
+2 & SSH Zugriff & Mittel & 60 & Die Zugriffe auf die Computenodes sollen über den Managementnode stattfinden  \\\hline
+3 & CPU Last & Hoch & 5 & Die CPU's ständig ausgelastet sein  \\\hline
+\end{tabular}
+\caption{Service Monitoring}
+\end{table}
+
+\textbf{Meldungen \& Alarme} \newline
+Sobald sich der Status einer Überwachung ändert, wird eine Nachricht per E-Mail an den Systemadministrator gesendet.
+
+
+
+
