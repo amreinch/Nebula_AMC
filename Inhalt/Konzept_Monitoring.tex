@@ -1,9 +1,16 @@
 % !TEX root = ../Diplombericht.tex
 \subsection{Monitoring}
-Es werden zwei Überwachungsapplikationen eingesetzt, welche über einen Browser aufrufbar sind. Dabei wird zwischen Service- und Performancemonitoring unterschieden.
+Als Monitoring Lösungen werden die Applikationen Nagios und Ganglia eingesetzt. Die Einsatzgebiete sind wiefolgt definiert:
+\begin{itemize} 
+\item {Nagios = Service Monitoring}
+\item {Ganglia = Performance Monitoring}
+\end{itemize}
 
-\subsubsection{Service Monitoring}
-Als Servicemonitoring wird die Applikation Nagios eingesetzt. Alle Abfragen auf sämtliche Nodes finden automatisiert vom Managementnode aus statt. Sämtliche Fehler werden per E-Mail gemeldet. Adresse gemeldetDabei müssen folgende Überwachungen implementiert werden.
+\subsubsection{Service Monitoring - Nagios}
+Sämtliche Service Tests werden vom Managementnode aus, automatisiert in definierten Intervallen ausgeführt.  Fehlgeschlagene Tests, sowie Statusänderungen der Überwachungsstatis generieren eine Benachrichtigungs E-Mail welche an den Systemadministrator versendet wird. Nagios ist über den Browser via http://nebula/nagios zu erreichen.\newline
+
+Die folgenden Überwachungen sollen während der Realisierungsphase implementiert werden. Weitere Überwachungen können nach dem Projektabschluss implementiert werden.
+
 
 \begin{table}[H]
 \begin{tabular}[t]{p{0.6cm}p{2.5cm}p{2.2cm}p{1.5cm}p{8.8cm}}
@@ -16,9 +23,7 @@ Als Servicemonitoring wird die Applikation Nagios eingesetzt. Alle Abfragen auf 
 \caption{Service Monitoring}
 \end{table}
 
-\textbf{Meldungen \& Alarme} \newline
-Sobald sich der Status einer Überwachung ändert, wird eine Nachricht per E-Mail an den Systemadministrator gesendet.
-
-
+\subsubsection{Performance Monitoring - Ganglia}
+Die Ganglia Applikation ist auf dem Managementnode installiert und kommuniziert mit den Ganglia Daemons auf den Computenodes. Dabei werden die übermittelten Daten als Grafen dargestellt. Ganglia ist über http://nebula/ganglia aufrufbar.
 
 
