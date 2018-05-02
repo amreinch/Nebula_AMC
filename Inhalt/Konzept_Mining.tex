@@ -1,0 +1,31 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Mining}
+Es soll die geforkte cpuminer-multi Version von tkinjo1985 verwendet werden. Diese ist mit ARM Prozessoren kompatibel und muss selbst kompiliert werden. Die Version kann von github.com bezogen werden: https://github.com/tkinjo1985/cpuminer-multi.git \newline
+Die cpuminer-multi Version unterstützt alle gängigen Algorithmen welche für das Schürfen der Währungen mit CPU's benötigt werden.
+
+\subsubsection{Algorithmen}
+Die zu schürfenden Währungen benutzen folgende Algorithmen, welche von cpuminer-multi Unterstützt werden:
+\begin{itemize}
+\item CryptoNight
+\item X11
+\item scrypt
+\end{itemize}
+
+
+\subsubsection{Kryptowährungen}
+Für das Projekt werden folgende Kryptowährungen berücksichtigt und müssen geschürft werden können.
+\begin{table}[H]
+\begin{tabular}[t]{p{0.6cm}p{7.65cm}p{7.35cm}}
+\hline
+\rowcolor{heading}\textbf{Nr.} & \textbf{Währung} & \textbf{Algorithmus} \\\hline
+1 & Verium & scrypt \\\hline
+2 & AEON & CryptoNight \\\hline
+3 & Monero & CryptoNight & 5 & Die CPU's ständig ausgelastet sein  \\\hline
+\end{tabular}
+\caption{Service Monitoring}
+\end{table}
+
+\subsubsection{Performance Monitoring - Ganglia}
+Die Ganglia Applikation ist auf dem Managementnode installiert und kommuniziert mit den Ganglia Daemons auf den Computenodes. Dabei werden die übermittelten Daten als Grafen dargestellt. Ganglia ist über http://nebula/ganglia aufrufbar.
+
+

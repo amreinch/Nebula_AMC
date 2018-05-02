@@ -15,7 +15,7 @@ Der Managementnode dient der Jobsteuerung sowie Clusterverwaltung. Alle zentrale
 \begin{tabular}{|l|l|}
 \hline
 Hostname & nebula \\\hline
-Modell & Raspberry PI 3 \\\hline
+Modell & Raspberry PI 3 B\\\hline
 Betriebssystem & Centos 7.4 \\\hline
 Architektur & 64 Bit \\\hline
 \end{tabular}
@@ -32,7 +32,7 @@ Das NAS ist von der Firma Synology, das Modell lautet DS216 und wird als redunda
 Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Managementnode und den Computenodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebs verzichtet.
 
 \subsubsection{Computenodes}
-Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten und Leistung übernehmen.
+Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten übernehmen und die Leistung des Clusters konstant halten.
 
 \textbf{Aktiv}
 \begin{table}[H]
@@ -40,7 +40,7 @@ Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Manage
 \begin{tabular}{|l|l|}
 \hline
 Hostname & c[1-40] \\\hline
-Modell & Raspberry PI 3 \\\hline
+Modell & Raspberry PI 3 B\\\hline
 Betriebssystem & Centos 7.4 \\\hline
 Architektur & 64 Bit \\\hline
 \end{tabular}
