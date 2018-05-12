@@ -1,7 +1,7 @@
 % !TEX root = ../Diplombericht.tex
 
-\section{Lösungsvarianten}
-\subsection{Variantenübersicht}
+\subsection{Lösungsvarianten}
+\subsubsection{Variantenübersicht}
 
 Die Informationen wurden über die folgenden Produkte gesammelt und zusammengestellt:
 
@@ -17,38 +17,38 @@ Die Informationen wurden über die folgenden Produkte gesammelt und zusammengest
 \caption{Variantenübersicht}
 \end{table}
 
-\subsection{Variante V1 \flqq OpenHPC\frqq}
+\subsubsection{Variante V1 \flqq OpenHPC\frqq}
 
-\subsubsection{Beschreibung}
+\textbf{Beschreibung}\newline
 OpenHPC gilt als vorangeschrittenes OpenSource Projekt der Linux Foundation. Das Produkt steht in direkter Verbindung mit diversen grossen IT Unternehmen weltweit. Das Ziel der Linux Foundation ist es, durch OpenHPC eine kostengünstige sowie schnell zu installierende HPC-Umgebung aufzubauen. Durch viele zusätzliche OpenSource Tools rundet sich das Produkt ab und gilt als ernstzunehmender Konkurrent gegenüber kostenpflichtiger Software.
 
-\subsubsection{Installation und Betrieb}
+\textbf{Installation und Betrieb}\newline
 Es existieren diverse Guides, Foren und Chats sowie eine E-Mail-Liste zu OpenHPC. Dadurch scheint die Unterstützung bei allfälligen Problemen vorhanden zu sein. Die Installati-onsanleitung, welche von der Linux Foundation geschrieben wurde, liest sich sehr gut und ist absolut ausreichend für die Installation. Der Betriebsaufwand wird als gering eingeschätzt, da es ein sehr ausgereiftes Produkt, welches stetig weiterentwickelt wird, ist.
 
-\subsubsection{Voraussetzungen, Abhängigkeiten}
+\textbf{Voraussetzungen, Abhängigkeiten}\newline
 Für die Cluster Software werden mindestens ein Masternode und 4 Computenodes voraus-gesetzt. Das Betriebssystem bezieht sich hierbei auf ein CentOS7x. Jeder Computenode be-nötigt 2 Netzwerkschnittstellen. Das eine Interface wird für den Standard Ethernet Zugriff verwendet und das zweite Interface wird für die Kommunikation zu jedem BMC Host ver-wendet. Es werden zusätzliche Intel Bibliotheken benötigt. Dazu müssen Lizenzen für Parallel Studio XE von Intel besorgt werden. Die Lizenzen können mit einer offiziellen E-Mail-Adresse der Schule gratis bezogen werden. Die Linux Foundation erwähnt in ihrem Guide, dass sie die «Bring your own Licence» Strategie verfolgt.
 
-\subsection{Variante V2 \flqq TinyTitan\frqq}
-\subsubsection{Beschreibung}
+\subsubsection{Variante V2 \flqq TinyTitan\frqq}
+\textbf{Beschreibung}\newline
 Das Produkt wurde von der Firma «Oak Ridge Facility» entwickelt. Die Software ist unter anderem für RPI’s entwickelt worden. TinyTitan wurde für das Durchführen wissenschaftli-cher Berechnungen entworfen. Jedoch wurde seit geraumer Zeit an dem Produkt nicht mehr weitergearbeitet, wie dem offiziellen GitHub Repository zu entnehmen ist. Die Community selbst erweist sich ebenfalls als sehr klein. 
 
-\subsubsection{Installation und Betrieb}
+\textbf{Installation und Betrieb}\newline
 Für die Installation des Produktes wird ein XServer vorausgesetzt, da empfohlen wird Tiny-Titan über ein GUI zu installieren. Der Installationsanleitung ist ebenfalls zu entnehmen, dass sich die Entwickler viele Gedanken über das Look a Like des Clusters gemacht haben, zum Beispiel wird ein Thema dem Einbinden von LED’s gewidmet. Die Installation findet aus-schliesslich durch vordefinierte Scripts statt. Durch die kleine Community und nicht mehr ge-pflegte Software kann nichts über den Betriebsaufwand in Erfahrung gebracht werden.
 
-\subsubsection{Voraussetzungen, Abhängigkeiten}
+\textbf{Voraussetzungen, Abhängigkeiten}\newline
 Laut Guides werden lediglich 2 RPI’s benötigt.
 
-\subsection{Variante V3 \flqq Minimale Lösung\frqq}
-\subsubsection{Beschreibung}
+\subsubsection{Variante V3 \flqq Minimale Lösung\frqq}
+\textbf{Beschreibung}\newline
 Die Minimale Installation ist eine zum Teil Eigenbau Lösung, welche sich nahe an diverse Guides aus dem Internet bezieht. Jedoch wird diese auf eigene Bedürfnisse angepasst.
 
-\subsubsection{Installation und Betrieb}
+\textbf{Installation und Betrieb}\newline
 Da es bei dieser Lösung selber zu entscheiden gibt, was und wie die Lösung installiert und umgesetzt werden soll, kann während der Installation darauf geachtet werden, was den grössten Vorteil für den Betrieb danach mit sich bringt. Während dem Projekt soll die Installation aber klein gehalten werden und nur das nötigste wird umgesetzt. 
 
-\subsubsection{Voraussetzungen, Abhängigkeiten}
+\textbf{Voraussetzungen, Abhängigkeiten}\newline
 Es werden 2 RPI's benötigt.
 
-\subsection{Anforderungsabdeckung der Varianten}
+\subsubsection{Anforderungsabdeckung der Varianten}
 
 \begin{table}[H]
 \centering

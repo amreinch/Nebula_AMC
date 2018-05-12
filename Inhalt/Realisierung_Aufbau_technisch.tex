@@ -1,0 +1,24 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Technischer Aufbau}
+\subsubsection{Betriebssystem}
+Es exisitiert zur Zeit kein 64-Bit CentOS Kernel welcher mit den RPI's kompatibel ist. Deswegen wurde mit einer alternativen Lösung das Gentoo Image von https://github.com/sakaki-/gentoo-on-rpi3-64bit heruntergeladen und auf die SD-Karte geschrieben. Dabei wurden zwei Partitionen erstellt. Die boot Partition, welche den Kernel und die Bootbefehle beinhaltet. Die Dateisystem-Partition beinhaltet das Dateisystem und muss mit der eines CentOS Dateisystems überschrieben werden. Dabei wurde das Dateisystem von http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-7.4.1708.tar.xz heruntergeladen und auf die betreffende Partition kopiert.
+
+\subsubsection{Vorbereitungen}
+\textbf{Netzwerk}\newline
+Die IP- und Hostnamenzuweisung wurde über die Internetbox von Swisscom eingerichtet. Dabei wurden alle RPI's an das Netzwerk und den Strom angeschlossen. Nach ca. 2 Minuten wurden alle angeschlossenen Geräte im Interface aufgelistet und konnten anhand dem Hostnamenkonzept eingerichtet werden.
+
+\textbf{Netzwerkboot}\newline
+Der Managementnode dient als Provider und verteilt das Betriebssystem an alle angeschlossenen Computenodes. Diese mussten vorgängig bearbeitet werden und benötigen bei einem Power On einen OTP Eintrag, dadurch wird eine Anfrage von jedem Computenode (Client) an den Managementnode gestellt ob es das Betriebssystem erhalten darf. Zeitgleich wurden noch alle MAC-Adressen ausgelesen, diese werden später für die statische Zuweisung von IP Adressen und Hostnamen benötigt.
+
+\subsubsection{Installation}
+
+Während der Realisierung wurde nach Erfolgserlebnissen jeweils ein aktueller Snapshot der SD-Karte mit dem Programm Win32DiskImager erstellt. Dadurch war es möglich ein rasches vorantreiben der Installation zu gewährleisten. Falls zuviele Änderungen am System vorgenommen wurden, welche nicht mehr rasch Rückgängig gemacht werden konnten und Probleme verursachten, wurde als Wiederherstellung eines funktionierenden Systems der letzte Snapshot wieder eingespielt.
+
+Zudem wurde für die Installation des Clusters und deren Komponenten die Installationsanleitung (Install guide with Warewulf + Slurm) von OpenHPC verwendet. Dabei wurde der Warewulf Part zu einem grossen Teil übersprungen. Dieser hätte es ermöglicht einen vereinfachten Netzwerkboot der Computenodes einzurichten. Es ist aber leider nicht möglich die RPI's damit zu managen da Warewulf iPXE benutzt.
+
+
+
+
+
+
+
