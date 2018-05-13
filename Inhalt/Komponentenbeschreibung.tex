@@ -17,7 +17,8 @@ Der Managementnode dient der Jobsteuerung sowie Clusterverwaltung. Alle zentrale
 Hostname & nebula \\\hline
 Modell & Raspberry PI 3 B\\\hline
 Betriebssystem & Centos 7.4 \\\hline
-Architektur & 64 Bit \\\hline
+CPU & Quad Core 1.2GHz Broadcom BCM2837 64bit CPU \\\hline
+RAM & 1GB  \\\hline
 \end{tabular}
 \caption{Komponente Managementnode}
 \end{table}
@@ -29,10 +30,10 @@ Das Netzteil liefert eine konstante Spannung von 5V und Strom von mindestens 2 A
 Das NAS ist von der Firma Synology, das Modell lautet DS216 und wird als redundanter Datenspeicher benutzt.
 
 \subsubsection{Switch}
-Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Managementnode und den Computenodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebs verzichtet.
+Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Router, Managementnode und den Computenodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebs verzichtet.
 
 \subsubsection{Computenodes}
-Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten übernehmen und die Leistung des Clusters konstant halten.
+Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen der Computenodes mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten übernehmen und die Leistung des Clusters konstant halten.
 
 \textbf{Aktiv}
 \begin{table}[H]
@@ -42,7 +43,8 @@ Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Manage
 Hostname & c[1-40] \\\hline
 Modell & Raspberry PI 3 B\\\hline
 Betriebssystem & Centos 7.4 \\\hline
-Architektur & 64 Bit \\\hline
+CPU & Quad Core 1.2GHz Broadcom BCM2837 64bit CPU \\\hline
+RAM & 1GB  \\\hline
 \end{tabular}
 \caption{Komponente aktive Copmputenodes}
 \end{table}
@@ -53,13 +55,14 @@ Architektur & 64 Bit \\\hline
 \begin{tabular}{|l|l|}
 \hline
 Hostname & c[41-45] \\\hline
-Modell & Raspberry PI 3 \\\hline
+Modell & Raspberry PI 3 B\\\hline
 Betriebssystem & Centos 7.4 \\\hline
-Architektur & 64 Bit \\\hline
+CPU & Quad Core 1.2GHz Broadcom BCM2837 64bit CPU \\\hline
+RAM & 1GB  \\\hline
 \end{tabular}
 \caption{Komponente passive Copmputenodes}
 \end{table}
 
 \subsubsection{Schaltnetzteil Computenodes}
-Das Schaltnetzteil RSP-750-5 von Mean Well liefert konstante 5 Volt aus Ausgangsspannung und kann eine Leistung bis zu 500 Watt aufbringen.
+Das Schaltnetzteil RSP-750-5 von Mean Well liefert konstante 5 Volt aus Ausgangsspannung und kann eine Leistung bis zu 500 Watt aufbringen, daraus kénnen 100 Ampere auf die Nodes verteilt werden.
 

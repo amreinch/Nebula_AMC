@@ -10,6 +10,7 @@ Die folgende Hardware ist für die Tests der Funktionsfähigkeit des Clusters im
 1 & Managementnodes & Raspberry PI 3  \\\hline
 2 & Computenodes & Raspberry PI 3 \\\hline
 3 & NAS & Synology NAS DS216+ \\\hline
+4 & Switch & TP-Link TL-SL3428 \\\hline
 \end{tabular}
 \caption{Testobjekte}
 \end{table}
@@ -31,10 +32,10 @@ Die Tests werden in folgende Kategorien eingestuft:
 
 \subsubsection{Testvoraussetzungen}
 \textbf{Startbedingungen}\newline
-Für den Start der Tests müssen die administrativen Tools erreichbar sein und der Cluster muss einen aktiven Job bearbeiten.
+Für den Start der Tests muss der Cluster aufgebaut sein und die einzelnen Komponenten müssen mit Strom versorgt sein. 
 
 \textbf{Abbruchbedingungen}\newline
-Die Tests werden abgebrochen sobald Fehler auftauchen welche weitere Tests verhindern.
+Die Tests werden abgebrochen sobald Fehler auftauchen welche Folgetests verhindern.
 
 \subsubsection{Fehlerklassen}
 \begin{table}[H]
@@ -52,7 +53,7 @@ Die Tests werden abgebrochen sobald Fehler auftauchen welche weitere Tests verhi
 \end{table}
 
 \subsubsection{Testhilfsmittel}
-Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests durchgeführt werden können wird ein PC oder Notebook benötigt welcher sich im selben Netzwerk befindet.
+Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests durchgeführt werden können wird ein PC oder Notebook welches auf mit Linux betrieben wird benötigt. Dieser Client muss sich im selben Netzwerk wie der Cluster befinden.
 
 \subsubsection{Testfälle}
 \begin{table}[H]
