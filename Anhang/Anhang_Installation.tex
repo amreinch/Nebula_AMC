@@ -1,0 +1,38 @@
+% !TEX root = ../Diplombericht.tex
+\section{Installation}
+\subsection{Vorbereiten der Raspberry PI's}
+Die RPI's müssen für den Netzwerkboot eine Anfrage an das Netzwerk senden. Dafür müssen diese jeweils einen OTP Eintrag für den Start des RPI's verwenden. Als Vorarbeiten für den PXE Boot sind folgende Schritte vorzunehmen.
+
+\begin{enumerate}
+      \item Betriebssystem
+      \begin{enumerate}
+         \item Zuerst muss über die offizielle RPI Webseite das NOOBS Betriebssystem heruntergeladen werden.
+         \item Mit dem Win32DiskImager Tool wird das NOOBS Betriebssystem auf die SD Karte geschrieben.
+         \item Die SD Karte muss in den dafür vorgesehenen RPI Slot eingeführt werden
+         \item Das Raspberry muss über HDMI an einen Monitor angeschlossen sein und zugleich ist es notwendig, dass ein Patchkabel für die Netzwerkverbindung sowie eine Tastatur und Maus angeschlossen ist.
+         \item Sobald das RPI gestartet ist, wird der SD Karte der Hostname testrpi zugewiesen und der SSH Zugriff aktiviert. Dies kann über ein Menu eingerichtet werden. Das Menü wird mit folgendem Befehl aufgerufen:
+         \begin{verbatim}
+pi@raspberry ~ $ sudo raspi-config
+\end{verbatim}
+       \end{enumerate}
+      \item Die SD Karte ist nun bereit und es kann für jedes einzelne RPI folgende Konfiguration vorgenommen werden. Der folgende Ablauf schreibt voraus, dass die RPI's mit einem Patchkabel und Strom versorgt sind.
+      \begin{enumerate}
+      \item RPI starten (Mit SD Karte)
+      \item Von einem PC oder Laptop via SSH auf testrpi verbinden.
+      \item Auf dem RPI den USB Boot Modus aktivieren
+      \begin{verbatim}
+      echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
+      \end{verbatim}
+      \item Die Hardware Adresse der RPI's kann ab diesem Zeitpunkt von einem anderen Linux Client aus bereits mit dem folgenden Befehl ausgelesen werden. Dieser wird für die IP und Hostnamenzuweisung via Router und dnsmasq verwendet.
+      \begin{verbatim}
+	  nmap -sP 192.168.1.0/24
+      \end{verbatim}
+      \item Das RPI neustarten und den erstellten OTP Eintrag testen.
+      \begin{verbatim}
+      vcgencmd otp_dump | grep 17:
+      \end{verbatim}
+      Es wird die Ausgabe 17:3020000a erwartet.
+      \item Den Eintrag aus dem /boot/config.txt wieder entfernen.
+      \item Das RPI frägt nun im Netzwerk bei einem Start nach einem Betriebssystem an.
+      \end{enumerate}
+   \end{enumerate}
