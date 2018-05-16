@@ -1,58 +1,48 @@
 % !TEX root = ../Diplombericht.tex
-\section{Vorbereitungen}
+\section{Vorbereitunge RPI's}
 \subsection{Betriebssystem installieren}
 Für die initialen Arbeiten der RPI's wird ein NOOBS Betriebssystem verwendet. Dieses wird wie folgt bezogen und installiert.
 
-	\begin{enumerate}
-	\item Das NOOBS Abbild von https://www.raspberrypi.org/downloads/ herunterladen.
-	\item Mit dem Win32DiskImager Tool auf dem PC das heruntergeladene Abbild auf die SD Karte schreiben.
-	\end{enumerate}
-
+1. Das NOOBS Abbild von https://www.raspberrypi.org/downloads/ herunterladen.\newline
+2. Mit dem Win32DiskImager Tool auf dem PC das heruntergeladene Abbild auf die SD Karte schreiben.
 
 \subsection{Betriebssystem \& SD Karte konfigurieren}
 Die RPI's werden über SSH und Hostnamen angesprochen. Beides wird über den Konfigurationsassistenten von NOOBS konfiguriert. Als Voraussetzung wird ein RPI benötigt, welches mit Strom beliefert wird und via HDMI-Kabel ein Bild auf den Monitor liefert. Zudem wird noch eine Tastatur benötigt welche direkt am RPI angeschlossen ist. Das Konfigurationsmenü wird wiefolgt aufgerufen:
-         \begin{verbatim}
-			pi@raspberry ~ $ sudo raspi-config
-		 \end{verbatim} 
+\begin{lstlisting}
+pi@raspberry ~ $ sudo raspi-config
+\end{lstlisting}
 Bei der Frage nach dem Hostnamen wird der Name testrpi eingegeben und der SSH Dienst wird aktiviert.
 
-\subsection{MAC- / Hardwareadresse auslesen}
-Die Hostnamen und IP Adressen werden über den Router an die MAC-Adressen gebunden. Die MAC-Adressen werden von einem Linux Client aus mit dem NMAP Tool ermittelt. Folgende Schritte sind zu unternehmen. Als Voraussetzung für die folgenden Schritte müssen die RPI's mit Strom versorgt werden und mit Patchkabeln am Netzwerk eingebunden sein.
-\begin{enumerate}
-      \item SD Karte in das RPI einschieben
-      \item RPI starten
-      \item Über einen Linux Client die IP Range scannen und die MAC-Adresse auslesen.
-      \begin{verbatim}
-	  nmap -sP 192.168.1.0/24      
-      \end{verbatim}
-      \begin{enumerate}
-         \item Zuerst muss über die offizielle RPI Webseite das NOOBS Betriebssystem heruntergeladen werden.
-         \item Mit dem Win32DiskImager Tool wird das NOOBS Betriebssystem auf die SD Karte geschrieben.
-         \item Die SD Karte muss in den dafür vorgesehenen RPI Slot eingeführt werden
-         \item Das Raspberry muss über HDMI an einen Monitor angeschlossen sein und zugleich ist es notwendig, dass ein Patchkabel für die Netzwerkverbindung sowie eine Tastatur und Maus angeschlossen ist.
-         \item Sobald das RPI gestartet ist, wird der SD Karte der Hostname testrpi zugewiesen und der SSH Zugriff aktiviert. Dies kann über ein Menu eingerichtet werden. Das Menü wird mit folgendem Befehl aufgerufen:
-         \begin{verbatim}
-pi@raspberry ~ $ sudo raspi-config
-\end{verbatim}
-       \end{enumerate}
-      \item Die SD Karte ist nun bereit und es kann für jedes einzelne RPI folgende Konfiguration vorgenommen werden. Der folgende Ablauf schreibt voraus, dass die RPI's mit einem Patchkabel und Strom versorgt sind.
-      \begin{enumerate}
-      \item RPI starten (Mit SD Karte)
-      \item Von einem PC oder Laptop via SSH auf testrpi verbinden.
-      \item Auf dem RPI den USB Boot Modus aktivieren
-      \begin{verbatim}
-      echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
-      \end{verbatim}
-      \item Die Hardware Adresse der RPI's kann ab diesem Zeitpunkt von einem anderen Linux Client aus bereits mit dem folgenden Befehl ausgelesen werden. Dieser wird für die IP und Hostnamenzuweisung via Router und dnsmasq verwendet.
-      \begin{verbatim}
+\subsection{RPI für den Netzwerkboot vorbereiten}
+Für das Vorbereiten der Clients für den Netzwerkboot wurde der Guide NETWORK BOOT YOU RASPBERRY PI von raspberrypi.org verwendet. (https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net\_tutorial.md). Die RPI's werden wie folgt vorbereitet:
 
-      \end{verbatim}
-      \item Das RPI neustarten und den erstellten OTP Eintrag testen.
-      \begin{verbatim}
-      vcgencmd otp_dump | grep 17:
-      \end{verbatim}
-      Es wird die Ausgabe 17:3020000a erwartet.
-      \item Den Eintrag aus dem /boot/config.txt wieder entfernen.
-      \item Das RPI frägt nun im Netzwerk bei einem Start nach einem Betriebssystem an.
-      \end{enumerate}
-   \end{enumerate}
+1. SD Karte in das RPI einschieben \newline
+2. RPI starten \newline
+3. Die config.txt Datei im /boot Verzeichnis benötigt einen OTP Eintrag, dieser sagt aus, dass das RPI ohne SD Karte nach einem Betriebssystem anfragen soll. 
+\begin{lstlisting}
+echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
+\end{lstlisting}
+4. RPI neustarten \newline
+5. Prüfen ob die Änderung aktiv ist
+\begin{lstlisting}
+vcgencmd otp_dump | grep 17:
+\end{lstlisting}
+Erwartetes Ergebnis:
+\begin{lstlisting}
+17:3020000a
+\end{lstlisting}
+6. Den Eintrag in der /boot/config.txt wieder entfernen\newline
+\textbf{MAC-Adressen auslesen}\newline
+Um Zeit zu sparen können alle MAC-Adressen der RPI's während der Vorbereitung der Clients auf den Netzwerkboot ausgelesen werden.\newline
+7. nmap Scan auf die IP Range 192.168.1.0-255 von einem Linux Client aus durchführen.
+\begin{lstlisting}
+	  nmap -sP 192.168.1.0/24  
+\end{lstlisting}
+Erwartetes Ergebnis für ein RPI:
+\begin{lstlisting}
+	  Nmap scan report for testrpi.home (192.168.1.11)
+	  Host is up (0.00055s latency).
+	  MAC Address: B8:27:EB:32:39:A7 (Raspberry Pi Foundation)   
+\end{lstlisting}
+
+Die Vorbereitung der RPI(Computenodes) ist somit abgeschlossen und es kann mit der Installation des Managementnode fortgefahren werden.

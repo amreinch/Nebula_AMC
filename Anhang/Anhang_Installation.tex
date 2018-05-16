@@ -1,38 +1,24 @@
 % !TEX root = ../Diplombericht.tex
-\section{Installation}
-\subsection{Vorbereiten der Raspberry PI's}
-Die RPI's müssen für den Netzwerkboot eine Anfrage an das Netzwerk senden. Dafür müssen diese jeweils einen OTP Eintrag für den Start des RPI's verwenden. Als Vorarbeiten für den PXE Boot sind folgende Schritte vorzunehmen.
 
-\begin{enumerate}
-      \item Betriebssystem
-      \begin{enumerate}
-         \item Zuerst muss über die offizielle RPI Webseite das NOOBS Betriebssystem heruntergeladen werden.
-         \item Mit dem Win32DiskImager Tool wird das NOOBS Betriebssystem auf die SD Karte geschrieben.
-         \item Die SD Karte muss in den dafür vorgesehenen RPI Slot eingeführt werden
-         \item Das Raspberry muss über HDMI an einen Monitor angeschlossen sein und zugleich ist es notwendig, dass ein Patchkabel für die Netzwerkverbindung sowie eine Tastatur und Maus angeschlossen ist.
-         \item Sobald das RPI gestartet ist, wird der SD Karte der Hostname testrpi zugewiesen und der SSH Zugriff aktiviert. Dies kann über ein Menu eingerichtet werden. Das Menü wird mit folgendem Befehl aufgerufen:
-         \begin{verbatim}
-pi@raspberry ~ $ sudo raspi-config
-\end{verbatim}
-       \end{enumerate}
-      \item Die SD Karte ist nun bereit und es kann für jedes einzelne RPI folgende Konfiguration vorgenommen werden. Der folgende Ablauf schreibt voraus, dass die RPI's mit einem Patchkabel und Strom versorgt sind.
-      \begin{enumerate}
-      \item RPI starten (Mit SD Karte)
-      \item Von einem PC oder Laptop via SSH auf testrpi verbinden.
-      \item Auf dem RPI den USB Boot Modus aktivieren
-      \begin{verbatim}
-      echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
-      \end{verbatim}
-      \item Die Hardware Adresse der RPI's kann ab diesem Zeitpunkt von einem anderen Linux Client aus bereits mit dem folgenden Befehl ausgelesen werden. Dieser wird für die IP und Hostnamenzuweisung via Router und dnsmasq verwendet.
-      \begin{verbatim}
-	  nmap -sP 192.168.1.0/24
-      \end{verbatim}
-      \item Das RPI neustarten und den erstellten OTP Eintrag testen.
-      \begin{verbatim}
-      vcgencmd otp_dump | grep 17:
-      \end{verbatim}
-      Es wird die Ausgabe 17:3020000a erwartet.
-      \item Den Eintrag aus dem /boot/config.txt wieder entfernen.
-      \item Das RPI frägt nun im Netzwerk bei einem Start nach einem Betriebssystem an.
-      \end{enumerate}
-   \end{enumerate}
+\section{Installation Managementnode}
+Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm. 
+
+\subsection{Variablen Definition}
+Durch die Installation hinweg werden die folgenden Variablen verwendet.
+
+
+
+\begin{longtable}{| p{0.8cm} | p{3cm} | p{7cm} | p{5.2cm} |} 
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
+1 & sms\_name & Hostname des Managementhosts & nebula \\\hline
+2 & sms\_ip & IP Adresse des Managementhosts & 192.168.1.10 \\\hline
+3 & sms\_eth\_internal & Ethernet Interface & eth0 \\\hline
+4 & internal\_netmask & Netzmaske des Ethernet Interfaces & 255.255.255.0 \\\hline
+5 & ntp\_server[0] \newline ntp\_server[1] \newline ntp\_server[2] \newline ntp\_server[3] & Zeitserver (Array) & server 0.ch.pool.ntp.org \newline server 1.ch.pool.ntp.org \newline server 2.ch.pool.ntp.org \newline server 3.ch.pool.ntp.org  \\\hline
+6 & num\_computes & Anzahl Computenodes & 45 \\\hline
+7 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] & IP Adressen der Computenodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30 \\\hline 
+\rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
+7 & c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] \newline c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Computenodes (Array) & 192.168.1.31 \newline  192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \newline 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
+\caption{Variablen Definition}
+\end{longtable}
