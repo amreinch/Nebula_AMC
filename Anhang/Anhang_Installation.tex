@@ -1,24 +1,413 @@
 % !TEX root = ../Diplombericht.tex
 
 \section{Installation Managementnode}
-Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm. 
+Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm. Die Installation wird hauptsächlich mit dem ROOT-Benutzer durchgeführt, falls nichts anderes erwähnt wird.
 
 \subsection{Variablen Definition}
 Durch die Installation hinweg werden die folgenden Variablen verwendet.
 
-
-
-\begin{longtable}{| p{0.8cm} | p{3cm} | p{7cm} | p{5.2cm} |} 
+\begin{longtable}{| p{0.5cm} | p{3cm} | p{8.5cm} | p{4cm} |} 
 \hline
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
 1 & sms\_name & Hostname des Managementhosts & nebula \\\hline
 2 & sms\_ip & IP Adresse des Managementhosts & 192.168.1.10 \\\hline
 3 & sms\_eth\_internal & Ethernet Interface & eth0 \\\hline
-4 & internal\_netmask & Netzmaske des Ethernet Interfaces & 255.255.255.0 \\\hline
-5 & ntp\_server[0] \newline ntp\_server[1] \newline ntp\_server[2] \newline ntp\_server[3] & Zeitserver (Array) & server 0.ch.pool.ntp.org \newline server 1.ch.pool.ntp.org \newline server 2.ch.pool.ntp.org \newline server 3.ch.pool.ntp.org  \\\hline
-6 & num\_computes & Anzahl Computenodes & 45 \\\hline
-7 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] & IP Adressen der Computenodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30 \\\hline 
+4 & ntp\_server[0] \newline ntp\_server[1] \newline ntp\_server[2] \newline ntp\_server[3] & Zeitserver (Array) & server 0.ch.pool.ntp.org \newline server 1.ch.pool.ntp.org \newline server 2.ch.pool.ntp.org \newline server 3.ch.pool.ntp.org  \\\hline
+5 & num\_computes & Anzahl Computenodes & 45 \\\hline
+6 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] & IP Adressen der Computenodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30  \\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
-7 & c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] \newline c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Computenodes (Array) & 192.168.1.31 \newline  192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \newline 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
+6 & c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] \newline c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Computenodes (Array) & 192.168.1.31 \newline 192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \newline 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
+7 &  c\_name[0] \newline  c\_name[1] \newline c\_name[2] \newline c\_name[3] \newline c\_name[4] \newline c\_name[5] \newline c\_name[6] \newline c\_name[7] \newline c\_name[8] \newline c\_name[9] \newline c\_name[10] \newline c\_name[11] \newline c\_name[12] \newline c\_name[13] & Hostnamen der Computenodes (Array) & c1 \newline c2 \newline c3 \newline c4 \newline c5 \newline c6 \newline c7 \newline c8 \newline c9 \newline c10 \newline c11 \newline c12 \newline c13 \newline c14 \\\hline 
+\rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
+7 & c\_name[14] \newline c\_name[15] \newline c\_name[16] \newline c\_name[17] \newline c\_name[18] \newline c\_name[19] \newline c\_name[20] \newline c\_name[21] \newline c\_name[22] \newline c\_name[23] \newline c\_name[24] \newline c\_name[25] \newline c\_name[26] \newline c\_name[27] c\_name[28] \newline  c\_name[29] \newline c\_name[30] \newline c\_name[31] \newline c\_name[32] \newline c\_name[33] \newline c\_name[34] \newline c\_name[35] \newline c\_name[36] \newline c\_name[37] \newline c\_name[38] \newline c\_name[39] \newline c\_name[40] \newline c\_name[41] \newline c\_name[42] \newline c\_name[43] \newline c\_name[44] & Hostnamen der Computenodes (Array) & c15 \newline c16 \newline c17 \newline c18 \newline c19 \newline c20 \newline c21 \newline c22 \newline c23 \newline c24 \newline c25 \newline c26 \newline c27 \newline c28 \newline c29 \newline c30 \newline c31 \newline c32 \newline c33 \newline c34 \newline c35 \newline c36 \newline c37 \newline c38 \newline c39 \newline c40 \newline c41 \newline c42 \newline c43 \newline c44 \newline c45\\\hline 
+8 &  c\_mac[0] \newline  c\_mac[1] \newline c\_mac[2] \newline c\_mac[3] \newline c\_mac[4] \newline c\_mac[5] \newline c\_mac[6] \newline c\_mac[7]  & MAC Adressen der Computenodes (Array) & B8:27:EB:32:39:A7 \newline B8:27:EB:2E:A3:D1 \newline B8:27:EB:50:45:3F \newline B8:27:EB:0D:E6:25 \newline B8:27:EB:3E:96:B5 \newline B8:27:EB:EE:77:DA \newline B8:27:EB:21:63:E6 \newline B8:27:EB:2E:2E:CC \\\hline 
+\rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
+8 & c\_mac[8] \newline c\_mac[9] \newline  c\_mac[10] \newline c\_mac[11] \newline c\_mac[12] \newline c\_mac[13] \newline c\_mac[14] \newline c\_mac[15] \newline c\_mac[16] \newline c\_mac[17] \newline c\_mac[18] \newline c\_mac[19] \newline c\_mac[20] \newline c\_mac[21] \newline c\_mac[22] \newline c\_mac[23] \newline c\_mac[24] \newline c\_mac[25] \newline c\_mac[26] \newline c\_mac[27] \newline c\_mac[28] \newline c\_mac[29] \newline c\_mac[30] \newline c\_mac[31] \newline c\_mac[32] \newline c\_mac[33] \newline c\_mac[34] \newline c\_mac[35] \newline c\_mac[36] \newline c\_mac[37] \newline c\_mac[38] \newline c\_mac[39] \newline c\_mac[40] \newline c\_mac[41] \newline c\_mac[42] \newline c\_mac[43] \newline c\_mac[44] & MAC Adressen der Computenodes (Array) & B8:27:EB:17:32:96 \newline B8:27:EB:B2:1C:A9 \newline B8:27:EB:AF:63:1F \newline B8:27:EB:43:00:2C \newline B8:27:EB:13:7B:18 \newline B8:27:EB:43:CD:29 \newline B8:27:EB:FF:C7:56 \newline B8:27:EB:CE:98:66 \newline B8:27:EB:5D:63:34 \newline B8:27:EB:91:3E:0F \newline B8:27:EB:F4:65:EC \newline B8:27:EB:3E:AB:DC \newline B8:27:EB:66:60:F6 \newline B8:27:EB:37:3F:74 \newline B8:27:EB:18:5E:F0 \newline B8:27:EB:B0:23:B8 \newline B8:27:EB:BE:C4:94 \newline B8:27:EB:FB:FF:57 \newline B8:27:EB:4E:EC:CE \newline 	B8:27:EB:43:1C:35 \newline B8:27:EB:DC:74:5F \newline B8:27:EB:D1:DE:2F \newline B8:27:EB:5E:90:34 \newline B8:27:EB:DE:80:24 \newline B8:27:EB:A4:79:6F \newline B8:27:EB:0A:4D:C7 \newline B8:27:EB:5C:53:5F \newline B8:27:EB:F7:AF:C2 \newline B8:27:EB:CE:BA:ED \newline B8:27:EB:59:38:3C \newline B8:27:EB:99:BB:8E \newline B8:27:EB:8F:7A:0D \newline B8:27:EB:DE:C9:69 \newline B8:27:EB:7E:6F:48 \newline B8:27:EB:5D:DD:FE
+\newline B8:27:EB:A6:6D:4D \newline B8:27:EB:0C:63:10\\\hline 
+
 \caption{Variablen Definition}
 \end{longtable}
+
+\subsection{Basiskonfiguration}
+Dem Managementnode muss ein eindeutiger Hostname zugewiesen werden. Hierbei werden die untenstehenden Kommandos abgesetzt.
+
+\begin{lstlisting}
+echo ${sms_ip} ${sms_name} >> /etc/hosts
+hostnamectl set-hostname ${sms_name}
+\end{lstlisting}
+
+Für die folgenden Arbeiten müssen die Firewall und SELinux deaktiviert werden. DHCP wird aufgrund der Verwendung von dnsmasq deaktivert.
+
+\begin{lstlisting}
+systemctl disable firewalld
+systemctl stop firewalld
+systemctl disable dhcpd
+systemctl stop dhcpd
+echo 0 > /selinux/enforce
+\end{lstlisting}
+
+\subsection{OpenHPC Komponenten installieren}
+Es wird das OpenHPC Repository für die Installation der OpenHPC Komponenten benötigt. Dieses muss installiert werden.
+
+\begin{lstlisting}
+yum install http://build.openhpc.community/OpenHPC:/1.3/CentOS_7/aarch64/ohpc-release-1.3-1.el7.aarch64.rpm
+\end{lstlisting}
+
+Von nun an können die benötigten Pakete über den RPM-Paketmanager installiert werden.
+
+Durch das neu angehängte Repository können nun die folgenden Pakete installiert werden.
+
+\begin{lstlisting}
+yum -y install ohpc-base
+yum -y install ohpc-warewulf
+\end{lstlisting}
+
+Weiterhin spielt die Zeit eine wichtige Rolle zwischen der Kommunikation des Managementhosts und der Computenodes. Dazu müssen die bereits vorhandenen Einträge der Zeitserver in der ntp.conf entfernt werden.
+
+
+\begin{lstlisting}
+systemctl disable chronyd.service
+systemctl stop chronyd.service
+systemctl enable ntpd.service
+sed -i '/^server/ d' /etc/ntp.conf
+echo "server ${ntp_server[0]}" >> /etc/ntp.conf
+echo "server ${ntp_server[1]}" >> /etc/ntp.conf
+echo "server ${ntp_server[2]}" >> /etc/ntp.conf
+echo "server ${ntp_server[3]}" >> /etc/ntp.conf
+systemctl restart ntpd
+\end{lstlisting}
+
+Nun wird der Slurmcontroller installiert. Dieser dient dazu die Jobs auf die Computenodes zu verteilen. Dieser steuert die Jobverwaltung und muss installiert und eingerichtet werden. Hierbei wird die Konfiguration für 45 Computenodes vorgenommen.
+
+\begin{lstlisting}
+yum -y install ohpc-slurm-server
+perl -pi -e "s/ControlMachine=\S+/ControlMachine=${sms_name}/" /etc/slurm/slurm.conf
+sed -i '/^NodeName/ d' /etc/slurm/slurm.conf
+sed -i '/^Partition/ d' /etc/slurm/slurm.conf
+echo "NodeName=c[1-45] CoresPerSocket=1 ThreadsPerCore=1 SocketsPerBoard=4 State=UNKNOWN" >> /etc/slurm/slurm.conf
+echo "PartitionName=normal Nodes=c[1-45] Default=YES MaxTime=INFINITE State=UP" >> /etc/slurm/slurm.conf
+\end{lstlisting}
+
+\subsection{Netzwerkboot einrichten}
+Das Dateisystem und die Boot Partition werden in zwei verschiedenen Verzeichnissen erstellt und abgelegt.
+
+Definieren des Dateisystem Verzeichnisses und das Centos7.4 Basis Dateisystem erstellen.
+\begin{lstlisting}
+export CHROOT=/opt/ohpc/admin/images/centos7.4
+wwmkchroot centos-7 $CHROOT
+\end{lstlisting}
+
+Anstelle von DHCPD muss der networking Service verwendet werden. Deshalb wird dieser aktiviert und gestartet.
+\begin{lstlisting}
+systemctl enable networking
+systemctl start networking
+\end{lstlisting}
+
+Nun wird das Paket dnsmaq installiert. Dadurch wird zur Absicherung die Verteilung des Betriebssystems an eine gewisse IP Range und an ein Subnetz gewährleistet. Geräte ausserhalb der Range und des Subnetzes sollen das Betriebssystem nicht erhalten dürfen.
+
+\begin{lstlisting}
+yum -y install dnsmasq
+\end{lstlisting}
+
+Nach der Installation kann die Konfiguration von dnsmasq vorgenommen werden. Dazu werden die Datei /etc/dnsmasq.conf angepasst und die Datei /etc/dnsmasq.d/host.allow erstellt.
+
+In der dnsmasq.conf Datei wird das Konfigurationsverzeichnis für die erlaubten Hosts erstellt, zudem wird eine IP Range angegeben, alle Geräte innerhalb dieser Range dürfen den Kernel des Betriebssystems aus dem Verzeichnis /tftboot erhalten.  
+\begin{lstlisting}
+[root@nebula etc]# cat /etc/dnsmasq.conf
+conf-dir=/etc/dnsmasq.d
+port=0
+dhcp-range=192.168.1.10,192.168.1.50,12h
+log-dhcp
+enable-tftp
+tftp-root=/tftpboot
+pxe-service=0,"Raspberry Pi Boot"
+\end{lstlisting}
+
+Falls sich andere Geräte in dieser IP Range befinden wird dies durch die /etc/dnsmasq.d/host.allow Datei abgefangen, dort sind alle Computenodes mit MAC Adresse, Hostnamen und IP Adresse hinterlegt.
+
+Dies kann in einer for Schlaufe und den definierten Variablen einfach abgefüllt werden.
+
+\begin{lstlisting}
+for ((i=0; i<45; i++)); do echo "dhcp-host=${c_mac[$i]};${c_name[$i]};${c_ip[$i]}" >> /etc/dnsmasq.d/host.allow; done
+\end{lstlisting}
+
+Das Ergebnis muss wiefolgt aussehen.
+\begin{lstlisting}
+[root@nebula etc]# cat /etc/dnsmasq.d/host.allow
+dhcp-host=B8:27:EB:32:39:A7,c1,192.168.1.11
+dhcp-host=B8:27:EB:2E:A3:D1,c2,192.168.1.12
+dhcp-host=B8:27:EB:50:45:3F,c3,192.168.1.13
+dhcp-host=B8:27:EB:0D:E6:25,c4,192.168.1.14
+dhcp-host=B8:27:EB:3E:96:B5,c5,192.168.1.15
+dhcp-host=B8:27:EB:EE:77:DA,c6,192.168.1.16
+dhcp-host=B8:27:EB:21:63:E6,c7,192.168.1.17
+dhcp-host=B8:27:EB:2E:2E:CC,c8,192.168.1.18
+dhcp-host=B8:27:EB:17:32:96,c9,192.168.1.19
+dhcp-host=B8:27:EB:B2:1C:A9,c10,192.168.1.20
+dhcp-host=B8:27:EB:AF:63:1F,c11,192.168.1.21
+dhcp-host=B8:27:EB:43:00:2C,c12,192.168.1.22
+dhcp-host=B8:27:EB:13:7B:18,c13,192.168.1.23
+dhcp-host=B8:27:EB:43:CD:29,c14,192.168.1.24
+dhcp-host=B8:27:EB:FF:C7:56,c15,192.168.1.25
+dhcp-host=B8:27:EB:CE:98:66,c16,192.168.1.26
+dhcp-host=B8:27:EB:5D:63:34,c17,192.168.1.27
+dhcp-host=B8:27:EB:91:3E:0F,c18,192.168.1.28
+dhcp-host=B8:27:EB:F4:65:EC,c19,192.168.1.29
+dhcp-host=B8:27:EB:3E:AB:DC,c20,192.168.1.30
+dhcp-host=B8:27:EB:66:60:F6,c21,192.168.1.31
+dhcp-host=B8:27:EB:37:3F:74,c22,192.168.1.32
+dhcp-host=B8:27:EB:18:5E:F0,c23,192.168.1.33
+dhcp-host=B8:27:EB:B0:23:B8,c24,192.168.1.34
+dhcp-host=B8:27:EB:BE:C4:94,c25,192.168.1.35
+dhcp-host=B8:27:EB:FB:FF:57,c26,192.168.1.36
+dhcp-host=B8:27:EB:4E:EC:CE,c27,192.168.1.37
+dhcp-host=B8:27:EB:43:1C:35,c28,192.168.1.38
+dhcp-host=B8:27:EB:DC:74:5F,c29,192.168.1.39
+dhcp-host=B8:27:EB:D1:DE:2F,c30,192.168.1.40
+dhcp-host=B8:27:EB:5E:90:34,c31,192.168.1.41
+dhcp-host=B8:27:EB:DE:80:24,c32,192.168.1.42
+dhcp-host=B8:27:EB:A4:79:6F,c33,192.168.1.43
+dhcp-host=B8:27:EB:0A:4D:C7,c34,192.168.1.44
+dhcp-host=B8:27:EB:5C:53:5F,c35,192.168.1.45
+dhcp-host=B8:27:EB:F7:AF:C2,c36,192.168.1.46
+dhcp-host=B8:27:EB:CE:BA:ED,c37,192.168.1.47
+dhcp-host=B8:27:EB:59:38:3C,c38,192.168.1.48
+dhcp-host=B8:27:EB:99:BB:8E,c39,192.168.1.49
+dhcp-host=B8:27:EB:8F:7A:0D,c40,192.168.1.50
+dhcp-host=B8:27:EB:DE:C9:69,c41,192.168.1.51
+dhcp-host=B8:27:EB:7E:6F:48,c42,192.168.1.52
+dhcp-host=B8:27:EB:5D:DD:FE,c43,192.168.1.53
+dhcp-host=B8:27:EB:A6:6D:4D,c44,192.168.1.54
+dhcp-host=B8:27:EB:0C:63:10,c45,192.168.1.55
+\end{lstlisting}
+
+Boot Verzeichnis erstellen, aus diesem Verzeichnis wird der Kernel an die Computenodes angeboten und übermittelt. Dabei wird das /boot Verzeichnis des Managementnodes in dieses Verzeichnis kopiert, da es sich um das selbe Betriebssystem handelt.
+
+\begin{lstlisting}
+mkdir /tftpboot
+chmod 777 /tftpboot
+cp -r /boot /tftboot
+\end{lstlisting}
+
+Dabei muss darauf geachtet werden, dass die cmdline.txt Datei im /tftboot Verzeichnis folgenden Eintrag erhält. Dieser sagt aus, dass der Computenode sein /root Verzeichnis vom Managementnode unter dem Pfad /opt/ohpc/admin/images/centos7.4 beziehen soll.
+
+\begin{lstlisting}
+[root@nebula etc]# cat /tftpboot/cmdline.txt
+dwc_otg.lpm_enable=0 root=/dev/nfs nfsroot=192.168.1.10:/opt/ohpc/admin/images/centos7.4,vers=3 rw ip=dhcp rootwait elevator=deadline
+\end{lstlisting}
+
+
+Den dnsmaq Service aktivieren und starten
+\begin{lstlisting}
+systemctl enable dnsmasq.service
+systemctl restart dnsmasq.service
+\end{lstlisting}
+
+OpenHPC Pakete für die Computenodes installieren.
+\begin{lstlisting}
+yum -y --installroot=$CHROOT install ohpc-base-compute
+\end{lstlisting}
+
+Damit die Computenodes über den Hostnamen angesprochen werden können, wird eine DNS Konfiguration benötigt. Die Auflösung findet über folgende Einstellung statt. Dabei wird vom Managementnode die resolv.conf Datei übernommen und auf das Dateisystem der Computenodes kopiert.
+\begin{lstlisting}
+cp -p /etc/resolv.conf $CHROOT/etc/resolv.conf
+\end{lstlisting}
+
+Die zusätzlichen Pakete werden für die Kommunikation mit dem Slurmcontroller und der Zeitsynchronisierung benötigt.
+
+\begin{lstlisting}
+yum -y --installroot=$CHROOT install ohpc-slurm-client
+yum -y --installroot=$CHROOT install ntp
+\end{lstlisting}
+
+Beim Booten der Computenodes muss das Dateisystem gemountet werden. Dafür werden fstab Einträge erstellt. 
+
+\begin{lstlisting}
+echo "${sms_ip}:/home /home nfs nfsvers=3,nodev,nosuid,noatime 0 0" >> $CHROOT/etc/fstab
+echo "${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=3,nodev,noatime 0 0" >> $CHROOT/etc/fstab
+\end{lstlisting}
+
+Zudem müssen gewisse Verzeichnisse vom Managementnode aus exportiert werden.
+
+\begin{lstlisting}
+echo "/home *(rw,no_subtree_check,fsid=10,no_root_squash)" >> /etc/exports
+echo "echo "/opt/ohpc/pub *(ro,no_subtree_check,fsid=11)" >> /etc/exports
+echo "/opt/ohpc/admin/images/centos7.4 *(rw,sync,no_subtree_check,no_root_squash)" /etc/exports
+exportfs -a
+systemctl restart nfs-server
+systemctl enable nfs-server
+\end{lstlisting}
+
+Damit die Zeitsynchronisierung über den Managementnode läuft wird folgendes umgesetzt.
+
+\begin{lstlisting}
+chroot $CHROOT systemctl enable ntpd
+echo "server ${sms_ip}" >> $CHROOT/etc/ntp.conf
+\end{lstlisting}
+
+Die Computenodes können nun mit Strom versorgt werden, dabei wird auf dem Managementnode auf die /var/log/messages Logdatei geachtet, dort sind alle Einträge des Netzwerkboots zusammengeschlossen. Dabei müssen folgende Einträge erscheinen.
+
+\begin{lstlisting}
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 next server: 192.168.1.10
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  1 option: 53 message-type  2
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  4 option: 54 server-identifier  192.168.1.10
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  4 option: 51 lease-time  12h
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  4 option: 58 T1  6h
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  4 option: 59 T2  10h30m
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  4 option:  1 netmask  255.255.255.0
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  4 option: 28 broadcast  192.168.1.255
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size:  9 option: 60 vendor-class  50:58:45:43:6c:69:65:6e:74
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size: 17 option: 97 client-machine-id  00:44:44:44:44:44:44:44:44:44:44:44:44:44...
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 sent size: 32 option: 43 vendor-encap  06:01:03:0a:04:00:50:58:45:09:14:00:00:11...
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 available DHCP range: 192.168.1.10 -- 192.168.1.50
+May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 vendor class: PXEClient:Arch:00000:UNDI:002001
+..
+..
+..
+May 17 20:31:35 nebula dnsmasq-tftp[382]: sent /tftpboot/bootcode.bin to 192.168.1.46
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/autoboot.txt not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: sent /tftpboot/config.txt to 192.168.1.38
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/recovery.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/beb21ca9/start.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/75a66d4d/start.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/d0185ef0/start.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/10dec969/start.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/d4373f74/start.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/0643cd29/start.elf not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/bootsig.bin not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: sent /tftpboot/bootcode.bin to 192.168.1.40
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/bootsig.bin not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: sent /tftpboot/bootcode.bin to 192.168.1.16
+May 17 20:31:35 nebula dnsmasq-tftp[382]: file /tftpboot/bootsig.bin not found
+May 17 20:31:35 nebula dnsmasq-tftp[382]: sent /tftpboot/bootcode.bin to 192.168.1.27
+..
+..
+..
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 next server: 192.168.1.10
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  1 option: 53 message-type  2
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option: 54 server-identifier  192.168.1.10
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option: 51 lease-time  12h
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option: 58 T1  6h
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option: 59 T2  10h30m
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option:  1 netmask  255.255.255.0
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option: 28 broadcast  192.168.1.255
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  4 option:  3 router  192.168.1.10
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 sent size:  3 option: 12 hostname  c12
+May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 available DHCP range: 192.168.1.10 -- 192.168.1.50
+May 17 20:32:56 nebula rpc.mountd[495]: authenticated mount request from 192.168.1.22:999 for /opt/ohpc/admin/images/centos7.4 (/opt/ohpc/admin/images/centos7.4)
+\end{lstlisting}
+
+Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Computenode c12 gestartet wurde und nach dem Betriebssystem anfragt und dieses mounten will.
+
+\subsection{Registration Computenodes}
+
+Die Installation ist soweit abgeschlossen, die optionalen Pakete werden später installiert und beschrieben. Nun werden die Computenodes registriert, ab diesem Zeitpunkt kennt der Managementnode jeden Computenode. Die Computenodes werden wiefolgt in den Datastore aufgenommen.
+
+\begin{lstlisting}
+echo "GATEWAYDEV=${eth_internal}" > /tmp/network.$$
+wwsh -y file import /tmp/network.$$ --name network
+wwsh -y file set network --path /etc/sysconfig/network --mode=0644 --uid=0
+for ((i=0; i<$num_computes; i++)) ; do
+wwsh -y node new ${c_name[i]} --ipaddr=${c_ip[i]} --hwaddr=${c_mac[i]} -D ${eth_internal}
+done
+\end{lstlisting}
+\newpage
+\subsection{Monitoring installieren}
+
+Das Nagios Monitoring wird wiefolgt installiert. Dabei werden alle Grundüberwachungen installiert und können Out of the Box verwendet werden.
+
+\begin{lstlisting}
+[root@nebula /]# yum -y install ohpc-nagios
+[root@nebula /]# yum -y --installroot=$CHROOT install nagios-plugins-all-ohpc nrpe-ohpc
+[root@nebula /]# chroot $CHROOT systemctl enable nrpe
+[root@nebula /]# perl -pi -e "s/^allowed_hosts=/# allowed_hosts=/" $CHROOT/etc/nagios/nrpe.cfg
+[root@nebula /]# echo "nrpe 5666/tcp # NRPE" >> $CHROOT/etc/services
+[root@nebula /]# echo "nrpe : ${sms_ip} : ALLOW" >> $CHROOT/etc/hosts.allow
+[root@nebula /]# echo "nrpe : ALL : DENY" >> $CHROOT/etc/hosts.allow
+[root@nebula /]# chroot $CHROOT /usr/sbin/useradd -c "NRPE user for the NRPE service" -d /var/run/nrpe -r -g nrpe -s /sbin/nologin nrpe
+[root@nebula /]# chroot $CHROOT /usr/sbin/groupadd -r nrpe
+[root@nebula /]# mv /etc/nagios/conf.d/services.cfg.example /etc/nagios/conf.d/services.cfg
+[root@nebula /]# mv /etc/nagios/conf.d/hosts.cfg.example /etc/nagios/conf.d/hosts.cfg
+[root@nebula /]# for ((i=0; i<$num_computes; i++)) ; do
+perl -pi -e "s/HOSTNAME$(($i+1))/${c_name[$i]}/ || s/HOST$(($i+1))_IP/${c_ip[$i]}/" \
+[root@nebula /]# /etc/nagios/conf.d/hosts.cfg
+done
+[root@nebula /]# perl -pi -e "s/ \/bin\/mail/ \/usr\/bin\/mailx/g" /etc/nagios/objects/commands.cfg
+[root@nebula /]# perl -pi -e "s/nagios\@localhost/root\@${sms_name}/" /etc/nagios/objects/contacts.cfg
+[root@nebula /]# echo command[check_ssh]=/usr/lib64/nagios/plugins/check_ssh localhost >> $CHROOT/etc/nagios/nrpe.cfg
+[root@nebula /]# htpasswd -bc /etc/nagios/passwd nagiosadmin ${Eigenes_Passwort}
+[root@nebula /]# chkconfig nagios on
+[root@nebula /]# systemctl start nagios
+[root@nebula /]# chmod u+s `which ping
+\end{lstlisting}
+
+Nagios kann nun eingesetzt werden und ist über http://nebula/nagios erreichbar.
+
+Das Performance Monitoring wird mit Ganglia realisiert welches sich wiefolgt installieren lässt.
+
+\begin{lstlisting}
+[root@nebula /]# yum -y install ohpc-ganglia
+[root@nebula /]# yum -y --installroot=$CHROOT install ganglia-gmond-ohpc
+[root@nebula /]# cp /opt/ohpc/pub/examples/ganglia/gmond.conf /etc/ganglia/gmond.conf
+[root@nebula /]# perl -pi -e "s/<sms>/${sms_name}/" /etc/ganglia/gmond.conf
+[root@nebula /]# cp /etc/ganglia/gmond.conf $CHROOT/etc/ganglia/gmond.conf
+echo "gridname MySite" >> /etc/ganglia/gmetad.conf
+[root@nebula /]# systemctl enable gmond
+[root@nebula /]# systemctl enable gmetad
+[root@nebula /]# systemctl start gmond
+[root@nebula /]# systemctl start gmetad
+[root@nebula /]# chroot $CHROOT systemctl enable gmond
+[root@nebula /]# systemctl try-restart httpd
+\end{lstlisting}
+
+Ganglia kann nun eingesetzt werden und ist über http://nebula/ganglia erreichbar.
+
+\subsection{Miner installieren}
+Es wird die cpuminer-multi Version von tkinjo verwendet. Diese ist mit dem ARMv8 Prozessor kompatibel und der Miner kann kompiliert werden.
+
+Die folgenden Schritte sind für die Installation notwendig.
+
+Verzeichnis erstellen in dem der Miner installiert werden soll.
+\begin{lstlisting}
+[root@nebula /]# mkdir  -p /opt/miners
+\end{lstlisting}
+
+Das tkinjo cpuminer-multi Repository klonen. Dabei wird das /opt/miners/cpuminer-mutli Verzeichnis erstellt.
+\begin{lstlisting}
+[root@nebula /]# cd /opt/miners
+[root@nebula miners]# git clone https://github.com/tkinjo1985/cpuminer-multi.git
+Klone nach 'cpuminer-multi'...
+remote: Counting objects: 3805, done.
+remote: Total 3805 (delta 0), reused 0 (delta 0), pack-reused 3805
+Empfange Objekte: 100% (3805/3805), 18.98 MiB | 3.77 MiB/s, done.
+Loese Unterschiede auf: 100% (2589/2589), done.
+\end{lstlisting}
+
+Die geklonte Version kann nun kompiliert werden. Dabei kann die Warnung: Implizite Deklaration der Funktion, ignoriert werden. Zur Überischt wurde die Ausgabe unten gekürzt.
+\begin{lstlisting}
+[root@nebula miners]# cd cpuminer-multi/
+[root@nebula cpuminer-multi]#./build.sh
+make: *** Keine Regel, um >>clean<< zu erstellen.  Schluss.
+clean
+configure.ac:15: installing './compile'
+configure.ac:4: installing './config.guess'
+configure.ac:4: installing './config.sub'
+configure.ac:9: installing './install-sh'
+configure.ac:9: installing './missing'
+Makefile.am: installing './depcomp'
+checking build system type... aarch64-unknown-linux-gnu
+checking host system type... aarch64-unknown-linux-gnu
+checking target system type... aarch64-unknown-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+In file included from algo/../scryptjane/scrypt-jane-romix.h:2:0,
+                 from algo/scrypt-jane.c:24:
+algo/../scryptjane/scrypt-jane-chacha.h: In Funktion >>scrypt_test_mix<<:
+algo/../scryptjane/scrypt-jane-chacha.h:125:20: Warnung: Implizite Deklaration der Funktion >>detect_cpu<< [-Wimplicit-function-declaration]
+  size_t cpuflags = detect_cpu();
+                    ^~~~~~~~~~
+make[2]: Leaving directory `/opt/miners/cpuminer-multi'
+make[1]: Leaving directory `/opt/miners/cpuminer-multi'
+\end{lstlisting}
+ 
