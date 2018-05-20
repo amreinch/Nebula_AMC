@@ -1,7 +1,7 @@
 % !TEX root = ../Diplombericht.tex
 \subsection{Technischer Aufbau}
 \subsubsection{Betriebssystem}
-Es exisitiert zur Zeit kein 64-Bit CentOS Kernel welcher mit den RPI's kompatibel ist. Deswegen wurde mit einer alternativen Lösung das Gentoo Image von https://github.com/sakaki-/gentoo-on-rpi3-64bit heruntergeladen und auf die SD-Karte geschrieben. Dabei wurden zwei Partitionen erstellt. Die boot Partition, welche den Kernel und die Bootbefehle beinhaltet. Die Dateisystem-Partition beinhaltet das Dateisystem und muss mit der eines CentOS Dateisystems überschrieben werden. Dabei wurde das Dateisystem von http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-7.4.1708.tar.xz heruntergeladen und auf die betreffende Partition kopiert.
+Es exisitiert zur Zeit kein 64-Bit CentOS Kernel welcher mit den RPI's kompatibel ist. Deswegen wurde mit einer alternativen Lösung das Gentoo Image vom Github Repository\footnote{\url{https://github.com/sakaki-/gentoo-on-rpi3-64bit}} von Sakaki heruntergeladen und auf die SD-Karte geschrieben. Dabei wurden zwei Partitionen erstellt. Die boot Partition, welche den Kernel und die Bootbefehle beinhaltet. Die Dateisystem-Partition beinhaltet das Dateisystem und muss mit der eines CentOS Dateisystems überschrieben werden. Dabei wurde das Dateisystem aus dem offizielen Repository von CentOS\footnote{\url{http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-7.4.1708.tar.xz}} heruntergeladen und auf die Dateisystem Partition kopiert.
 
 \subsubsection{Vorbereitungen}
 \textbf{Netzwerk}\newline

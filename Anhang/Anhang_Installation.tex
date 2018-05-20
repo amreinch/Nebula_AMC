@@ -1,7 +1,7 @@
 % !TEX root = ../Diplombericht.tex
 
 \section{Installation Managementnode}
-Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm. Die Installation wird hauptsächlich mit dem ROOT-Benutzer durchgeführt, falls nichts anderes erwähnt wird.
+Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm \footnote{\url{http://openhpc.community/downloads/}}. Die Installation wird hauptsächlich mit dem ROOT-Benutzer durchgeführt, falls nichts anderes erwähnt wird.
 
 \subsection{Variablen Definition}
 Durch die Installation hinweg werden die folgenden Variablen verwendet.
@@ -14,17 +14,16 @@ Durch die Installation hinweg werden die folgenden Variablen verwendet.
 3 & sms\_eth\_internal & Ethernet Interface & eth0 \\\hline
 4 & ntp\_server[0] \newline ntp\_server[1] \newline ntp\_server[2] \newline ntp\_server[3] & Zeitserver (Array) & server 0.ch.pool.ntp.org \newline server 1.ch.pool.ntp.org \newline server 2.ch.pool.ntp.org \newline server 3.ch.pool.ntp.org  \\\hline
 5 & num\_computes & Anzahl Computenodes & 45 \\\hline
-6 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] & IP Adressen der Computenodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30  \\\hline 
+6 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] \newline c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] & IP Adressen der Computenodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30 \newline 192.168.1.31 \newline 192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
-6 & c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] \newline c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Computenodes (Array) & 192.168.1.31 \newline 192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \newline 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
-7 &  c\_name[0] \newline  c\_name[1] \newline c\_name[2] \newline c\_name[3] \newline c\_name[4] \newline c\_name[5] \newline c\_name[6] \newline c\_name[7] \newline c\_name[8] \newline c\_name[9] \newline c\_name[10] \newline c\_name[11] \newline c\_name[12] \newline c\_name[13] & Hostnamen der Computenodes (Array) & c1 \newline c2 \newline c3 \newline c4 \newline c5 \newline c6 \newline c7 \newline c8 \newline c9 \newline c10 \newline c11 \newline c12 \newline c13 \newline c14 \\\hline 
+6 & c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Computenodes (Array) & 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
+7 &  c\_name[0] \newline  c\_name[1] \newline c\_name[2] \newline c\_name[3] \newline c\_name[4] \newline c\_name[5] \newline c\_name[6] \newline c\_name[7] \newline c\_name[8] \newline c\_name[9] \newline c\_name[10] \newline c\_name[11] \newline c\_name[12] \newline c\_name[13] \newline c\_name[14] \newline c\_name[15] \newline c\_name[16] \newline c\_name[17] \newline c\_name[18] \newline c\_name[19] \newline c\_name[20] \newline c\_name[21] \newline c\_name[22] \newline c\_name[23] \newline c\_name[24] \newline c\_name[25] \newline c\_name[26] \newline c\_name[27] c\_name[28] \newline  c\_name[29] \newline c\_name[30] \newline c\_name[31] \newline c\_name[32] \newline c\_name[33] & Hostnamen der Computenodes (Array) & c1 \newline c2 \newline c3 \newline c4 \newline c5 \newline c6 \newline c7 \newline c8 \newline c9 \newline c10 \newline c11 \newline c12 \newline c13 \newline c14 \newline c15 \newline c16 \newline c17 \newline c18 \newline c19 \newline c20 \newline c21 \newline c22 \newline c23 \newline c24 \newline c25 \newline c26 \newline c27 \newline c28 \newline c29 \newline c30 \newline c31 \newline c32 \newline c33 \newline c34\\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
-7 & c\_name[14] \newline c\_name[15] \newline c\_name[16] \newline c\_name[17] \newline c\_name[18] \newline c\_name[19] \newline c\_name[20] \newline c\_name[21] \newline c\_name[22] \newline c\_name[23] \newline c\_name[24] \newline c\_name[25] \newline c\_name[26] \newline c\_name[27] c\_name[28] \newline  c\_name[29] \newline c\_name[30] \newline c\_name[31] \newline c\_name[32] \newline c\_name[33] \newline c\_name[34] \newline c\_name[35] \newline c\_name[36] \newline c\_name[37] \newline c\_name[38] \newline c\_name[39] \newline c\_name[40] \newline c\_name[41] \newline c\_name[42] \newline c\_name[43] \newline c\_name[44] & Hostnamen der Computenodes (Array) & c15 \newline c16 \newline c17 \newline c18 \newline c19 \newline c20 \newline c21 \newline c22 \newline c23 \newline c24 \newline c25 \newline c26 \newline c27 \newline c28 \newline c29 \newline c30 \newline c31 \newline c32 \newline c33 \newline c34 \newline c35 \newline c36 \newline c37 \newline c38 \newline c39 \newline c40 \newline c41 \newline c42 \newline c43 \newline c44 \newline c45\\\hline 
+7 & c\_name[34] \newline c\_name[35] \newline c\_name[36] \newline c\_name[37] \newline c\_name[38] \newline c\_name[39] \newline c\_name[40] \newline c\_name[41] \newline c\_name[42] \newline c\_name[43] \newline c\_name[44] & Hostnamen der Computenodes (Array) & c35 \newline c36 \newline c37 \newline c38 \newline c39 \newline c40 \newline c41 \newline c42 \newline c43 \newline c44 \newline c45\\\hline 
 8 &  c\_mac[0] \newline  c\_mac[1] \newline c\_mac[2] \newline c\_mac[3] \newline c\_mac[4] \newline c\_mac[5] \newline c\_mac[6] \newline c\_mac[7]  & MAC Adressen der Computenodes (Array) & B8:27:EB:32:39:A7 \newline B8:27:EB:2E:A3:D1 \newline B8:27:EB:50:45:3F \newline B8:27:EB:0D:E6:25 \newline B8:27:EB:3E:96:B5 \newline B8:27:EB:EE:77:DA \newline B8:27:EB:21:63:E6 \newline B8:27:EB:2E:2E:CC \\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
 8 & c\_mac[8] \newline c\_mac[9] \newline  c\_mac[10] \newline c\_mac[11] \newline c\_mac[12] \newline c\_mac[13] \newline c\_mac[14] \newline c\_mac[15] \newline c\_mac[16] \newline c\_mac[17] \newline c\_mac[18] \newline c\_mac[19] \newline c\_mac[20] \newline c\_mac[21] \newline c\_mac[22] \newline c\_mac[23] \newline c\_mac[24] \newline c\_mac[25] \newline c\_mac[26] \newline c\_mac[27] \newline c\_mac[28] \newline c\_mac[29] \newline c\_mac[30] \newline c\_mac[31] \newline c\_mac[32] \newline c\_mac[33] \newline c\_mac[34] \newline c\_mac[35] \newline c\_mac[36] \newline c\_mac[37] \newline c\_mac[38] \newline c\_mac[39] \newline c\_mac[40] \newline c\_mac[41] \newline c\_mac[42] \newline c\_mac[43] \newline c\_mac[44] & MAC Adressen der Computenodes (Array) & B8:27:EB:17:32:96 \newline B8:27:EB:B2:1C:A9 \newline B8:27:EB:AF:63:1F \newline B8:27:EB:43:00:2C \newline B8:27:EB:13:7B:18 \newline B8:27:EB:43:CD:29 \newline B8:27:EB:FF:C7:56 \newline B8:27:EB:CE:98:66 \newline B8:27:EB:5D:63:34 \newline B8:27:EB:91:3E:0F \newline B8:27:EB:F4:65:EC \newline B8:27:EB:3E:AB:DC \newline B8:27:EB:66:60:F6 \newline B8:27:EB:37:3F:74 \newline B8:27:EB:18:5E:F0 \newline B8:27:EB:B0:23:B8 \newline B8:27:EB:BE:C4:94 \newline B8:27:EB:FB:FF:57 \newline B8:27:EB:4E:EC:CE \newline 	B8:27:EB:43:1C:35 \newline B8:27:EB:DC:74:5F \newline B8:27:EB:D1:DE:2F \newline B8:27:EB:5E:90:34 \newline B8:27:EB:DE:80:24 \newline B8:27:EB:A4:79:6F \newline B8:27:EB:0A:4D:C7 \newline B8:27:EB:5C:53:5F \newline B8:27:EB:F7:AF:C2 \newline B8:27:EB:CE:BA:ED \newline B8:27:EB:59:38:3C \newline B8:27:EB:99:BB:8E \newline B8:27:EB:8F:7A:0D \newline B8:27:EB:DE:C9:69 \newline B8:27:EB:7E:6F:48 \newline B8:27:EB:5D:DD:FE
 \newline B8:27:EB:A6:6D:4D \newline B8:27:EB:0C:63:10\\\hline 
-
 \caption{Variablen Definition}
 \end{longtable}
 
@@ -184,9 +183,9 @@ dhcp-host=B8:27:EB:0C:63:10,c45,192.168.1.55
 Boot Verzeichnis erstellen, aus diesem Verzeichnis wird der Kernel an die Computenodes angeboten und übermittelt. Dabei wird das /boot Verzeichnis des Managementnodes in dieses Verzeichnis kopiert, da es sich um das selbe Betriebssystem handelt.
 
 \begin{lstlisting}
-mkdir /tftpboot
-chmod 777 /tftpboot
-cp -r /boot /tftboot
+[root@nebula /]# mkdir /tftpboot
+[root@nebula /]# chmod 777 /tftpboot
+[root@nebula /]# cp -r /boot /tftboot
 \end{lstlisting}
 
 Dabei muss darauf geachtet werden, dass die cmdline.txt Datei im /tftboot Verzeichnis folgenden Eintrag erhält. Dieser sagt aus, dass der Computenode sein /root Verzeichnis vom Managementnode unter dem Pfad /opt/ohpc/admin/images/centos7.4 beziehen soll.
@@ -196,53 +195,59 @@ Dabei muss darauf geachtet werden, dass die cmdline.txt Datei im /tftboot Verzei
 dwc_otg.lpm_enable=0 root=/dev/nfs nfsroot=192.168.1.10:/opt/ohpc/admin/images/centos7.4,vers=3 rw ip=dhcp rootwait elevator=deadline
 \end{lstlisting}
 
+Zudem wird die config.txt angepasst. Hierbei wird die CPU der RRPI's auf 1400 MHz hochgetaktet. Dadurch steigt die Mining Performance von einer Hashrate 1.6 H/s auf 1.9 H/s
+
+\begin{lstlisting}
+[root@nebula /]# echo "arm_freq=1400" > /tftpboot/config.txt
+\end{lstlisting}
+
 
 Den dnsmaq Service aktivieren und starten
 \begin{lstlisting}
-systemctl enable dnsmasq.service
-systemctl restart dnsmasq.service
+[root@nebula /]# systemctl enable dnsmasq.service
+[root@nebula /]# systemctl restart dnsmasq.service
 \end{lstlisting}
 
 OpenHPC Pakete für die Computenodes installieren.
 \begin{lstlisting}
-yum -y --installroot=$CHROOT install ohpc-base-compute
+[root@nebula /]# yum -y --installroot=$CHROOT install ohpc-base-compute
 \end{lstlisting}
 
 Damit die Computenodes über den Hostnamen angesprochen werden können, wird eine DNS Konfiguration benötigt. Die Auflösung findet über folgende Einstellung statt. Dabei wird vom Managementnode die resolv.conf Datei übernommen und auf das Dateisystem der Computenodes kopiert.
 \begin{lstlisting}
-cp -p /etc/resolv.conf $CHROOT/etc/resolv.conf
+[root@nebula /]# cp -p /etc/resolv.conf $CHROOT/etc/resolv.conf
 \end{lstlisting}
 
 Die zusätzlichen Pakete werden für die Kommunikation mit dem Slurmcontroller und der Zeitsynchronisierung benötigt.
 
 \begin{lstlisting}
-yum -y --installroot=$CHROOT install ohpc-slurm-client
-yum -y --installroot=$CHROOT install ntp
+[root@nebula /]# yum -y --installroot=$CHROOT install ohpc-slurm-client
+[root@nebula /]# yum -y --installroot=$CHROOT install ntp
 \end{lstlisting}
 
 Beim Booten der Computenodes muss das Dateisystem gemountet werden. Dafür werden fstab Einträge erstellt. 
 
 \begin{lstlisting}
-echo "${sms_ip}:/home /home nfs nfsvers=3,nodev,nosuid,noatime 0 0" >> $CHROOT/etc/fstab
-echo "${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=3,nodev,noatime 0 0" >> $CHROOT/etc/fstab
+[root@nebula /]# echo "${sms_ip}:/home /home nfs nfsvers=3,nodev,nosuid,noatime 0 0" >> $CHROOT/etc/fstab
+[root@nebula /]# echo "${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=3,nodev,noatime 0 0" >> $CHROOT/etc/fstab
 \end{lstlisting}
 
 Zudem müssen gewisse Verzeichnisse vom Managementnode aus exportiert werden.
 
 \begin{lstlisting}
-echo "/home *(rw,no_subtree_check,fsid=10,no_root_squash)" >> /etc/exports
-echo "echo "/opt/ohpc/pub *(ro,no_subtree_check,fsid=11)" >> /etc/exports
-echo "/opt/ohpc/admin/images/centos7.4 *(rw,sync,no_subtree_check,no_root_squash)" /etc/exports
-exportfs -a
-systemctl restart nfs-server
-systemctl enable nfs-server
+[root@nebula /]# echo "/home *(rw,no_subtree_check,fsid=10,no_root_squash)" >> /etc/exports
+[root@nebula /]# echo "echo "/opt/ohpc/pub *(ro,no_subtree_check,fsid=11)" >> /etc/exports
+[root@nebula /]# echo "/opt/ohpc/admin/images/centos7.4 *(rw,sync,no_subtree_check,no_root_squash)" /etc/exports
+[root@nebula /]# exportfs -a
+[root@nebula /]# systemctl restart nfs-server
+[root@nebula /]# systemctl enable nfs-server
 \end{lstlisting}
 
 Damit die Zeitsynchronisierung über den Managementnode läuft wird folgendes umgesetzt.
 
 \begin{lstlisting}
-chroot $CHROOT systemctl enable ntpd
-echo "server ${sms_ip}" >> $CHROOT/etc/ntp.conf
+[root@nebula /]# chroot $CHROOT systemctl enable ntpd
+[root@nebula /]# echo "server ${sms_ip}" >> $CHROOT/etc/ntp.conf
 \end{lstlisting}
 
 Die Computenodes können nun mit Strom versorgt werden, dabei wird auf dem Managementnode auf die /var/log/messages Logdatei geachtet, dort sind alle Einträge des Netzwerkboots zusammengeschlossen. Dabei müssen folgende Einträge erscheinen.
@@ -304,11 +309,11 @@ Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersic
 Die Installation ist soweit abgeschlossen, die optionalen Pakete werden später installiert und beschrieben. Nun werden die Computenodes registriert, ab diesem Zeitpunkt kennt der Managementnode jeden Computenode. Die Computenodes werden wiefolgt in den Datastore aufgenommen.
 
 \begin{lstlisting}
-echo "GATEWAYDEV=${eth_internal}" > /tmp/network.$$
-wwsh -y file import /tmp/network.$$ --name network
-wwsh -y file set network --path /etc/sysconfig/network --mode=0644 --uid=0
-for ((i=0; i<$num_computes; i++)) ; do
-wwsh -y node new ${c_name[i]} --ipaddr=${c_ip[i]} --hwaddr=${c_mac[i]} -D ${eth_internal}
+[root@nebula /]# echo "GATEWAYDEV=${eth_internal}" > /tmp/network.$$
+[root@nebula /]# wwsh -y file import /tmp/network.$$ --name network
+[root@nebula /]# wwsh -y file set network --path /etc/sysconfig/network --mode=0644 --uid=0
+[root@nebula /]# for ((i=0; i<$num_computes; i++)) ; do
+[root@nebula /]# wwsh -y node new ${c_name[i]} --ipaddr=${c_ip[i]} --hwaddr=${c_mac[i]} -D ${eth_internal}
 done
 \end{lstlisting}
 \newpage
@@ -372,21 +377,145 @@ Verzeichnis erstellen in dem der Miner installiert werden soll.
 [root@nebula /]# mkdir  -p /opt/miners
 \end{lstlisting}
 
-Das tkinjo cpuminer-multi Repository klonen. Dabei wird das /opt/miners/cpuminer-mutli Verzeichnis erstellt.
+Das tkinjo cpuminer-multi Repository klonen. Dabei wird das /opt/miners/tkinjo Verzeichnis erstellt.
 \begin{lstlisting}
 [root@nebula /]# cd /opt/miners
-[root@nebula miners]# git clone https://github.com/tkinjo1985/cpuminer-multi.git
-Klone nach 'cpuminer-multi'...
+[root@nebula miners]# git clone https://github.com/tkinjo1985/cpuminer-multi.git tkinjo
+Klone nach 'tkinjo'...
 remote: Counting objects: 3805, done.
 remote: Total 3805 (delta 0), reused 0 (delta 0), pack-reused 3805
 Empfange Objekte: 100% (3805/3805), 18.98 MiB | 3.77 MiB/s, done.
 Loese Unterschiede auf: 100% (2589/2589), done.
 \end{lstlisting}
 
-Die geklonte Version kann nun kompiliert werden. Dabei kann die Warnung: Implizite Deklaration der Funktion, ignoriert werden. Zur Überischt wurde die Ausgabe unten gekürzt.
+Die geklonte Version wurde noch modifiziert, so dass die jeweiligen Hostnamen beim Schürfen angegeben werden. Dazu wird die /opt/miners/tkinjo/cpu-miner.c wiefolgt angepasst. Dies kann mit git apply cpu-miner.c.diff installiert werden.
 \begin{lstlisting}
-[root@nebula miners]# cd cpuminer-multi/
-[root@nebula cpuminer-multi]#./build.sh
+cat  /opt/miners/tkinjo/cpu-miner.c.diff
+diff --git a/cpu-miner.c b/cpu-miner.c
+index 0620d15..0d8c5e2 100644
+--- a/cpu-miner.c
++++ b/cpu-miner.c
+@@ -281,6 +281,11 @@ char *opt_api_allow = NULL;
+ int opt_api_remote = 0;
+ int opt_api_listen = 4048; /* 0 to disable */
+
++#ifndef MAX_HOST_LEN
++#define MAX_HOST_LEN 0xff
++char local_hostname[MAX_HOST_LEN];
++#endif
++
+ #ifdef HAVE_GETOPT_LONG
+ #include <getopt.h>
+ #else
+@@ -1011,6 +1016,7 @@ out:
+ #define YAY "yay!!!"
+ #define BOO "booooo"
+
++
+ static int share_result(int result, struct work *work, const char *reason)
+ {
+        const char *flag;
+@@ -1052,14 +1058,14 @@ static int share_result(int result, struct work *work, const char *reason)
+        case ALGO_PLUCK:
+        case ALGO_SCRYPTJANE:
+                sprintf(s, hashrate >= 1e6 ? "%.0f" : "%.2f", hashrate);
+-               applog(LOG_NOTICE, "accepted: %lu/%lu (%s), %s H/s %s",
+-                       accepted_count, accepted_count + rejected_count,
++               applog(LOG_NOTICE, "[" CL_LBL "%s" CL_N "] accepted: %lu/%lu (%s), %s H/s %s",
++                       local_hostname, accepted_count, accepted_count + rejected_count,
+                        suppl, s, flag);
+                break;
+        default:
+                sprintf(s, hashrate >= 1e6 ? "%.0f" : "%.2f", hashrate / 1000.0);
+-               applog(LOG_NOTICE, "accepted: %lu/%lu (%s), %s kH/s %s",
+-                       accepted_count, accepted_count + rejected_count,
++               applog(LOG_NOTICE, "[" CL_LBL "%s" CL_N "] accepted: %lu/%lu (%s), %s kH/s %s",
++                       local_hostname, accepted_count, accepted_count + rejected_count,
+                        suppl, s, flag);
+                break;
+        }
+@@ -2388,12 +2394,12 @@ static void *miner_thread(void *userdata)
+                        case ALGO_CRYPTONIGHT:
+                        case ALGO_PLUCK:
+                        case ALGO_SCRYPTJANE:
+-                               applog(LOG_INFO, "CPU #%d: %.2f H/s", thr_id, thr_hashrates[thr_id]);
++                               applog(LOG_INFO, "[" CL_LBL "%s" CL_N "] CPU #%d: %.2f H/s", local_hostname, thr_id, thr_hashrates[thr_id]);
+                                break;
+                        default:
+                                sprintf(s, thr_hashrates[thr_id] >= 1e6 ? "%.0f" : "%.2f",
+                                                thr_hashrates[thr_id] / 1e3);
+-                               applog(LOG_INFO, "CPU #%d: %s kH/s", thr_id, s);
++                               applog(LOG_INFO, "[" CL_LBL "%s" CL_N "] CPU #%d: %s kH/s", local_hostname, thr_id, s);
+                                break;
+                        }
+                        tm_rate_log = time(NULL);
+@@ -2409,11 +2415,11 @@ static void *miner_thread(void *userdata)
+                                case ALGO_AXIOM:
+                                case ALGO_SCRYPTJANE:
+                                        sprintf(s, "%.3f", hashrate);
+-                                       applog(LOG_NOTICE, "Total: %s H/s", s);
++                                       applog(LOG_NOTICE, "[" CL_LBL "%s" CL_N "] Total: %s H/s", local_hostname, s);
+                                        break;
+                                default:
+                                        sprintf(s, hashrate >= 1e6 ? "%.0f" : "%.2f", hashrate / 1000);
+-                                       applog(LOG_NOTICE, "Total: %s kH/s", s);
++                                       applog(LOG_NOTICE, "[" CL_LBL "%s" CL_N "] Total: %s kH/s", local_hostname, s);
+                                        break;
+                                }
+                                global_hashrate = (uint64_t) hashrate;
+@@ -3338,6 +3344,8 @@ int main(int argc, char *argv[]) {
+        long flags;
+        int i, err;
+
++  gethostname(local_hostname, MAX_HOST_LEN*sizeof(char));
++
+        pthread_mutex_init(&applog_lock, NULL);
+
+        show_credits();
+\end{lstlisting}
+
+Ohne Anpassung sieht die Ausgabe wiefolgt aus:
+\begin{lstlisting}
+[2018-05-19 14:09:03] CPU #3: 1.86 H/s
+[2018-05-19 14:09:03] CPU #2: 1.86 H/s
+[2018-05-19 14:09:03] CPU #3: 1.86 H/s
+[2018-05-19 14:09:03] CPU #1: 1.86 H/s
+[2018-05-19 14:09:03] CPU #3: 1.86 H/s
+[2018-05-19 14:09:03] CPU #0: 1.86 H/s
+[2018-05-19 14:09:03] CPU #2: 1.86 H/s
+[2018-05-19 14:09:03] CPU #2: 1.85 H/s
+[2018-05-19 14:09:03] CPU #2: 1.86 H/s
+[2018-05-19 14:09:03] CPU #3: 1.85 H/s
+[2018-05-19 14:09:03] CPU #3: 1.86 H/s
+[2018-05-19 14:09:03] CPU #0: 1.85 H/s
+[2018-05-19 14:09:03] CPU #0: 1.85 H/s
+[2018-05-19 14:09:03] CPU #0: 1.85 H/s
+[2018-05-19 14:09:03] CPU #2: 1.85 H/s
+[2018-05-19 14:09:03] CPU #1: 1.85 H/s
+[2018-05-19 14:09:03] CPU #2: 1.85 H/s
+\end{lstlisting}
+Durch die Modifikation werden die Computenodenamen ausgegeben:
+\begin{lstlisting}
+[2018-05-19 14:06:33] [c26] CPU #2: 1.86 H/s
+[2018-05-19 14:06:33] [c14] CPU #1: 1.86 H/s
+[2018-05-19 14:06:33] [c1] CPU #1: 1.86 H/s
+[2018-05-19 14:06:33] [c30] CPU #1: 1.85 H/s
+[2018-05-19 14:06:33] [c9] CPU #3: 1.86 H/s
+[2018-05-19 14:06:33] [c21] CPU #1: 1.86 H/s
+[2018-05-19 14:06:33] [c9] CPU #2: 1.85 H/s
+[2018-05-19 14:06:33] [c21] CPU #2: 1.86 H/s
+[2018-05-19 14:06:33] [c14] CPU #3: 1.85 H/s
+[2018-05-19 14:06:33] [c1] CPU #2: 1.85 H/s
+[2018-05-19 14:06:33] [c39] CPU #2: 1.85 H/s
+[2018-05-19 14:06:33] [c39] CPU #0: 1.85 H/s
+[2018-05-19 14:06:33] [c13] CPU #2: 1.84 H/s
+[2018-05-19 14:06:33] [c13] CPU #0: 1.84 H/s
+[2018-05-19 14:06:33] [c4] CPU #3: 1.85 H/s
+\end{lstlisting}
+Die geklonte Version kann nun kompiliert werden. Dabei kann die Warnung: Implizite Deklaration der Funktion, ignoriert werden. Zur Übersicht wurde die Ausgabe unten gekürzt.
+\begin{lstlisting}
+[root@nebula miners]# cd tkinjo/
+[root@nebula tkinjo]#./build.sh
 make: *** Keine Regel, um >>clean<< zu erstellen.  Schluss.
 clean
 configure.ac:15: installing './compile'
@@ -407,7 +536,7 @@ algo/../scryptjane/scrypt-jane-chacha.h: In Funktion >>scrypt_test_mix<<:
 algo/../scryptjane/scrypt-jane-chacha.h:125:20: Warnung: Implizite Deklaration der Funktion >>detect_cpu<< [-Wimplicit-function-declaration]
   size_t cpuflags = detect_cpu();
                     ^~~~~~~~~~
-make[2]: Leaving directory `/opt/miners/cpuminer-multi'
-make[1]: Leaving directory `/opt/miners/cpuminer-multi'
+make[2]: Leaving directory `/opt/miners/tkinjo'
+make[1]: Leaving directory `/opt/miners/tkinjo'
 \end{lstlisting}
  
