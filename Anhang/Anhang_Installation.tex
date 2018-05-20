@@ -1,6 +1,6 @@
 % !TEX root = ../Diplombericht.tex
 
-\section{Installation Managementnode}
+\section{Installation Management Node}
 Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm \footnote{\url{http://openhpc.community/downloads/}}. Die Installation wird hauptsächlich mit dem ROOT-Benutzer durchgeführt, falls nichts anderes erwähnt wird.
 
 \subsection{Variablen Definition}
@@ -304,7 +304,7 @@ May 17 20:32:56 nebula rpc.mountd[495]: authenticated mount request from 192.168
 
 Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Computenode c12 gestartet wurde und nach dem Betriebssystem anfragt und dieses mounten will.
 
-\subsection{Registration Computenodes}
+\subsection{Registration Compute Nodes}
 
 Die Installation ist soweit abgeschlossen, die optionalen Pakete werden später installiert und beschrieben. Nun werden die Computenodes registriert, ab diesem Zeitpunkt kennt der Managementnode jeden Computenode. Die Computenodes werden wiefolgt in den Datastore aufgenommen.
 

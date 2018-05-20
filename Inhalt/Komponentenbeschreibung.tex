@@ -7,7 +7,7 @@ Bei dem Router handelt es sich um eine Internet-Box Plus von Swisscom. Das Admin
 \subsubsection{PC}
 Der PC ist selbst zusammengestellt und wird für den SSH Zugriff auf den Managementnode und für Zugriffe auf die Webanwendungen des Clusters benötigt.
 
-\subsubsection{Managementnode}
+\subsubsection{Management Node}
 Der Managementnode dient der Jobsteuerung sowie Clusterverwaltung. Alle zentralen Programme sind auf diesem Node installiert.
 
 \begin{table}[H]
@@ -23,7 +23,7 @@ RAM & 1GB  \\\hline
 \caption{Komponente Managementnode}
 \end{table}
 
-\subsubsection{Netzteil Managementnode}
+\subsubsection{Netzteil Management Node}
 Das Netzteil liefert eine konstante Spannung von 5V und Strom von mindestens 2 Ampere. Dabei handelt es sich um ein Noname Netzeil welches eine Mindestleistug von 10 Watt aufbringen muss.
 
 \subsubsection{NAS}
@@ -32,7 +32,7 @@ Das NAS ist von der Firma Synology, das Modell lautet DS216 und wird als redunda
 \subsubsection{Switch}
 Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Router, Managementnode und den Computenodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebs verzichtet.
 
-\subsubsection{Computenodes}
+\subsubsection{Compute Nodes}
 Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen der Computenodes mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten übernehmen und die Leistung des Clusters konstant halten.
 
 \textbf{Aktiv}
@@ -63,6 +63,6 @@ RAM & 1GB  \\\hline
 \caption{Komponente passive Copmputenodes}
 \end{table}
 
-\subsubsection{Schaltnetzteil Computenodes}
+\subsubsection{Schaltnetzteil Compute Nodes}
 Das Schaltnetzteil RSP-750-5 von Mean Well liefert konstante 5 Volt aus Ausgangsspannung und kann eine Leistung bis zu 500 Watt aufbringen, daraus kénnen 100 Ampere auf die Nodes verteilt werden.
 

@@ -8,15 +8,15 @@
 \centering
 \begin{tabular}{p{2cm}p{5cm}p{4cm}p{4cm}}
 \hline
-\rowcolor{heading} \textbf{Anzahl} & \textbf{Komponente} & \textbf{Stückpreis(CHF)} &\textbf{Gesamtwert(CHF)} \\\hline
-40 & Raspberry PI Model B+ & 33.00 & 1320.00 \\\hline
-1 & Schaltnetzteil & 229.00 & 229.00 \\\hline
-1 & TTL Serial Kabel & 30.00 & 30.00 \\\hline
-40 & Patchkabel Cat. 5e & 1.00 & 40.00 \\\hline
-1 & TP-Link Switch & 220.00 & 220.00 \\\hline
-1 & Synology NAS DS216 & 600.00 & 600.00 \\\hline
-1 & Diverse Kabel, Schrauben & 50.00 & 50.00 \\\hline
-\rowcolor{subheading}\textbf{-} & \textbf{Total} & \textbf{-} & \textbf{2'489.00} \\\hline
+\rowcolor{heading} \textbf{Anzahl} & \textbf{Komponente} & \hfill \textbf{Stückpreis(CHF)} & \hfill \textbf{Gesamtwert(CHF)} \\\hline
+40 & Raspberry PI Model B+ & \hfill 33.00 & \hfill 1320.00 \\\hline
+1 & Schaltnetzteil & \hfill  229.00 & \hfill 229.00 \\\hline
+1 & TTL Serial Kabel & \hfill 30.00 & \hfill 30.00 \\\hline
+40 & Patchkabel Cat. 5e & \hfill 1.00 & \hfill 40.00 \\\hline
+1 & TP-Link Switch & \hfill 220.00 & \hfill 220.00 \\\hline
+1 & Synology NAS DS216 & \hfill 600.00 & \hfill 600.00 \\\hline
+1 & Diverse Kabel, Schrauben & \hfill 50.00 & \hfill 50.00 \\\hline
+\rowcolor{subheading}\textbf{-} & \textbf{Total} & \hfill \textbf{-} & \hfill \textbf{2'489.00} \\\hline
 \end{tabular}
 \caption{Beschaffungskosten}
 \end{table}
@@ -26,23 +26,23 @@
 \centering
 \begin{tabular}{p{2cm}p{5cm}p{4cm}p{4cm}}
 \hline
-\rowcolor{heading} \textbf{Stunden} & \textbf{Phase} & \textbf{Stundenansatz(CHF)} &\textbf{Gesamtkosten(CHF)} \\\hline
-30 & Initialisierung & 120.00 & 3'600.00 \\\hline
-50 & Konzept & 120.00 & 6'000.00 \\\hline
-142 & Realisierung & 120.00 & 17'040.00 \\\hline
-22 & Einführung & 120.00 & 2'640 \\\hline
-25 & Periodische Arbeiten & 120.00 & 3'000.00 \\\hline
-25 & Reserve & 120.00 & 3'000.00 \\\hline
-\rowcolor{subheading}\textbf{294} & \textbf{Total} & \textbf{120.00} & \textbf{35'280.00} \\\hline
+\rowcolor{heading} \textbf{Stunden} & \textbf{Phase} & \textbf{Stundenansatz(CHF)} &\hfill \textbf{Gesamtkosten(CHF)} \\\hline
+30 & Initialisierung & \hfill 120.00 & \hfill 3'600.00 \\\hline
+41 & Konzept & \hfill 120.00 & \hfill  6'000.00 \\\hline
+171 & Realisierung & \hfill 120.00 & \hfill  17'040.00 \\\hline
+25.5 & Einführung & \hfill 120.00 & \hfill 2'640.00 \\\hline
+25 & Periodische Arbeiten & \hfill 120.00 & \hfill  3'000.00 \\\hline
+1.5 & Reserve / Administration & \hfill 120.00 & \hfill 3'000.00 \\\hline
+\rowcolor{subheading}\textbf{294} & \textbf{Total} &\hfill  \textbf{120.00} & \hfill \textbf{35'280.00} \\\hline
 \end{tabular}
 \caption{Aufwandskosten}
 \end{table}
 
-\subsubsection{Betriebskosten (Repetitiv)}
+\subsubsection{Betriebskosten (repetitiv)}
 
-Folgende Voraussetzungen sind für die folgenden Berechnungen definiert.
+Folgende Voraussetzungen sind für die folgenden Berechnungen definiert:
 \begin{itemize}
-	\item 1000 Watt die Stunde kosten 0.2894 CHF.
+	\item 1000 Watt die Stunde kostet 0.2894 CHF
 	\item Ein Monat hat 30 Tage
 	\item Ein Jahr hat 360 Tage
 \end{itemize}
@@ -60,7 +60,7 @@ Der Strom wird durch die BKW über den Vertrag Energy Blue bezogen.
 \hline
 \rowcolor{heading} \textbf{Anzahl} & \textbf{Leistung} & \multicolumn{4}{l}{\textbf{Kosten in CHF}} \\\hline
 \rowcolor{subheading} \textbf{RPI} & \textbf{kW} & \textbf{Stunde} &\textbf{Tag} & \textbf{Monat} &\textbf{Jahr} \\\hline
-40 & 0.4 & 0.11576 & 2.78 & 83.35 & 1000.17 \\\hline
+40 & 0.4 & 0.11576 & 2.78 & 83.35 & 1000.20 \\\hline
 \end{tabular}
 \caption{Stromkostenrechnung}
 \end{table}
@@ -68,23 +68,23 @@ Der Strom wird durch die BKW über den Vertrag Energy Blue bezogen.
 \subsubsection{Gesamtkosten}
 
 \textbf{Jährliche Kosten} \newline
-Das Projekt ist Anfangs Juni abgeschlossen. Deshalb belaufen sich die Wartungs- und Stromkosten im 1. Jahr auf die Hälfte gegenüber den Folgejahren.
-Der Cluster soll innerhalb von 3 Jahren gewinnbringend wirken. Die jährlichen sowie täglichen Kosten sind unten zu entnehmen. 
+Das Projekt ist Anfang Juni abgeschlossen sein. Deshalb belaufen sich die Wartungs- und Stromkosten im 1. Jahr auf die Hälfte gegenüber den Folgejahren.
+Der Cluster soll innerhalb von 3 Jahren gewinnbringend wirken. Die jährlichen sowie täglichen Kosten (in CHF) sind der nachfolgenden Tabelle zu entnehmen: 
 
 \begin{table}[H]
 \centering
 \begin{tabular}{p{4cm}p{4cm}p{4cm}p{4cm}}
 \hline
-\rowcolor{heading} \textbf{Kostengrund} & \textbf{Kosten 1.Jahr} & \textbf{Kosten 2.Jahr} & \textbf{Kosten 3.Jahr}\\\hline
-Beschaffung & 2'489.00 & - & - \\\hline
-Aufwand & 35'280.00 & - & - \\\hline
-Wartungskosten & 2'160.00 & 4'320.00 & 4'320.00 \\\hline
-Stromkosten & 500.00 & 1000.00 & 1000.00 \\\hline
-\rowcolor{subheading}\textbf{Total} & \textbf{40'429.00} & \textbf{45'749.00} & \textbf{51'069.00} \\\hline
+\rowcolor{heading} \textbf{Kostengrund} & \textbf{Kosten 1. Jahr} & \textbf{Kosten 2. Jahr} & \textbf{Kosten 3. Jahr}\\\hline
+Beschaffung & \hfill 2'489.00 &\hfill - &\hfill - \\\hline
+Aufwand & \hfill 35'280.00 & \hfill- & \hfill- \\\hline
+Wartungskosten & \hfill 2'160.00 & \hfill 4'320.00 & \hfill 4'320.00 \\\hline
+Stromkosten & \hfill 500.00 & \hfill 1'000.00 & \hfill 1'000.00 \\\hline
+\rowcolor{subheading}\textbf{Total} & \hfill \textbf{40'429.00} & \hfill \textbf{45'749.00} & \hfill \textbf{51'069.00} \\\hline
 \end{tabular}
 \caption{Gesamtkosten}
 \end{table}
 
-\textbf{Tägliche Kosten}
-Auf 3 Jahre ausgerechnet muss täglich ein Ertrag von 47.29 CHF erwirtschaftet werden um die investierten Aufwände und Kosten zu decken.
+\textbf{Tägliche Kosten}\newline
+Auf 3 Jahre ausgerechnet, muss täglich ein Ertrag von 47.29 CHF erwirtschaftet werden, um die investierten Aufwände und Kosten zu decken.
 
