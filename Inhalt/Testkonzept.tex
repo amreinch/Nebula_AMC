@@ -60,15 +60,15 @@ Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests 
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{K-001} & Start Managementnode & Systemstart \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Der Managementnode wird auf die Erreichbarkeit nach einem Systemstart der Komponenten überprüft} \\ \hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Managementnode und der Test PC befinden sich im selben Netzwerk} \\ \hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Managementnode starten (Strom anschliessen)
-\item 30 Sekunden warten
-\item auf Test PC mit dem Befehl \grqq nmap -sn 192.168.1.10 | grep Nmap scan report\grqq{}  auf erreichbare Geräte mit der IP 192.168.1.10 prüfen.
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Nmap scan report for nebula (192.168.1.10)} \\\hline
+Bezeichnung & \textbf{K-001} & Managementnode & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Management Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Managementnode und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Management Node starten (Strom anschliessen)\newline
+- 30 Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.10 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-001}
 \label{Testfall K-001}
@@ -78,203 +78,894 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Nmap scan report for nebula (192
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{K-002} & Start Computenodes & Systemstart \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Die Computenodes werden auf die Erreichbarkeit nach einem Systemstart überprüft} \\ \hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Die Nodes und der Test PC befinden sich im selben Netzwerk, der Managementnode muss bereits in Betrieb sein} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Computenodes an Strom anschliessen
-\item 5 Minuten warten
-\item auf Test PC mit dem Befehl  \textit{nmap -sn 192.168.1.11-55 | grep Nmap scan report} auf erreichbare Geräte mit der IP Range 192.168.1.11 - 192.168.1.55 prüfen
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{
-Nmap scan report for c1 (192.168.1.11) \newline
-...}\\ \hline
+Bezeichnung & \textbf{K-002} & Management Node & Anmelden \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Management Node über das SSH Protkoll erreichbar ist.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Managementnode und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Management Node starten (Strom anschliessen)\newline
+- 30 Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell den Befehl \grqq ssh root@nebula \grqq eingeben \newline
+- Passwort eingeben} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Zugriff auf den Management Node funktioniert} \\\hline
 \end{tabular}
 \caption{Testfall K-002}
 \label{Testfall K-002}
 \end{table}
 
-
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{K-003} & Hostnamen \& IP Nodes & DHCP \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob alle Nodes die richtige IP Adresse und den richtigen Hostnamen zugewiesen erhalten haben} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Die Nodes und der Test PC befinden sich im selben Netzwerk, alle Nodes müssen gestartet sein. Dieser Test ist abhängig von K-001 und K-002} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Auf dem Test PC mit dem Befehl \textit{nmap -sn 192.168.1.10-55 | \grq grep Nmap scan report|MAC Address\grq} die IP, den Hostnamen und die MAC Adressen auslesen.
-\item Die Ausgabe mit der Hostnamenliste im Anhang vergleichen, diese muss identisch sein
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Nmap scan report for c1.home (192.168.1.11) \newline
-MAC Address: B8:27:EB:32:39:A7 (Raspberry Pi Foundation)\newline
-... \newline
-Es müssen 46 Einträge vorhanden sein}\\\hline
+Bezeichnung & \textbf{K-003} & Compute Node c1 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.11 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-003}
 \label{Testfall K-003}
 \end{table}
 
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{K-004} & NAS-Share & SMB \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getest ob das NAS erreichbar ist und der Samba Dienst läuft} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS und der Managementnode sind gestartet} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{Auf dem Managementnode mit dem Befehl nc -v nasbox 445 in der Shell die Verbindung prüfen.} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Ncat: Version 6.40 ( http:\/\/nmap.org\/ncat )\newline
-Ncat: Connected to 2a02:1205:5012:90f0:211:32ff:fe54:1e69:445.}\\\hline
+Bezeichnung & \textbf{K-004} & Compute Node c1 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.11 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-004}
 \label{Testfall K-004}
 \end{table}
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-Bezeichnung & \textbf{I-001} & Installation & Skript \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Das Installationsskript soll automatisiert durchlaufen. Der Cluster soll danach direkt einsetzbar sein ohne zusätzliche Konfigurationen vornehmen zu müssen} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Alle Komponententests müssen fehlerfrei durchgelaufen sein} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Das Installationsskript aus dem Git Repository herunterladen
-\item Das Skript ausführen
-\item Installationsdurchlauf abwarten, ca. 1 Stunde
-\item Auf den Managementnode per SSH über den PC verbinden
-\item Den Befehl sinfo eingeben
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe muss die Computenodes im idle Status ausgeben.\newline
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST\newline
-normal*      up   infinite      1   idle c[1-45]}\\\hline
-\end{tabular}
-\caption{Testfall I-001}
-\label{Testfall I-001}
-\end{table}
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{I-002} & Netzerkboot & Betriebssystem \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Der Managementnode verteilt das Betriebssystem an alle Computenodes} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Dnsmasq und die Netzerkboot Verzeichnisse sind angelegt. Der Masternode ist erreichbar} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Die Computenodes mit Strom versorgen
-\item 5 Minuten warten
-\item Auf dem Managementnode in der Konsole folgendes eingeben: for ((i=1; i<=45; i++)); do ssh c\$i hostname; done eingeben
-\item Abwarten bis alle Computenodes durchgegangen wurden
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Für jeden Computenode wird der Hostname ausgegeben. c1, c2, c3, ... c45.}\\\hline
+Bezeichnung & \textbf{K-005} & Compute Node c2 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.12 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall I-002}
-\label{Testfall I-002}
+\caption{Testfall K-005}
+\label{Testfall K-005}
 \end{table}
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{I-003} & NAS Share & Verbindung \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Der NAS-Share ist auf dem Masternode und den Computenodes angehängt} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Es ist ein NAS-Share eingerichtet} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Auf den Managementnode per SSH verbinden
-\item Den Befehl mount eingeben
-\item Den Mountpoint auf das NAS auslesen
-\item mit cd Dir in das Verzeichnis wechseln
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Mountpoint wird bei der Eingabe von mount angezeigt \newline
-Es kann in das Verzeichnis gewechselt werden \newline
-Falls bereits Daten auf dem Share vorhanden sind werden diese mit dem Befehl ls -lrtha angezeigt.}\\\hline
+Bezeichnung & \textbf{K-006} & Compute Node c3 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.13 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall I-003}
-\label{Testfall I-003}
+\caption{Testfall K-006}
+\label{Testfall K-006}
 \end{table}
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{I-004} & Computenodes Internet & Konnektivität \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird überprüft ob die Computenodes eine Verbindung zum Internet aufbauen können.} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Managementnode und Computenodes sind gestartet} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{Auf jedem Computenode muss in der Kommandozeile ping google.com eingeben werden} \\\hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{PING google.com (216.58.205.46) 56(84) bytes of data.
-64 bytes from mil04s24-in-f46.1e100.net (216.58.205.46)
-64 bytes from mil04s24-in-f46.1e100.net (216.58.205.46)}\\\hline
+Bezeichnung & \textbf{K-007} & Compute Node c4 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.14 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall I-004}
-\label{Testfall I-004}
+\caption{Testfall K-007}
+\label{Testfall K-007}
 \end{table}
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{S-001} & NAS Share & Existenz \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird überprüft ob der NAS-Share nebula vorhanden ist} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS ist erreichbar und der Share ist eingerichtet} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Über den Browser auf dem PC auf http://nasbox:5000/ anmelden
-\item Logindaten eingeben
-\item Dem Pfad folgen Desktop/File Station/nebula
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das Verzeichnis ist vorhanden und kann gelesen und beschrieben werden}\\\hline
+Bezeichnung & \textbf{K-008} & Compute Node c5 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.15 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall S-001}
-\label{Testfall S-001}
+\caption{Testfall K-008}
+\label{Testfall K-008}
 \end{table}
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{S-002} & Ausfall Computenode & Ausfallsicherheit \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es soll getestet werden ob der Cluster weiterhin stabil läuft, nachdem ein Computenode vom Strom entfernt wird} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster ist in Betrieb} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item Job in Auftrag geben (srun)
-\item Die Stromzufuhr eines aktiven Computenodes unterbrechen
-\item Den Job mit sinfo oder squeue abrufen
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Job läuft weiter und ist auf einen passiven Node ausgelagert worden}\\\hline
+Bezeichnung & \textbf{K-009} & Compute Node c6 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.16 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall S-002}
-\label{Testfall S-002}
+\caption{Testfall K-009}
+\label{Testfall K-009}
 \end{table}
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{S-003} & Slurm & Jobverwaltung \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es soll getestet werden, ob Slurm richtig konfiguriert wurde und Jobs auf dem Cluster gestartet werden können} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Managementnode und Computenodes sind gestartet} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item srun --nodes=40-40 --ntasks=40 --cpus-per-task=4 testslurm.sh in der Kommandozeile eingeben
-\item squeue in der Kommandozeile eingeben
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das testslrum.sh Script wird in der Queue angezeigt und der Status ist auf Running}\\\hline
+Bezeichnung & \textbf{K-010} & Compute Node c7 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.17 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall S-003}
-\label{Testfall S-003}
+\caption{Testfall K-010}
+\label{Testfall K-010}
 \end{table}
+
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{S-004} & Nagios & Monitoring \\\hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Die Installation und Konfiguration von Nagios soll überprüft werden} \\\hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Nagios ist installiert und Konfiguriert} \\\hline
-Testschritte & \multicolumn{3}{p{12cm}|}{\begin{itemize}
-\item http://nebula/nagios aufrufen
-\item Anmeldedaten eingeben
-\item 
-\end{itemize}} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das testslrum.sh Script wird in der Queue angezeigt und der Status ist auf Running}\\\hline
+Bezeichnung & \textbf{K-011} & Compute Node c8 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.18 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
-\caption{Testfall S-004}
-\label{Testfall S-004}
+\caption{Testfall K-011}
+\label{Testfall K-011}
 \end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-012} & Compute Node c9 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.19 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-012}
+\label{Testfall K-012}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-013} & Compute Node c10 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.20 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-013}
+\label{Testfall K-013}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-014} & Compute Node c11 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.21 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-014}
+\label{Testfall K-014}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-015} & Compute Node c12 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.22 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-015}
+\label{Testfall K-015}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-016} & Compute Node c13 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.23 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-016}
+\label{Testfall K-016}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-017} & Compute Node c14 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.24 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-017}
+\label{Testfall K-017}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-018} & Compute Node c15 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.25 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-018}
+\label{Testfall K-018}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-019} & Compute Node c16 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.26 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-019}
+\label{Testfall K-019}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-020} & Compute Node c17 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.27 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-020}
+\label{Testfall K-020}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-021} & Compute Node c18 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.28 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-021}
+\label{Testfall K-021}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-022} & Compute Node c19 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.29 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-022}
+\label{Testfall K-022}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-023} & Compute Node c20 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.30 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-023}
+\label{Testfall K-023}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-024} & Compute Node c21 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.31 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-024}
+\label{Testfall K-024}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-025} & Compute Node c22 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.32 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-025}
+\label{Testfall K-025}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-026} & Compute Node c23 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.33 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-026}
+\label{Testfall K-026}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-027} & Compute Node c24 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.34 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-027}
+\label{Testfall K-027}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-028} & Compute Node c25 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.35 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-028}
+\label{Testfall K-028}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-029} & Compute Node c26 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.36 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-029}
+\label{Testfall K-029}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-030} & Compute Node c27 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.37 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-030}
+\label{Testfall K-030}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-031} & Compute Node c28 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.38 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-031}
+\label{Testfall K-031}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-032} & Compute Node c29 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.39 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-032}
+\label{Testfall K-032}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-033} & Compute Node c30 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.40 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-033}
+\label{Testfall K-033}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-034} & Compute Node c31 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.41 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-034}
+\label{Testfall K-034}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-035} & Compute Node c32 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.42 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-035}
+\label{Testfall K-035}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-036} & Compute Node c33 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.43 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-036}
+\label{Testfall K-036}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-037} & Compute Node c34 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.44 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-037}
+\label{Testfall K-037}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-038} & Compute Node c35 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.45 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-038}
+\label{Testfall K-038}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-039} & Compute Node c36 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.46 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-039}
+\label{Testfall K-039}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-040} & Compute Node c37 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.47 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-040}
+\label{Testfall K-040}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-041} & Compute Node c38 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.48 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-041}
+\label{Testfall K-041}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-042} & Compute Node c39 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.49 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-042}
+\label{Testfall K-042}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-043} & Compute Node c40 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.50 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-043}
+\label{Testfall K-043}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-044} & Compute Node c41 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.51 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-044}
+\label{Testfall K-044}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-045} & Compute Node c42 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.52 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-045}
+\label{Testfall K-045}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-046} & Compute Node c43 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.53 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-046}
+\label{Testfall K-046}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-047} & Compute Node c44 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.54 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-047}
+\label{Testfall K-047}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{K-048} & Compute Node c45 & Hostnamen / IP / MAC \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Node starten (Strom anschliessen)\newline
+- 3 Minuten Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.55 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen deckungsleich mit deren im Hostnamenkonzept sein.} \\\hline
+\end{tabular}
+\caption{Testfall K-048}
+\label{Testfall K-048}
+\end{table}
+

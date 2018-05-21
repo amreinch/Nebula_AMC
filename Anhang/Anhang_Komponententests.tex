@@ -1,0 +1,309 @@
+% !TEX root = ../Diplombericht.tex
+\subsection{Komponententests}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-001 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Management Node \\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 30 Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.10 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = nebula \newline
+IP = 192.168.1.10 \newline
+MAC = B8:27:EB:32:A9:1C \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for nebula.home (192.168.1.10)\newline
+MAC Address: B8:27:EB:32:A9:1C (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.26 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-001 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-002 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Management Node \\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 30 Sekunden warten\newline
+- Auf dem Testclient über Putty oder Shell den Befehl \grqq ssh root@nebula \grqq eingeben \newline
+- Passwort eingeben \\ \hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Die SSH Verbindung auf den Management Node hat funktioniert und man ist als root-Benutzer angemeldet.  \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} & login as: root \newline
+root@nebula's password: \newline
+Last login: Fri May 18 17:40:34 2018 from desktop-rrq1k7v.home \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-002 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-003 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c1 \\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.11 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c1 \newline
+IP = 192.168.1.11 \newline
+MAC =  B8:27:EB:32:39:A7 \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c1.home (192.168.1.11)\newline
+MAC Address:  B8:27:EB:32:39:A7 (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.24 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-003 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-004 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c2\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.12 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c2 \newline
+IP = 192.168.1.12 \newline
+MAC =  B8:27:EB:2E:A3:D1 \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c2.home (192.168.1.12)\newline
+MAC Address:  B8:27:EB:2E:A3:D1 (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.24 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-004 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-005 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c3\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.13 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c3 \newline
+IP = 192.168.1.13 \newline
+MAC =  B8:27:EB:50:45:3F \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c3.home (192.168.1.13)\newline
+MAC Address:  B8:27:EB:50:45:3F (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.26 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-005 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-006 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c4\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.14 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c4 \newline
+IP = 192.168.1.14 \newline
+MAC =  B8:27:EB:0D:E6:25 \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c4.home (192.168.1.14)\newline
+MAC Address:  B8:27:EB:0D:E6:25 (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.25 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-006 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-007 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c5\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.15 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c5 \newline
+IP = 192.168.1.15 \newline
+MAC =  B8:27:EB:3E:96:B5 \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c5.home (192.168.1.15)\newline
+MAC Address:  B8:27:EB:3E:96:B5 (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.25 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-007 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-008 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c6\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.16 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c6 \newline
+IP = 192.168.1.16 \newline
+MAC =  B8:27:EB:EE:77:DA \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c6.home (192.168.1.16)\newline
+MAC Address:  B8:27:EB:EE:77:DA (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.26 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-008 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-009 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c6\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.16 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c6 \newline
+IP = 192.168.1.16 \newline
+MAC =  B8:27:EB:EE:77:DA \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c6.home (192.168.1.16)\newline
+MAC Address:  B8:27:EB:EE:77:DA (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.26 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-009 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-010 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c7\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.17 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c7 \newline
+IP = 192.168.1.17 \newline
+MAC =  B8:27:EB:21:63:E6 \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c7.home (192.168.1.17)\newline
+MAC Address:  B8:27:EB:21:63:E6 (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.26 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-010 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-010 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c8\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.18 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c8 \newline
+IP = 192.168.1.18 \newline
+MAC =  B8:27:EB:2E:2E:CC \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Nmap scan report for c8.home (192.168.1.18)\newline
+MAC Address:  B8:27:EB:2E:2E:CC (Raspberry Pi Foundation)\newline
+Nmap done: 1 IP address (1 host up) scanned in 0.26 seconds)  \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-011 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & K-010 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Compute Node c8\\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Management Node starten (Strom anschliessen)\newline
+- 3 Minuten warten\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.19 \grqq eingeben\newline
+- Prüfen ob der die Zuweisung gemäss Hostnamenkonzept richtig ist. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Hostname = c9 \newline
+IP = 192.168.1.19 \newline
+MAC =  B8:27:EB:2E:2E:CC \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+MAC Address: B8:27:EB:17:32:96 (Raspberry Pi Foundation)
+Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds) \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 21.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{K-012 Protokoll}
+\end{table}
