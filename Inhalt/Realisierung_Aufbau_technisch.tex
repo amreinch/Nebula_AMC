@@ -1,20 +1,20 @@
 % !TEX root = ../Diplombericht.tex
 \subsection{Technischer Aufbau}
 \subsubsection{Betriebssystem}
-Es exisitiert zur Zeit kein 64-Bit CentOS Kernel welcher mit den RPI's kompatibel ist. Deswegen wurde mit einer alternativen Lösung das Gentoo Image vom Github Repository\footnote{\url{https://github.com/sakaki-/gentoo-on-rpi3-64bit}} von Sakaki heruntergeladen und auf die SD-Karte geschrieben. Dabei wurden zwei Partitionen erstellt. Die boot Partition, welche den Kernel und die Bootbefehle beinhaltet. Die Dateisystem-Partition beinhaltet das Dateisystem und muss mit der eines CentOS Dateisystems überschrieben werden. Dabei wurde das Dateisystem aus dem offizielen Repository von CentOS\footnote{\url{http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-7.4.1708.tar.xz}} heruntergeladen und auf die Dateisystem Partition kopiert.
+Es exisitiert zur Zeit kein 64-Bit CentOS Kernel, welcher mit den RPI's kompatibel ist. Deswegen wurde mit einer alternativen Lösung das Gentoo Image vom Github Repository\footnote{\url{https://github.com/sakaki-/gentoo-on-rpi3-64bit}} von Sakaki heruntergeladen und auf die SD-Karte geschrieben. Dabei wurden zwei Partitionen erstellt: Die Boot-Partition, welche den Kernel und die Bootbefehle beinhaltet, und die Dateisystem-Partition. Diese beinhaltet die Ordnerstruktur und Dateien des Betriebssystems. Diese Partition muss mit der eines CentOS Dateisystems überschrieben werden. Dabei wurde das Dateisystem aus dem offiziellen Repository von CentOS\footnote{\url{http://mirror.centos.org/altarch/7/isos/aarch64/CentOS-7-aarch64-rootfs-7.4.1708.tar.xz}} heruntergeladen und auf die Dateisystem Partition kopiert.
 
 \subsubsection{Vorbereitungen}
 \textbf{Netzwerk}\newline
-Die IP- und Hostnamenzuweisung wurde über die Internetbox von Swisscom eingerichtet. Dabei wurden alle RPI's an das Netzwerk und den Strom angeschlossen. Nach ca. 2 Minuten wurden alle angeschlossenen Geräte im Interface aufgelistet und konnten anhand dem Hostnamenkonzept eingerichtet werden.
+Die IP- und Hostnamenzuweisung wurde über die Internetbox von Swisscom eingerichtet. Dabei wurden alle RPI's an das Netzwerk und den Strom angeschlossen. Nach ca. 2 Minuten wurden alle angeschlossenen Geräte im Interface aufgelistet und konnten anhand des Hostnamenkonzeptes eingerichtet werden.
 
 \textbf{Netzwerkboot}\newline
-Der Managementnode dient als Provider und verteilt das Betriebssystem an alle angeschlossenen Computenodes. Diese mussten vorgängig bearbeitet werden und benötigen bei einem Power On einen OTP Eintrag, dadurch wird eine Anfrage von jedem Computenode (Client) an den Managementnode gestellt ob es das Betriebssystem erhalten darf. Zeitgleich wurden noch alle MAC-Adressen ausgelesen, diese werden später für die statische Zuweisung von IP Adressen und Hostnamen benötigt.
+Der Management Node dient als Provider und verteilt das Betriebssystem an alle angeschlossenen Compute Nodes. Diese mussten vorgängig bearbeitet werden und benötigen bei einem Power On einen OTP Eintrag. Dadurch wird eine Anfrage von jedem Compute Node (Client) an den Management Node gestellt, ob es das Betriebssystem erhalten darf. Zeitgleich wurden noch alle MAC-Adressen ausgelesen, diese werden später für die statische Zuweisung von IP Adressen und Hostnamen benötigt.
 
 \subsubsection{Installation}
 
-Während der Realisierung wurde nach Erfolgserlebnissen jeweils ein aktueller Snapshot der SD-Karte mit dem Programm Win32DiskImager erstellt. Dadurch war es möglich ein rasches vorantreiben der Installation zu gewährleisten. Falls zuviele Änderungen am System vorgenommen wurden, welche nicht mehr rasch Rückgängig gemacht werden konnten und Probleme verursachten, wurde als Wiederherstellung eines funktionierenden Systems der letzte Snapshot wieder eingespielt.
+Während der Realisierung wurde nach Erfolgserlebnissen jeweils ein aktueller Snapshot der SD-Karte mit dem Programm Win32DiskImager erstellt. Dadurch war es möglich, ein rasches Vorantreiben der Installation zu gewährleisten. Falls zuviele Änderungen am System vorgenommen wurden, welche nicht mehr rasch rückgängig gemacht werden konnten und Probleme verursachten, wurde als Wiederherstellung eines funktionierenden Systems der letzte Snapshot wieder eingespielt.
 
-Zudem wurde für die Installation des Clusters und deren Komponenten die Installationsanleitung (Install guide with Warewulf + Slurm) von OpenHPC verwendet. Dabei wurde der Warewulf Part zu einem grossen Teil übersprungen. Dieser hätte es ermöglicht einen vereinfachten Netzwerkboot der Computenodes einzurichten. Es ist aber leider nicht möglich die RPI's damit zu managen da Warewulf iPXE benutzt.
+Zudem wurde für die Installation des Clusters und dessen Komponenten die Installationsanleitung (Install guide with Warewulf + Slurm) von OpenHPC verwendet. Dabei wurde der Warewulf Part zu einem grossen Teil übersprungen. Dieser hätte es ermöglicht, einen vereinfachten Netzwerkboot der Compute Nodes einzurichten. Es ist aber leider nicht möglich, die RPI's damit zu managen, da Warewulf iPXE benutzt und dies nicht kompatibel mit den RPI's ist.
 
 
 
