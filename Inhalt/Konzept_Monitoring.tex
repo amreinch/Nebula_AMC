@@ -1,29 +1,29 @@
 % !TEX root = ../Diplombericht.tex
 \subsection{Monitoring}
-Als Monitoring Lösungen werden die Applikationen Nagios und Ganglia eingesetzt. Die Einsatzgebiete sind wiefolgt definiert:
+Als Monitoring-Lösungenen werden die Applikationen Nagios und Ganglia eingesetzt. Die Einsatzgebiete sind wie folgt definiert:
 \begin{itemize} 
 \item {Nagios = Service Monitoring}
 \item {Ganglia = Performance Monitoring}
 \end{itemize}
 
 \subsubsection{Service Monitoring - Nagios}
-Sämtliche Service Tests werden vom Managementnode aus, automatisiert in definierten Intervallen ausgeführt.  Fehlgeschlagene Tests, sowie Statusänderungen der Überwachungsstatis generieren eine Benachrichtigungs E-Mail welche an den Systemadministrator versendet wird. Nagios ist über den Browser via http://nebula/nagios zu erreichen.\newline
+Sämtliche Service Tests werden vom Management Node aus automatisch in definierten Intervallen ausgeführt. Fehlgeschlagene Tests sowie Statusänderungen der Überwachungsstatis generieren eine Benachrichtigungs-E-Mail, welche an den Systemadministrator versendet wird. Nagios ist über den Browser via http://nebula/nagios zu erreichen.\newline
 
-Die folgenden Überwachungen sollen während der Realisierungsphase implementiert werden. Weitere Überwachungen können nach dem Projektabschluss implementiert werden.
+Die folgenden Überwachungen sollen während der Realisierungsphase implementiert werden. Die Intervalle sind in Minuten angegeben. Weitere Überwachungen können nach dem Projektabschluss implementiert werden:
 
 
 \begin{table}[H]
 \begin{tabular}[t]{p{0.6cm}p{2.5cm}p{2.2cm}p{1.5cm}p{8.8cm}}
 \hline
 \rowcolor{heading}\textbf{Nr.} & \textbf{Überwachung} & \textbf{Schweregrad} & \textbf{Intervall} &\textbf{Beschreibung} \\\hline
-1 & Erreichbarkeit & Kritisch & 5 & Es wird mittels Ping eine Statusüberprüfung der Nodes durchgeführt \\\hline
-2 & SSH Zugriff & Mittel & 60 & Die Zugriffe auf die Computenodes sollen über den Managementnode stattfinden  \\\hline
-3 & CPU Last & Hoch & 5 & Die CPU's ständig ausgelastet sein  \\\hline
+1 & Erreichbarkeit & Kritisch & 5 & Es wird mittels Ping eine Statusüberprüfung der Nodes durchgeführt. \\\hline
+2 & SSH Zugriff & Mittel & 60 & Die Zugriffe auf die Compute Nodes sollen über den Management Node stattfinden.  \\\hline
+3 & CPU Last & Hoch & 5 & Die CPU's sollen ständig ausgelastet sein.  \\\hline
 \end{tabular}
 \caption{Service Monitoring}
 \end{table}
 
 \subsubsection{Performance Monitoring - Ganglia}
-Die Ganglia Applikation ist auf dem Managementnode installiert und kommuniziert mit den Ganglia Daemons auf den Computenodes. Dabei werden die übermittelten Daten als Grafen dargestellt. Ganglia ist über http://nebula/ganglia aufrufbar.
+Die Ganglia Applikation ist auf dem Management Node installiert und kommuniziert mit den Ganglia Daemons auf den Compute Nodes. Dabei werden die übermittelten Daten als Grafen dargestellt. Ganglia ist über http://nebula/ganglia aufrufbar.
 
 

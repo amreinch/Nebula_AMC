@@ -5,10 +5,10 @@
 Bei dem Router handelt es sich um eine Internet-Box Plus von Swisscom. Das Admin Interface ist über http://internetbox aufrufbar.
 
 \subsubsection{PC}
-Der PC ist selbst zusammengestellt und wird für den SSH Zugriff auf den Managementnode und für Zugriffe auf die Webanwendungen des Clusters benötigt.
+Der PC ist selbst zusammengestellt und wird für den SSH Zugriff auf den Management Node und für Zugriffe auf die Webanwendungen des Clusters benötigt.
 
 \subsubsection{Management Node}
-Der Managementnode dient der Jobsteuerung sowie Clusterverwaltung. Alle zentralen Programme sind auf diesem Node installiert.
+Der Management Node dient der Jobsteuerung sowie Clusterverwaltung. Alle zentralen Programme sind auf diesem Node installiert.
 
 \begin{table}[H]
 \centering
@@ -20,20 +20,20 @@ Betriebssystem & Centos 7.4 \\\hline
 CPU & Quad Core 1.2GHz Broadcom BCM2837 64bit CPU \\\hline
 RAM & 1GB  \\\hline
 \end{tabular}
-\caption{Komponente Managementnode}
+\caption{Komponente Management Node}
 \end{table}
 
 \subsubsection{Netzteil Management Node}
-Das Netzteil liefert eine konstante Spannung von 5V und Strom von mindestens 2 Ampere. Dabei handelt es sich um ein Noname Netzeil welches eine Mindestleistug von 10 Watt aufbringen muss.
+Das Netzteil liefert eine konstante Spannung von 5V und Strom von mindestens 2 Ampere. Dabei handelt es sich um ein Noname Netzteil, welches eine Mindestleistung von 10 Watt aufbringen muss.
 
 \subsubsection{NAS}
-Das NAS ist von der Firma Synology, das Modell lautet DS216 und wird als redundanter Datenspeicher benutzt.
+Das NAS ist von der Firma Synology. Das Modell lautet DS216 und wird als redundanter Datenspeicher benutzt.
 
 \subsubsection{Switch}
-Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Router, Managementnode und den Computenodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebs verzichtet.
+Der Managed Switch TL-SL3428 von TP-Link wird für die Kommunikation zwischen NAS, Router, Management Node und den Compute Nodes benötigt. Auf die Managed Funktion wird allerdings während des Aufbaus und Betriebes verzichtet.
 
 \subsubsection{Compute Nodes}
-Die Computenodes erhalten über das Netzwerk das Betriebssystem durch den Managementnode zugestellt. Dabei sind alle Hostnamen der Computenodes mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Computenodes in aktiv und passiv (Fallback, Reserve) aufgeteilt, die passiven Computenodes sollen ausgefallene aktive Computenodes ersetzen und deren Arbeiten übernehmen und die Leistung des Clusters konstant halten.
+Die Compute Nodes erhalten über das Netzwerk das Betriebssystem durch den Management Node zugestellt. Dabei sind alle Hostnamen der Compute Nodes mit dem Prefix "c" versehen und werden aufnummeriert. Dabei sind die Compute Nodes in aktiv und passiv (Fallback, Reserve) aufgeteilt. Die passiven Compute Nodes sollen ausgefallene aktive Compute Nodes ersetzen und deren Arbeiten übernehmen und die Leistung des Clusters konstant halten.
 
 \textbf{Aktiv}
 \begin{table}[H]
@@ -46,7 +46,7 @@ Betriebssystem & Centos 7.4 \\\hline
 CPU & Quad Core 1.2GHz Broadcom BCM2837 64bit CPU \\\hline
 RAM & 1GB  \\\hline
 \end{tabular}
-\caption{Komponente aktive Copmputenodes}
+\caption{Komponente aktive Compute Nodes}
 \end{table}
 
 \textbf{Passiv}
@@ -60,9 +60,9 @@ Betriebssystem & Centos 7.4 \\\hline
 CPU & Quad Core 1.2GHz Broadcom BCM2837 64bit CPU \\\hline
 RAM & 1GB  \\\hline
 \end{tabular}
-\caption{Komponente passive Copmputenodes}
+\caption{Komponente passive Compute Nodes}
 \end{table}
 
 \subsubsection{Schaltnetzteil Compute Nodes}
-Das Schaltnetzteil RSP-750-5 von Mean Well liefert konstante 5 Volt aus Ausgangsspannung und kann eine Leistung bis zu 500 Watt aufbringen, daraus kénnen 100 Ampere auf die Nodes verteilt werden.
+Das Schaltnetzteil RSP-750-5 von Mean Well liefert konstante 5 Volt als Ausgangsspannung und kann eine Leistung bis zu 500 Watt aufbringen. Daraus können 100 Ampere auf die Nodes verteilt werden.
 

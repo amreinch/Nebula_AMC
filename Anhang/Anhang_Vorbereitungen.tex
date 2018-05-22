@@ -20,7 +20,7 @@ Für die Installation des CentOS 7.4 ist kein boot fähiger Kernel vorhanden. Da
 	\includegraphics[scale=0.3]{Bilder/fmw3.png}
 	\caption{FMW: Abbild schreiben}
 \end{figure}
-3. Durch das Schreiben des Archivs wurden zwei Partitionen (boot \& rootfs) auf der SD Karte erstellt. Diese werden wiefolgt ausgelesen:
+3. Durch das Schreiben des Archivs wurden zwei Partitionen (boot \& rootfs) auf der SD Karte erstellt. Diese werden wie folgt ausgelesen:
 \begin{lstlisting}
 [camrein@wifibridge ~]\$ lsblk
 NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -36,7 +36,7 @@ mmcblk0 179:0 0 29.7G 0 disk}
 -mmcblk0p2 179:2 0 29.7G 0 part /run/media/camrein/rootfs
 [camrein@wifibridge ~]\$
 \end{lstlisting}
-4. Die Dateisystem Partition muss mit der von CentOS überschrieben werden. Dazu wird die Partition auf dem Linux Client angehängt. Bei Schritt 5-7 wird überprüft ob die Partition wirklich leer ist.
+4. Die Dateisystem-Partition muss mit der von CentOS überschrieben werden. Dazu wird die Partition auf dem Linux Client angehängt. Bei Schritt 5-7 wird überprüft, ob die Partition wirklich leer ist.
 \begin{lstlisting}
 [root@wifibridge Downloads]# mkdir mnt
 [root@wifibridge Downloads]# mount /dev/mmcblk0p2 mnt
@@ -47,9 +47,9 @@ drwxr-xr-x. 5 camrein camrein 20K 15. Mai 17:39 ..
 drwxr-xr-x. 2 root root 4.0K 16. Mai 17:58 .
 \end{lstlisting}
 
-Die Dateisystem Partition ist nun leer und kann mit der von CentOS überschrieben werden. \newline
+Die Dateisystem-Partition ist nun leer und kann mit der von CentOS überschrieben werden. \newline
 5. Das Dateisystem aus dem offiziellen Centos Repository\footnote{\url{http://mirror.centos.org/altarch/7.4.1708/isos/aarch64/CentOS-7-aarch64-rootfs-7.4.1708.tar.xz}} beziehen. \newline
-6. Die geleerte Partition wird nun mit dem Dateisystem von Centos7.4 überschrieben, zugleich soll bei Schritt 2 überprüft werden, ob die Daten wirklich auf die Partition geschrieben wurden.
+6. Die geleerte Partition wird nun mit dem Dateisystem von Centos7.4 überschrieben. Zugleich soll bei Schritt 2 überprüft werden, ob die Daten wirklich auf die Partition geschrieben wurden.
 \begin{lstlisting}
 [root@wifibridge mnt]# tar --numeric-owner -xpJf ../CentOS-7-aarch64-rootfs-7.4.1708.tar.xz
 [root@wifibridge mnt]# ls -lrtha
@@ -88,8 +88,8 @@ Für das Vorbereiten der Clients für den Netzwerkboot wurde der Guide NETWORK B
 \begin{lstlisting}
 echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
 \end{lstlisting}
-2. RPI neustarten \newline
-3. Prüfen ob die Änderung aktiv ist
+2. RPI neu starten. \newline
+3. Prüfen, ob die Änderung aktiv ist.
 \begin{lstlisting}
 vcgencmd otp_dump | grep 17:
 \end{lstlisting}
@@ -97,7 +97,7 @@ Erwartetes Ergebnis:
 \begin{lstlisting}
 17:3020000a
 \end{lstlisting}
-4. Den Eintrag in der /boot/config.txt wieder entfernen\newline
+4. Den Eintrag in der /boot/config.txt wieder entfernen.\newline
 \textbf{MAC-Adressen auslesen}\newline
 Um Zeit zu sparen können alle MAC-Adressen der RPI's während der Vorbereitung der Clients auf den Netzwerkboot ausgelesen werden.\newline
 5. nmap Scan auf die IP Range 192.168.1.0-255 von einem Linux Client aus durchführen.
@@ -111,7 +111,7 @@ Erwartetes Ergebnis für ein RPI:
 	  MAC Address: B8:27:EB:32:39:A7 (Raspberry Pi Foundation)   
 \end{lstlisting}
 
-Die Vorbereitung der RPI(Computenodes) ist somit abgeschlossen und es kann mit der Installation des Managementnode fortgefahren werden.
+Die Vorbereitung der RPI(Compute Nodes) ist somit abgeschlossen und es kann mit der Installation des Management Node fortgefahren werden.
 
 \subsection{Hostname und IP der MAC Adresse zuweisen}
 über http://internetbox/ wird die IP Adresse sowie der Hostname der MAC Adresse der RPI's zugewiesen. Alle jemals angeschlossenen Geräte werden unter der Geräteliste aufgelistet. Dort können ebenfalls die Hostnamen den Geräten zugewiesen werden.

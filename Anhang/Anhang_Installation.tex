@@ -1,10 +1,10 @@
 % !TEX root = ../Diplombericht.tex
 
 \section{Installation Management Node}
-Die Serverinstallation des Managementnodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm \footnote{\url{http://openhpc.community/downloads/}}. Die Installation wird hauptsächlich mit dem ROOT-Benutzer durchgeführt, falls nichts anderes erwähnt wird.
+Die Serverinstallation des Management Nodes wird nach dem offiziellen OpenHPC Guide mit einigen Abweichungen durchgeführt. Die Installation basiert auf der Anleitung CentOS 7.4 aarch64 Install guide with Warewulf + Slurm \footnote{\url{http://openhpc.community/downloads/}}. Die Installation wird hauptsächlich mit dem ROOT-Benutzer durchgeführt, falls nichts anderes erwähnt wird.
 
 \subsection{Variablen Definition}
-Durch die Installation hinweg werden die folgenden Variablen verwendet.
+Durch die Installation hinweg werden die folgenden Variablen verwendet:
 
 \begin{longtable}{| p{0.5cm} | p{3cm} | p{8.5cm} | p{4cm} |} 
 \hline
@@ -13,22 +13,22 @@ Durch die Installation hinweg werden die folgenden Variablen verwendet.
 2 & sms\_ip & IP Adresse des Managementhosts & 192.168.1.10 \\\hline
 3 & sms\_eth\_internal & Ethernet Interface & eth0 \\\hline
 4 & ntp\_server[0] \newline ntp\_server[1] \newline ntp\_server[2] \newline ntp\_server[3] & Zeitserver (Array) & server 0.ch.pool.ntp.org \newline server 1.ch.pool.ntp.org \newline server 2.ch.pool.ntp.org \newline server 3.ch.pool.ntp.org  \\\hline
-5 & num\_computes & Anzahl Computenodes & 45 \\\hline
-6 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] \newline c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] & IP Adressen der Computenodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30 \newline 192.168.1.31 \newline 192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \\\hline 
+5 & num\_computes & Anzahl Compute Nodes & 45 \\\hline
+6 &  c\_ip[0] \newline  c\_ip[1] \newline c\_ip[2] \newline c\_ip[3] \newline c\_ip[4] \newline c\_ip[5] \newline c\_ip[6] \newline c\_ip[7] \newline c\_ip[8] \newline c\_ip[9] \newline c\_ip[10] \newline c\_ip[11] \newline c\_ip[12] \newline c\_ip[13] \newline c\_ip[14] \newline c\_ip[15] \newline c\_ip[16] \newline c\_ip[17] \newline c\_ip[18] \newline c\_ip[19] \newline c\_ip[20] \newline c\_ip[21] \newline c\_ip[22] \newline c\_ip[23] \newline c\_ip[24]  \newline c\_ip[25] \newline c\_ip[26] \newline c\_ip[27] \newline c\_ip[28] \newline c\_ip[29]  \newline c\_ip[30] \newline c\_ip[31] \newline c\_ip[32] \newline c\_ip[33] \newline c\_ip[34] \newline c\_ip[35] \newline c\_ip[36] \newline c\_ip[37] \newline c\_ip[38] \newline c\_ip[39] & IP Adressen der Compute Nodes (Array) & 192.168.1.11 \newline 192.168.1.12 \newline 192.168.1.13 \newline 192.168.1.14 \newline 192.168.1.15 \newline 192.168.1.16 \newline 192.168.1.17 \newline 192.168.1.18 \newline 192.168.1.19 \newline 192.168.1.20 \newline 192.168.1.21 \newline 192.168.1.22 \newline 192.168.1.23 \newline 192.168.1.24 \newline 192.168.1.25 \newline 192.168.1.26 \newline 192.168.1.27 \newline 192.168.1.28 \newline 192.168.1.29 \newline 192.168.1.30 \newline 192.168.1.31 \newline 192.168.1.32 \newline  192.168.1.33 \newline 192.168.1.34 \newline 192.168.1.35 \newline 192.168.1.36 \newline 192.168.1.37 \newline 192.168.1.38 \newline 192.168.1.39 \newline 192.168.1.40 \newline 192.168.1.41 \newline 192.168.1.42 \newline 192.168.1.43 \newline 192.168.1.44 \newline 192.168.1.45 \newline 192.168.1.46 \newline 192.168.1.47 \newline 192.168.1.48 \newline 192.168.1.49 \newline 192.168.1.50 \\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
-6 & c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Computenodes (Array) & 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
-7 &  c\_name[0] \newline  c\_name[1] \newline c\_name[2] \newline c\_name[3] \newline c\_name[4] \newline c\_name[5] \newline c\_name[6] \newline c\_name[7] \newline c\_name[8] \newline c\_name[9] \newline c\_name[10] \newline c\_name[11] \newline c\_name[12] \newline c\_name[13] \newline c\_name[14] \newline c\_name[15] \newline c\_name[16] \newline c\_name[17] \newline c\_name[18] \newline c\_name[19] \newline c\_name[20] \newline c\_name[21] \newline c\_name[22] \newline c\_name[23] \newline c\_name[24] \newline c\_name[25] \newline c\_name[26] \newline c\_name[27] c\_name[28] \newline  c\_name[29] \newline c\_name[30] \newline c\_name[31] \newline c\_name[32] \newline c\_name[33] & Hostnamen der Computenodes (Array) & c1 \newline c2 \newline c3 \newline c4 \newline c5 \newline c6 \newline c7 \newline c8 \newline c9 \newline c10 \newline c11 \newline c12 \newline c13 \newline c14 \newline c15 \newline c16 \newline c17 \newline c18 \newline c19 \newline c20 \newline c21 \newline c22 \newline c23 \newline c24 \newline c25 \newline c26 \newline c27 \newline c28 \newline c29 \newline c30 \newline c31 \newline c32 \newline c33 \newline c34\\\hline 
+6 & c\_ip[40] \newline c\_ip[41] \newline c\_ip[42] \newline c\_ip[43] \newline c\_ip[44] & IP Adressen der Compute Nodes (Array) & 192.168.1.51 \newline 192.168.1.52 \newline 192.168.1.53 \newline 192.168.1.54 \newline 192.168.1.55 \\\hline 
+7 &  c\_name[0] \newline  c\_name[1] \newline c\_name[2] \newline c\_name[3] \newline c\_name[4] \newline c\_name[5] \newline c\_name[6] \newline c\_name[7] \newline c\_name[8] \newline c\_name[9] \newline c\_name[10] \newline c\_name[11] \newline c\_name[12] \newline c\_name[13] \newline c\_name[14] \newline c\_name[15] \newline c\_name[16] \newline c\_name[17] \newline c\_name[18] \newline c\_name[19] \newline c\_name[20] \newline c\_name[21] \newline c\_name[22] \newline c\_name[23] \newline c\_name[24] \newline c\_name[25] \newline c\_name[26] \newline c\_name[27] c\_name[28] \newline  c\_name[29] \newline c\_name[30] \newline c\_name[31] \newline c\_name[32] \newline c\_name[33] & Hostnamen der Compute Nodes (Array) & c1 \newline c2 \newline c3 \newline c4 \newline c5 \newline c6 \newline c7 \newline c8 \newline c9 \newline c10 \newline c11 \newline c12 \newline c13 \newline c14 \newline c15 \newline c16 \newline c17 \newline c18 \newline c19 \newline c20 \newline c21 \newline c22 \newline c23 \newline c24 \newline c25 \newline c26 \newline c27 \newline c28 \newline c29 \newline c30 \newline c31 \newline c32 \newline c33 \newline c34\\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
-7 & c\_name[34] \newline c\_name[35] \newline c\_name[36] \newline c\_name[37] \newline c\_name[38] \newline c\_name[39] \newline c\_name[40] \newline c\_name[41] \newline c\_name[42] \newline c\_name[43] \newline c\_name[44] & Hostnamen der Computenodes (Array) & c35 \newline c36 \newline c37 \newline c38 \newline c39 \newline c40 \newline c41 \newline c42 \newline c43 \newline c44 \newline c45\\\hline 
-8 &  c\_mac[0] \newline  c\_mac[1] \newline c\_mac[2] \newline c\_mac[3] \newline c\_mac[4] \newline c\_mac[5] \newline c\_mac[6] \newline c\_mac[7]  & MAC Adressen der Computenodes (Array) & B8:27:EB:32:39:A7 \newline B8:27:EB:2E:A3:D1 \newline B8:27:EB:50:45:3F \newline B8:27:EB:0D:E6:25 \newline B8:27:EB:3E:96:B5 \newline B8:27:EB:EE:77:DA \newline B8:27:EB:21:63:E6 \newline B8:27:EB:2E:2E:CC \\\hline 
+7 & c\_name[34] \newline c\_name[35] \newline c\_name[36] \newline c\_name[37] \newline c\_name[38] \newline c\_name[39] \newline c\_name[40] \newline c\_name[41] \newline c\_name[42] \newline c\_name[43] \newline c\_name[44] & Hostnamen der Compute Nodes (Array) & c35 \newline c36 \newline c37 \newline c38 \newline c39 \newline c40 \newline c41 \newline c42 \newline c43 \newline c44 \newline c45\\\hline 
+8 &  c\_mac[0] \newline  c\_mac[1] \newline c\_mac[2] \newline c\_mac[3] \newline c\_mac[4] \newline c\_mac[5] \newline c\_mac[6] \newline c\_mac[7]  & MAC Adressen der Compute Nodes (Array) & B8:27:EB:32:39:A7 \newline B8:27:EB:2E:A3:D1 \newline B8:27:EB:50:45:3F \newline B8:27:EB:0D:E6:25 \newline B8:27:EB:3E:96:B5 \newline B8:27:EB:EE:77:DA \newline B8:27:EB:21:63:E6 \newline B8:27:EB:2E:2E:CC \\\hline 
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variable} & \textbf{Beschreibung} &\textbf{Werte} \\\hline
-8 & c\_mac[8] \newline c\_mac[9] \newline  c\_mac[10] \newline c\_mac[11] \newline c\_mac[12] \newline c\_mac[13] \newline c\_mac[14] \newline c\_mac[15] \newline c\_mac[16] \newline c\_mac[17] \newline c\_mac[18] \newline c\_mac[19] \newline c\_mac[20] \newline c\_mac[21] \newline c\_mac[22] \newline c\_mac[23] \newline c\_mac[24] \newline c\_mac[25] \newline c\_mac[26] \newline c\_mac[27] \newline c\_mac[28] \newline c\_mac[29] \newline c\_mac[30] \newline c\_mac[31] \newline c\_mac[32] \newline c\_mac[33] \newline c\_mac[34] \newline c\_mac[35] \newline c\_mac[36] \newline c\_mac[37] \newline c\_mac[38] \newline c\_mac[39] \newline c\_mac[40] \newline c\_mac[41] \newline c\_mac[42] \newline c\_mac[43] \newline c\_mac[44] & MAC Adressen der Computenodes (Array) & B8:27:EB:17:32:96 \newline B8:27:EB:B2:1C:A9 \newline B8:27:EB:AF:63:1F \newline B8:27:EB:43:00:2C \newline B8:27:EB:13:7B:18 \newline B8:27:EB:43:CD:29 \newline B8:27:EB:FF:C7:56 \newline B8:27:EB:CE:98:66 \newline B8:27:EB:5D:63:34 \newline B8:27:EB:91:3E:0F \newline B8:27:EB:F4:65:EC \newline B8:27:EB:3E:AB:DC \newline B8:27:EB:66:60:F6 \newline B8:27:EB:37:3F:74 \newline B8:27:EB:18:5E:F0 \newline B8:27:EB:B0:23:B8 \newline B8:27:EB:BE:C4:94 \newline B8:27:EB:FB:FF:57 \newline B8:27:EB:4E:EC:CE \newline 	B8:27:EB:43:1C:35 \newline B8:27:EB:DC:74:5F \newline B8:27:EB:D1:DE:2F \newline B8:27:EB:5E:90:34 \newline B8:27:EB:DE:80:24 \newline B8:27:EB:A4:79:6F \newline B8:27:EB:0A:4D:C7 \newline B8:27:EB:5C:53:5F \newline B8:27:EB:F7:AF:C2 \newline B8:27:EB:CE:BA:ED \newline B8:27:EB:59:38:3C \newline B8:27:EB:99:BB:8E \newline B8:27:EB:8F:7A:0D \newline B8:27:EB:DE:C9:69 \newline B8:27:EB:7E:6F:48 \newline B8:27:EB:5D:DD:FE
+8 & c\_mac[8] \newline c\_mac[9] \newline  c\_mac[10] \newline c\_mac[11] \newline c\_mac[12] \newline c\_mac[13] \newline c\_mac[14] \newline c\_mac[15] \newline c\_mac[16] \newline c\_mac[17] \newline c\_mac[18] \newline c\_mac[19] \newline c\_mac[20] \newline c\_mac[21] \newline c\_mac[22] \newline c\_mac[23] \newline c\_mac[24] \newline c\_mac[25] \newline c\_mac[26] \newline c\_mac[27] \newline c\_mac[28] \newline c\_mac[29] \newline c\_mac[30] \newline c\_mac[31] \newline c\_mac[32] \newline c\_mac[33] \newline c\_mac[34] \newline c\_mac[35] \newline c\_mac[36] \newline c\_mac[37] \newline c\_mac[38] \newline c\_mac[39] \newline c\_mac[40] \newline c\_mac[41] \newline c\_mac[42] \newline c\_mac[43] \newline c\_mac[44] & MAC Adressen der Compute Nodes (Array) & B8:27:EB:17:32:96 \newline B8:27:EB:B2:1C:A9 \newline B8:27:EB:AF:63:1F \newline B8:27:EB:43:00:2C \newline B8:27:EB:13:7B:18 \newline B8:27:EB:43:CD:29 \newline B8:27:EB:FF:C7:56 \newline B8:27:EB:CE:98:66 \newline B8:27:EB:5D:63:34 \newline B8:27:EB:91:3E:0F \newline B8:27:EB:F4:65:EC \newline B8:27:EB:3E:AB:DC \newline B8:27:EB:66:60:F6 \newline B8:27:EB:37:3F:74 \newline B8:27:EB:18:5E:F0 \newline B8:27:EB:B0:23:B8 \newline B8:27:EB:BE:C4:94 \newline B8:27:EB:FB:FF:57 \newline B8:27:EB:4E:EC:CE \newline 	B8:27:EB:43:1C:35 \newline B8:27:EB:DC:74:5F \newline B8:27:EB:D1:DE:2F \newline B8:27:EB:5E:90:34 \newline B8:27:EB:DE:80:24 \newline B8:27:EB:A4:79:6F \newline B8:27:EB:0A:4D:C7 \newline B8:27:EB:5C:53:5F \newline B8:27:EB:F7:AF:C2 \newline B8:27:EB:CE:BA:ED \newline B8:27:EB:59:38:3C \newline B8:27:EB:99:BB:8E \newline B8:27:EB:8F:7A:0D \newline B8:27:EB:DE:C9:69 \newline B8:27:EB:7E:6F:48 \newline B8:27:EB:5D:DD:FE
 \newline B8:27:EB:A6:6D:4D \newline B8:27:EB:0C:63:10\\\hline 
 \caption{Variablen Definition}
 \end{longtable}
 
 \subsection{Basiskonfiguration}
-Dem Managementnode muss ein eindeutiger Hostname zugewiesen werden. Hierbei werden die untenstehenden Kommandos abgesetzt.
+Dem Management Node muss ein eindeutiger Hostname zugewiesen werden. Hierbei werden die untenstehenden Kommandos abgesetzt:
 
 \begin{lstlisting}
 echo ${sms_ip} ${sms_name} >> /etc/hosts
@@ -46,7 +46,7 @@ echo 0 > /selinux/enforce
 \end{lstlisting}
 
 \subsection{OpenHPC Komponenten installieren}
-Es wird das OpenHPC Repository für die Installation der OpenHPC Komponenten benötigt. Dieses muss installiert werden.
+Es wird das OpenHPC Repository für die Installation der OpenHPC Komponenten benötigt. Dieses muss installiert werden:
 
 \begin{lstlisting}
 yum install http://build.openhpc.community/OpenHPC:/1.3/CentOS_7/aarch64/ohpc-release-1.3-1.el7.aarch64.rpm
@@ -61,7 +61,7 @@ yum -y install ohpc-base
 yum -y install ohpc-warewulf
 \end{lstlisting}
 
-Weiterhin spielt die Zeit eine wichtige Rolle zwischen der Kommunikation des Managementhosts und der Computenodes. Dazu müssen die bereits vorhandenen Einträge der Zeitserver in der ntp.conf entfernt werden.
+Weiterhin spielt die Zeit eine wichtige Rolle zwischen der Kommunikation des Managementhosts und der Compute Nodes. Dazu müssen die bereits vorhandenen Einträge der Zeitserver in der ntp.conf entfernt werden.
 
 
 \begin{lstlisting}
@@ -76,7 +76,7 @@ echo "server ${ntp_server[3]}" >> /etc/ntp.conf
 systemctl restart ntpd
 \end{lstlisting}
 
-Nun wird der Slurmcontroller installiert. Dieser dient dazu die Jobs auf die Computenodes zu verteilen. Dieser steuert die Jobverwaltung und muss installiert und eingerichtet werden. Hierbei wird die Konfiguration für 45 Computenodes vorgenommen.
+Nun wird der Slurmcontroller installiert. Dieser dient dazu, die Jobs auf die Compute Nodes zu verteilen. Dieser steuert die Jobverwaltung und muss installiert und eingerichtet werden. Hierbei wird die Konfiguration für 45 Computenodes vorgenommen.
 
 \begin{lstlisting}
 yum -y install ohpc-slurm-server
@@ -88,9 +88,9 @@ echo "PartitionName=normal Nodes=c[1-45] Default=YES MaxTime=INFINITE State=UP" 
 \end{lstlisting}
 
 \subsection{Netzwerkboot einrichten}
-Das Dateisystem und die Boot Partition werden in zwei verschiedenen Verzeichnissen erstellt und abgelegt.
+Das Dateisystem und die Boot-Partition werden in zwei verschiedenen Verzeichnissen erstellt und abgelegt.
 
-Definieren des Dateisystem Verzeichnisses und das Centos7.4 Basis Dateisystem erstellen.
+Definieren des Dateisystem-Verzeichnisses und das Centos7.4 Basis-Dateisystem erstellen.
 \begin{lstlisting}
 export CHROOT=/opt/ohpc/admin/images/centos7.4
 wwmkchroot centos-7 $CHROOT
@@ -102,7 +102,7 @@ systemctl enable networking
 systemctl start networking
 \end{lstlisting}
 
-Nun wird das Paket dnsmaq installiert. Dadurch wird zur Absicherung die Verteilung des Betriebssystems an eine gewisse IP Range und an ein Subnetz gewährleistet. Geräte ausserhalb der Range und des Subnetzes sollen das Betriebssystem nicht erhalten dürfen.
+Nun wird das Paket dnsmaq installiert. Dadurch wird die Verteilung des Betriebssystems an eine gewisse IP Range und an ein Subnetz gewährleistet. Geräte ausserhalb der Range und des Subnetzes sollen das Betriebssystem nicht erhalten dürfen.
 
 \begin{lstlisting}
 yum -y install dnsmasq
@@ -122,15 +122,15 @@ tftp-root=/tftpboot
 pxe-service=0,"Raspberry Pi Boot"
 \end{lstlisting}
 
-Falls sich andere Geräte in dieser IP Range befinden wird dies durch die /etc/dnsmasq.d/host.allow Datei abgefangen, dort sind alle Computenodes mit MAC Adresse, Hostnamen und IP Adresse hinterlegt.
+Falls sich andere Geräte in dieser IP Range befinden, wird dies durch die /etc/dnsmasq.d/host.allow Datei abgefangen. Dort sind alle Compute Nodes mit MAC Adresse, Hostnamen und IP Adresse hinterlegt.
 
-Dies kann in einer for Schlaufe und den definierten Variablen einfach abgefüllt werden.
+Die host.allow Datei kann in einer for Schlaufe mit den definierten Variablen einfach abgefüllt werden.
 
 \begin{lstlisting}
 for ((i=0; i<45; i++)); do echo "dhcp-host=${c_mac[$i]};${c_name[$i]};${c_ip[$i]}" >> /etc/dnsmasq.d/host.allow; done
 \end{lstlisting}
 
-Das Ergebnis muss wiefolgt aussehen.
+Das Ergebnis muss wie folgt aussehen:
 \begin{lstlisting}
 [root@nebula etc]# cat /etc/dnsmasq.d/host.allow
 dhcp-host=B8:27:EB:32:39:A7,c1,192.168.1.11
@@ -180,7 +180,7 @@ dhcp-host=B8:27:EB:A6:6D:4D,c44,192.168.1.54
 dhcp-host=B8:27:EB:0C:63:10,c45,192.168.1.55
 \end{lstlisting}
 
-Boot Verzeichnis erstellen, aus diesem Verzeichnis wird der Kernel an die Computenodes angeboten und übermittelt. Dabei wird das /boot Verzeichnis des Managementnodes in dieses Verzeichnis kopiert, da es sich um das selbe Betriebssystem handelt.
+Boot-Verzeichnis erstellen. Aus diesem Verzeichnis wird der Kernel den Compute Nodes angeboten und übermittelt. Dabei wird das /boot Verzeichnis des Management- Nodes in dieses Verzeichnis kopiert, da es sich um das selbe Betriebssystem handelt.
 
 \begin{lstlisting}
 [root@nebula /]# mkdir /tftpboot
@@ -188,32 +188,32 @@ Boot Verzeichnis erstellen, aus diesem Verzeichnis wird der Kernel an die Comput
 [root@nebula /]# cp -r /boot /tftboot
 \end{lstlisting}
 
-Dabei muss darauf geachtet werden, dass die cmdline.txt Datei im /tftboot Verzeichnis folgenden Eintrag erhält. Dieser sagt aus, dass der Computenode sein /root Verzeichnis vom Managementnode unter dem Pfad /opt/ohpc/admin/images/centos7.4 beziehen soll.
+Dabei muss darauf geachtet werden, dass die cmdline.txt Datei im /tftboot Verzeichnis folgenden Eintrag erhält. Dieser sagt aus, dass der Compute Node sein /root Verzeichnis vom Management Node unter dem Pfad /opt/ohpc/admin/images/centos7.4 beziehen soll.
 
 \begin{lstlisting}
 [root@nebula etc]# cat /tftpboot/cmdline.txt
 dwc_otg.lpm_enable=0 root=/dev/nfs nfsroot=192.168.1.10:/opt/ohpc/admin/images/centos7.4,vers=3 rw ip=dhcp rootwait elevator=deadline
 \end{lstlisting}
 
-Zudem wird die config.txt angepasst. Hierbei wird die CPU der RRPI's auf 1400 MHz hochgetaktet. Dadurch steigt die Mining Performance von einer Hashrate 1.6 H/s auf 1.9 H/s
+Zudem wird die config.txt angepasst. Hierbei wird die Taktrate der CPU auf 1400 MHz hochgetaktet. Dadurch steigt die Mining Performance von einer Hashrate 1.6 H/s auf 1.9 H/s.
 
 \begin{lstlisting}
 [root@nebula /]# echo "arm_freq=1400" > /tftpboot/config.txt
 \end{lstlisting}
 
 
-Den dnsmaq Service aktivieren und starten
+Den dnsmaq Service aktivieren und starten.
 \begin{lstlisting}
 [root@nebula /]# systemctl enable dnsmasq.service
 [root@nebula /]# systemctl restart dnsmasq.service
 \end{lstlisting}
 
-OpenHPC Pakete für die Computenodes installieren.
+OpenHPC Pakete für die Compute Nodes installieren.
 \begin{lstlisting}
 [root@nebula /]# yum -y --installroot=$CHROOT install ohpc-base-compute
 \end{lstlisting}
 
-Damit die Computenodes über den Hostnamen angesprochen werden können, wird eine DNS Konfiguration benötigt. Die Auflösung findet über folgende Einstellung statt. Dabei wird vom Managementnode die resolv.conf Datei übernommen und auf das Dateisystem der Computenodes kopiert.
+Damit die Compute Nodes über den Hostnamen angesprochen werden können, wird eine DNS Konfiguration benötigt. Die Auflösung findet über folgende Einstellung statt. Dabei wird vom Management Node die resolv.conf Datei übernommen und auf das Dateisystem der Compute Nodes kopiert:
 \begin{lstlisting}
 [root@nebula /]# cp -p /etc/resolv.conf $CHROOT/etc/resolv.conf
 \end{lstlisting}
@@ -225,14 +225,14 @@ Die zusätzlichen Pakete werden für die Kommunikation mit dem Slurmcontroller u
 [root@nebula /]# yum -y --installroot=$CHROOT install ntp
 \end{lstlisting}
 
-Beim Booten der Computenodes muss das Dateisystem gemountet werden. Dafür werden fstab Einträge erstellt. 
+Beim Booten der Compute Nodes muss das Dateisystem gemountet werden. Dafür werden fstab Einträge erstellt. 
 
 \begin{lstlisting}
 [root@nebula /]# echo "${sms_ip}:/home /home nfs nfsvers=3,nodev,nosuid,noatime 0 0" >> $CHROOT/etc/fstab
 [root@nebula /]# echo "${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=3,nodev,noatime 0 0" >> $CHROOT/etc/fstab
 \end{lstlisting}
 
-Zudem müssen gewisse Verzeichnisse vom Managementnode aus exportiert werden.
+Zudem müssen gewisse Verzeichnisse vom Management Node aus exportiert werden.
 
 \begin{lstlisting}
 [root@nebula /]# echo "/home *(rw,no_subtree_check,fsid=10,no_root_squash)" >> /etc/exports
@@ -243,14 +243,14 @@ Zudem müssen gewisse Verzeichnisse vom Managementnode aus exportiert werden.
 [root@nebula /]# systemctl enable nfs-server
 \end{lstlisting}
 
-Damit die Zeitsynchronisierung über den Managementnode läuft wird folgendes umgesetzt.
+Damit die Zeitsynchronisierung über den Management Node läuft, wird folgendes umgesetzt:
 
 \begin{lstlisting}
 [root@nebula /]# chroot $CHROOT systemctl enable ntpd
 [root@nebula /]# echo "server ${sms_ip}" >> $CHROOT/etc/ntp.conf
 \end{lstlisting}
 
-Die Computenodes können nun mit Strom versorgt werden, dabei wird auf dem Managementnode auf die /var/log/messages Logdatei geachtet, dort sind alle Einträge des Netzwerkboots zusammengeschlossen. Dabei müssen folgende Einträge erscheinen.
+Die Compute Nodes können nun mit Strom versorgt werden. Dabei wird auf dem Management Node auf die /var/log/messages Logdatei geachtet. Dort sind alle Einträge des Netzwerkboots zusammengeschlossen. Dabei müssen folgende Einträge erscheinen:
 
 \begin{lstlisting}
 May 17 20:31:34 nebula dnsmasq-dhcp[382]: 653460281 next server: 192.168.1.10
@@ -302,11 +302,11 @@ May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 available DHCP range: 192.16
 May 17 20:32:56 nebula rpc.mountd[495]: authenticated mount request from 192.168.1.22:999 for /opt/ohpc/admin/images/centos7.4 (/opt/ohpc/admin/images/centos7.4)
 \end{lstlisting}
 
-Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Computenode c12 gestartet wurde und nach dem Betriebssystem anfragt und dieses mounten will.
-
+Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Compute Node c12 gestartet wurde und nach dem Betriebssystem anfragt und dieses mounten will.
+\newpage
 \subsection{Registration Compute Nodes}
 
-Die Installation ist soweit abgeschlossen, die optionalen Pakete werden später installiert und beschrieben. Nun werden die Computenodes registriert, ab diesem Zeitpunkt kennt der Managementnode jeden Computenode. Die Computenodes werden wiefolgt in den Datastore aufgenommen.
+Die Basisinstallation ist soweit abgeschlossen. Nun werden die Compute Nodes registriert. Ab diesem Zeitpunkt kennt der Management Node jeden Compute Node. Die Compute Nodes werden wie folgt in den Datastore aufgenommen:
 
 \begin{lstlisting}
 [root@nebula /]# echo "GATEWAYDEV=${eth_internal}" > /tmp/network.$$
@@ -319,7 +319,7 @@ done
 \newpage
 \subsection{Monitoring installieren}
 
-Das Nagios Monitoring wird wiefolgt installiert. Dabei werden alle Grundüberwachungen installiert und können Out of the Box verwendet werden.
+Das Nagios Monitoring wird wie folgt installiert. Dabei werden alle Grundüberwachungen installiert und können Out of the Box verwendet werden:
 
 \begin{lstlisting}
 [root@nebula /]# yum -y install ohpc-nagios
@@ -348,7 +348,7 @@ done
 
 Nagios kann nun eingesetzt werden und ist über http://nebula/nagios erreichbar.
 
-Das Performance Monitoring wird mit Ganglia realisiert welches sich wiefolgt installieren lässt.
+Das Performance Monitoring wird mit Ganglia realisiert, welches sich wie folgt installieren lässt:
 
 \begin{lstlisting}
 [root@nebula /]# yum -y install ohpc-ganglia
@@ -370,9 +370,9 @@ Ganglia kann nun eingesetzt werden und ist über http://nebula/ganglia erreichba
 \subsection{Miner installieren}
 Es wird die cpuminer-multi Version von tkinjo verwendet. Diese ist mit dem ARMv8 Prozessor kompatibel und der Miner kann kompiliert werden.
 
-Die folgenden Schritte sind für die Installation notwendig.
+Die folgenden Schritte sind für die Installation notwendig:
 
-Verzeichnis erstellen in dem der Miner installiert werden soll.
+Verzeichnis erstellen, in dem der Miner installiert werden soll.
 \begin{lstlisting}
 [root@nebula /]# mkdir  -p /opt/miners
 \end{lstlisting}
@@ -388,7 +388,7 @@ Empfange Objekte: 100% (3805/3805), 18.98 MiB | 3.77 MiB/s, done.
 Loese Unterschiede auf: 100% (2589/2589), done.
 \end{lstlisting}
 
-Die geklonte Version wurde noch modifiziert, so dass die jeweiligen Hostnamen beim Schürfen angegeben werden. Dazu wird die /opt/miners/tkinjo/cpu-miner.c wiefolgt angepasst. Dies kann mit git apply cpu-miner.c.diff installiert werden.
+Die geklonte Version wurde noch modifiziert, so dass die jeweiligen Hostnamen beim Schürfen angegeben werden. Dazu wird die /opt/miners/tkinjo/cpu-miner.c wie folgt angepasst. Dies kann mit git apply cpu-miner.c.diff installiert werden:
 \begin{lstlisting}
 cat  /opt/miners/tkinjo/cpu-miner.c.diff
 diff --git a/cpu-miner.c b/cpu-miner.c
@@ -474,7 +474,7 @@ index 0620d15..0d8c5e2 100644
         show_credits();
 \end{lstlisting}
 
-Ohne Anpassung sieht die Ausgabe wiefolgt aus:
+Ohne Anpassung sieht die Ausgabe wie folgt aus:
 \begin{lstlisting}
 [2018-05-19 14:09:03] CPU #3: 1.86 H/s
 [2018-05-19 14:09:03] CPU #2: 1.86 H/s
@@ -512,7 +512,7 @@ Durch die Modifikation werden die Computenodenamen ausgegeben:
 [2018-05-19 14:06:33] [c13] CPU #0: 1.84 H/s
 [2018-05-19 14:06:33] [c4] CPU #3: 1.85 H/s
 \end{lstlisting}
-Die geklonte Version kann nun kompiliert werden. Dabei kann die Warnung: Implizite Deklaration der Funktion, ignoriert werden. Zur Übersicht wurde die Ausgabe unten gekürzt.
+Die geklonte Version kann nun kompiliert werden. Dabei kann die Warnung: \grqq Implizite Deklaration der Funktion\grqq \ ignoriert werden. Zur Übersicht wurde die Ausgabe unten gekürzt:
 \begin{lstlisting}
 [root@nebula miners]# cd tkinjo/
 [root@nebula tkinjo]#./build.sh
