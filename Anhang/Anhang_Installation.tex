@@ -225,11 +225,12 @@ Die zusätzlichen Pakete werden für die Kommunikation mit dem Slurmcontroller u
 [root@nebula /]# yum -y --installroot=$CHROOT install ntp
 \end{lstlisting}
 
-Beim Booten der Compute Nodes muss das Dateisystem gemountet werden. Dafür werden fstab Einträge erstellt. 
+Beim Booten der Compute Nodes muss das Dateisystem gemountet werden. Dafür werden fstab Einträge erstellt. Ausserdem wird auf der letzten Zeile der gemeinsame Netzwerkshare mit NFS angehängt.
 
 \begin{lstlisting}
 [root@nebula /]# echo "${sms_ip}:/home /home nfs nfsvers=3,nodev,nosuid,noatime 0 0" >> $CHROOT/etc/fstab
 [root@nebula /]# echo "${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=3,nodev,noatime 0 0" >> $CHROOT/etc/fstab
+[root@nebula /]# echo "192.168.1.129:/volume1/nebula /media/nebula_data nfs" >> $CHROOT/etc/fstab
 \end{lstlisting}
 
 Zudem müssen gewisse Verzeichnisse vom Management Node aus exportiert werden.
@@ -304,6 +305,14 @@ May 17 20:32:56 nebula rpc.mountd[495]: authenticated mount request from 192.168
 
 Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Compute Node c12 gestartet wurde und nach dem Betriebssystem anfragt und dieses mounten will.
 \newpage
+
+\subsection{Netzwerkshare einbinden}
+
+Der Netzwerkshare wird über NFS auf dem Management Node eingebunden. Dies wird mit einem Eintrag in /etc/fstab erledigt. Dadurch ist bei einem Neustart der Netzwerkshare automatisch wieder verbunden.
+\begin{lstlisting}
+[root@nebula /]# echo "192.168.1.129:/volume1/nebula /media/nebula_data nfs" >> /etc/fstab
+\end{lstlisting}
+
 \subsection{Registration Compute Nodes}
 
 Die Basisinstallation ist soweit abgeschlossen. Nun werden die Compute Nodes registriert. Ab diesem Zeitpunkt kennt der Management Node jeden Compute Node. Die Compute Nodes werden wie folgt in den Datastore aufgenommen:

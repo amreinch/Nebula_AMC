@@ -133,3 +133,20 @@ Die fixe IP Adresse wird unter den Netzwerkeinstellungen des Routers direkt vorg
 	\includegraphics[scale=0.8]{Bilder/ip_mac_edit.png}
 	\caption{Statische IP vergeben}
 \end{figure}
+
+\subsection{Netzwerkshare einrichten}
+Der Netzwerkshare wird über das Synology NAS mit dem NFS Protkoll bereitgestellt. Der Share wird gemäss den aufgelisteten Schritten erstellt. \newline
+
+1. Über den Browser auf das NAS via http://influbox/ verbinden. \newline
+2. Anmeldedaten eingeben. \newline
+3. Über die Systemsteuerung die Einstellungen für Dateidienste aufrufen. \newline
+4. Unter dem Reiter SMB/AFP/NFS soll die Funktion \grqq NFS aktivieren\grqq aktiviert werden. \newline
+5. Der NFS Dienst ist nun aktiviert und es kann unter \grqq Gemeinsam Ordner\grqq ein neues Verzeichnis angelegt werden. Dieses Verzeichnis wird der Mountpoint für die Nodes. Der Mountpoint wurde nebula genannt. \newline
+6. Für den erstellten Ordner müssen nun noch die Berechtigungen für Zugriffe eingerichtet werden. Dazu bearbeitet man unter Einstellungen die Rechte auf das Verzeichnis. \newline
+7. Damit nicht jeder das Verzeichnis mounten kann, wurde  auf 192.168.10/24  eingegrenzt. Dies kann über das GUI von Synology direkt eingerichtet werden.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{Bilder/nfs_net.png}
+	\caption{NFS: Erlaubte Clients}
+\end{figure}
+8. Der Netzwerkshare kann von nun an auf dem Management Node und den Computes eingebunden werden.
