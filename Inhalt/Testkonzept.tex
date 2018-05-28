@@ -55,3 +55,12 @@ Die Tests werden abgebrochen, sobald Fehler auftauchen, welche Folgetests verhin
 \subsubsection{Testhilfsmittel}
 Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests durchgeführt werden können wird ein PC oder Notebook als Testclient benötigt. Dieser Client muss sich im selben Netzwerk wie der Cluster befinden.
 
+
+\subsubsection{Testfazit}
+Die Tests wurden gemäss Testkonzept durchgeführt worden. Alle Testfälle sind im Anhang E dokumentiert. Das Testprotokoll befindet sich im Anhang F und beinhaltet alle Resultate der durchgegangenen Testfälle. Dem Testprotokoll ist zu entnehmen das ein gutes Resultat erzielt wurde. Dadurch sollten keine Hindernisse bei der Inbetriebnahme des Clusters anzutreffen sein. Während der Tests sind jedoch kleinere Probleme aufgefallen, welche behoben werden müssen.\newline
+
+\textbf{K-037: Compute Node c35} \newline
+Der Compute Node c35 ist nicht mehr funktionsfähig und muss innerhalb von 6 Monaten ausgetauscht werden. Während dieser Zeit wird auf einen unbestimmten Reserve Node c[41-45] zugegriffen. Der Compute Node c35 soll vom Netzwerk und von der Stromversorgung abgekoppelt werden um Energie zu sparen. \newline
+
+\textbf{S-004: Ganglia Monitoring} \newline
+Es wurde festgestellt, dass Ganglia jeweils alle Daten zusammenfasst und auf einem Node darsellt. Die Ursache ist noch nicht bekannt und es müssen Analysen stattfinden.Da Ganglia als Performance Messungs Tool benutzt wird, ist dies nicht kritisch. Eine Lösung sollte dennoch innerhalb von 6 Monaten gefunden werden.
