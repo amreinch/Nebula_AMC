@@ -8,8 +8,11 @@ Die folgenden Kapitel gehören zum Anhang und ergänzen den Diplombericht.
 \renewcommand{\refname}{Literaturverzeichnis}
 
 \bibliography{Bibliographie}
+\include{Anhang/Anhang_Projektplan}
 \bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
 \newpage
+\pdfpagewidth 210mm
+\pdfpageheight 297mm
 \includepdf[pages=1,scale=.8,pagecommand={\section{Diplomeingabe}\label{pdf:Diplomeingabe}},linktodoc=true]{Anhang/Diplomarbeit_Eingabe.pdf}
 \includepdf[pages={2,3},scale=0.9,pagecommand={},linktodoc=true]{Anhang/Diplomarbeit_Eingabe.pdf}
 \include{Anhang/Anhang_Testfaelle}
