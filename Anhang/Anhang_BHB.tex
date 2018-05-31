@@ -1,0 +1,124 @@
+% !TEX root = ../Diplombericht.tex
+\section{Benutzerhandbuch}
+Der Cluster ist vollautomatisch eingerichtet. Deshalb gibt es nur beim Systemstart kleinere Tasks zu erledigen.
+
+\subsection{Systemstart}
+Es existieren noch kleinere Fehler, deshalb sind bei einem Systemstart folgende Punkte jeweils zu erledigen.
+
+\textbf{Hostnamen Computenodes}\newline
+Da gleichzeitig 45 Compute Nodes den Hostnamen zugewiesen erhalten, entstehen Komplikationen. Nicht jeder Compute Node erhält direkt einen Hostnamen. Dazu müssen folgende Tests nach einem Systemstart vollzogen werden:
+
+1. Prüfen ob der Compute Node einen Hostnamen zugewiesen erhalten hat.
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c[1-45] hostname
+c4: c4
+c8: c8
+c29: c29
+c1: c1
+c10: 192.168.1.20
+c5: 192.168.1.15
+c36: 192.168.1.46
+...
+\end{lstlisting}
+2. Auslesen welche Hostnamen eine IP Adresse ausgeben.\newline
+3. Die identifizierten Hosts neustarten.
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c[10,5,36] reboot
+c36: Connection to c36 closed by remote host.
+pdsh@nebula: c36: ssh exited with exit code 255
+c5: Connection to c5 closed by remote host.
+pdsh@nebula: c5: ssh exited with exit code 255
+c10: Connection to c10 closed by remote host.
+pdsh@nebula: c10: ssh exited with exit code 255
+[root@nebula ~]#
+\end{lstlisting}
+4. Prüfen ob die Hosts nun einen Hostnamen erhalten haben.
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c[10,5,36] hostname
+c10: c10
+c36: c36
+c5: c5
+[root@nebula ~]#
+\end{lstlisting}
+5. Falls nicht alle Hosts einen Hostnamen erhalten haben müssen die Schritte wiederholt werden.
+
+\textbf{Internetzugang für die Compute Nodes}\newline
+Standardmässig können die Compute Nodes keine Verbindung zum Internet aufbauen. Deshalb muss das Routing jeweils eingerichtet werden. \newline
+1. Prüfen ob Compute Nodes das Internet erreichen können.
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c1 ping -c 1 google.de
+c1: ping google.de
+c1: PING google.de (172.217.168.3) 56(84) bytes of data.
+\end{lstlisting}
+2. Wenn der Compute Node nichts erreichen kann, soll das Routing eingerichtet werden.
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c1 route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.168.1.1 dev eth0
+\end{lstlisting}
+3. Erneute Prüfung 
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c1 ping -c 1 google.de
+c1: PING google.de (172.217.19.163) 56(84) bytes of data.
+c1: 64 bytes from zrh04s07-in-f3.1e100.net (172.217.19.163): icmp_seq=1 ttl=57 time=16.9 ms
+c1:
+c1: --- google.de ping statistics ---
+c1: 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+c1: rtt min/avg/max/mdev = 16.925/16.925/16.925/0.000 ms
+\end{lstlisting}
+4. Um jeden Compute Node gleichzeitig zu bearbeiten kann folgendes eingegeben werden:
+\begin{lstlisting}
+[root@nebula ~]# pdsh -w c[1-45] route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.168.1.1 dev eth0
+\end{lstlisting}
+
+\textbf{Nagio starten}\newline
+Nagios kann mit dem aktuellen Betriebssystem nicht automatisch gestartet werden. Das /var/run/nagios Verzeichnis kann vom System nicht erstellt werden.
+\begin{lstlisting}
+[root@nebula ~]# mkdir /var/run/nagios
+[root@nebula ~]# chown nagios.nagios /var/run/nagios
+[root@nebula ~]# systemctl start nagios
+[root@nebula ~]# systemctl status nagios
+ nagios.service - Nagios Network Monitoring
+   Loaded: loaded (/usr/lib/systemd/system/nagios.service; enabled; vendor preset: disabled)
+   Active: active (running) 
+\end{lstlisting}
+
+\subsection{SLURM}
+\textbf{Status der Nodes abfragen}\newline
+Befehl: sinfo -N -l
+\begin{lstlisting}
+[root@nebula ~]# sinfo -N -l
+Thu May 31 20:24:02 2018
+NODELIST   NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
+c1             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+c2             1   normal*       down*    4    4:1:1      1        0      1   (null) Not responding
+c3             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+c4             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+c5             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+c6             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+c7             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+c8             1   normal*        idle    4    4:1:1      1        0      1   (null) none
+\end{lstlisting}
+
+\textbf{Jobs starten}\newline
+Befehl: srun [Parameter] [Programm]
+\begin{lstlisting}
+[root@nebula tkinjo]# srun --nodes=10 --ntasks=10 --cpus-per-task=4 [Programm]
+\end{lstlisting}
+
+\textbf{Job Warteschlange abfragen}\newline
+Befehl: squeue
+\begin{lstlisting}
+[root@nebula ~]# squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+               126    normal cpuminer     root  R       0:13     10 c[3-8,13-14,29-30]
+[root@nebula ~]#
+\end{lstlisting}
+
+\textbf{Job abbrechen}\newline
+Befehl: scancel [Job-ID]
+\begin{lstlisting}
+[root@nebula ~]# scancel 126
+[root@nebula ~]# squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+[root@nebula ~]#
+\end{lstlisting}
+
