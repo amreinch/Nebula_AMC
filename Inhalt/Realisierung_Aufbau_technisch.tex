@@ -8,7 +8,7 @@ Es exisitiert zur Zeit kein 64-Bit CentOS Kernel, welcher mit den RPI's kompatib
 Die IP- und Hostnamenzuweisung wurde über die Internetbox von Swisscom eingerichtet. Dabei wurden alle RPI's an das Netzwerk und den Strom angeschlossen. Nach ca. 2 Minuten wurden alle angeschlossenen Geräte im Interface aufgelistet und konnten anhand des Hostnamenkonzeptes eingerichtet werden.
 
 \textbf{Netzwerkboot}\newline
-Der Management Node dient als Provider und verteilt das Betriebssystem an alle angeschlossenen Compute Nodes. Diese mussten vorgängig bearbeitet werden und benötigen bei einem Power On einen OTP Eintrag. Dadurch wird eine Anfrage von jedem Compute Node (Client) an den Management Node gestellt, ob es das Betriebssystem erhalten darf. Zeitgleich wurden noch alle MAC-Adressen ausgelesen, diese werden später für die statische Zuweisung von IP Adressen und Hostnamen benötigt.
+Der Management Node dient als Provider und verteilt das Betriebssystem an alle angeschlossenen Compute Nodes. Diese mussten vorgängig bearbeitet werden und benötigen bei einem Power On einen One Time Programmable (OTP) Eintrag. Dadurch wird eine Anfrage von jedem Compute Node (Client) an den Management Node gestellt, ob es das Betriebssystem erhalten darf. Zeitgleich wurden noch alle MAC-Adressen ausgelesen, diese werden später für die statische Zuweisung von IP Adressen und Hostnamen benötigt.
 
 \subsubsection{Installation}
 
