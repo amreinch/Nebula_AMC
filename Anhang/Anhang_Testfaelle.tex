@@ -934,7 +934,7 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Rückgabewert muss pro Compu
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{I-002} & NAS & Mountpoint \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Management Node und die Compute Nodes automatisch bei einem Systemstart sich mit dem Netzwerkshare verbinden.} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Management Node  automatisch bei einem Systemstart sich mit dem Netzwerkshare verbindet.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der fstab-Eintrag muss vorhanden sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Management Node starten.\newline
@@ -951,7 +951,25 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss ein
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{I-003} & Cluster & Wiederaufbau \\ \hline
+Bezeichnung & \textbf{I-003} & NAS / Compute Nodes & Mountpoint \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob die Compute Nodes  automatisch bei einem Systemstart sich mit dem Netzwerkshare verbinden.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der fstab-Eintrag muss vorhanden sein.} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Compute Nodes starten.\newline
+- auf dem Management Node anmelden.\newline
+- Den Befehl \grqq pdsh -w c[1-45] ls -l /media/nebula\_data/ | wc -l \grqq \ eingeben.
+} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss jewils einen grösseren Wert als \grqq 1\grqq zurückgeben.} \\\hline
+\end{tabular}
+\caption{Testfall I-003}
+\label{Testfall I-003}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{I-004} & Cluster & Wiederaufbau \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Cluster in einem Raum innerhalb von 15 Minuten wiederaufgebaut werden kann.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Cluster ist kompakt aufgebaut} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
@@ -961,8 +979,8 @@ Testschritte & \multicolumn{3}{p{12cm}|}{
 } \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Wiederaufbau soll nicht länger als 15 Minuten dauern.} \\\hline
 \end{tabular}
-\caption{Testfall I-003}
-\label{Testfall I-003}
+\caption{Testfall I-004}
+\label{Testfall I-004}
 \end{table}
 
 \subsection{Systemtests}

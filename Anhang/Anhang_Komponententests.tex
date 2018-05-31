@@ -1259,55 +1259,56 @@ rtt min/avg/max/mdev = 0.434/0.486/0.539/0.056 ms \\\hline
 \cellcolor{heading}\textbf{Testobjekt} & Compute Nodes \\\hline
 \cellcolor{heading}\textbf{Testschritte} & 
 - Den Befehl \grqq  pdsh -w c[1-45] ping -c 1 google.de\grqq \ auf dem Management Node eingeben. \\\hline 
-\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Die Ausgabe des Befehls muss einen grösseren Wert als \grqq 1\grqq zurückgeben. \\\hline
-\cellcolor{heading}\textbf{Tatsächliches Ergebnis} & Die folgende Auflistung wurde aus Platzgründen gekürzt: \newline 
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Der Rückgabewert muss pro Compute Node die Ausgabe \grqq 1 packets transmitted, 1 received, 0\% packet loss\grqq beinhalten. Damit der Test erfolgreich war. \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
 --- google.de ping statistics --- \newline
-c1: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c2: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c3: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c4: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c5: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c6: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c7: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c8: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c9: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c10: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c11: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c12: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c13: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline \\\hline
+c1: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c2: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c3: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c4: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c5: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c6: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c7: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c8: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c9: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c10: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c11: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c12: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c13: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c14: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c15: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c16: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c17: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline 
+c18: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c19: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c20: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c21: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c22: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c23: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c24: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline 
+c25: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c26: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+\\\hline
 \cellcolor{heading}\textbf{Tatsächliches Ergebnis} & 
-c14: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c15: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c16: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c17: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline 
-c18: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c19: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c20: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c21: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c22: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c23: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c24: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c25: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c26: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c27: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c28: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c29: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c30: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c31: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c32: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c33: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c34: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
+c27: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c28: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c29: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c30: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c31: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c32: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c33: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c34: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
 c35: ssh: connect to host c35 port 22: No route to host
-c36: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c37: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c38: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c39: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c40: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c41: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c42: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c43: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c44: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline
-c45: 1 packets transmitted, 0 received, 100\% packet loss, time 0ms \newline  \\\hline
+c36: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c37: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c38: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c39: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c40: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c41: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c42: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c43: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c44: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline
+c45: 1 packets transmitted, 1 received, 0\% packet loss, time 0ms \newline  \\\hline
 \cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
 \cellcolor{heading}\textbf{Datum des Tests} & 22.05.2018  \\\hline
 \cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
@@ -1358,7 +1359,7 @@ c6: 17 \newline
 c7: 17 \newline
 .. \newline
 c35: ssh: connect to host c35 port 22: No route to host
-pdsh@nebula: c35: ssh exited with exit code 255
+pdsh@nebula: c35: ssh exited with exit code 255\newline
 c36: 17 \newline
 .. \newline
 c43: 17 \newline
@@ -1370,6 +1371,27 @@ c45: 17 \\\hline
 \cellcolor{heading}\textbf{Fehlerbeschreibung} & Der Compute Node c35 wurde bereits bei den Komponententests als Fehlerhaft erkannt. Deshalb ist das Ergebnis wie erwartet.  \\\hline
 \end{tabular}
 \caption{I-003 Protokoll}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & I-004 \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Cluster \\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- Cluster herunterfahren.\newline
+- Externe physische Verbindungen trennen.\newline
+- Cluster in ein anderes Zimmer verschieben und wiederaufbauen (selbes Netzwerk). \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Der Wiederaufbau soll nicht länger als 15 Minuten dauern. \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Der Cluster konnte innerhalb von 12 Minuten wiederaufgebaut werden. \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 22.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} & Der Compute Node c35 wurde bereits bei den Komponententests als Fehlerhaft erkannt. Deshalb ist das Ergebnis wie erwartet.  \\\hline
+\end{tabular}
+\caption{I-004 Protokoll}
 \end{table}
 \newpage
 \subsection{Systemtests}
