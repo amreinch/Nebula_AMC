@@ -213,7 +213,7 @@ OpenHPC Pakete für die Compute Nodes installieren.
 [root@nebula /]# yum -y --installroot=$CHROOT install ohpc-base-compute
 \end{lstlisting}
 
-Damit die Compute Nodes über den Hostnamen angesprochen werden können, wird eine DNS Konfiguration benötigt. Die Auflösung findet über folgende Einstellung statt. Dabei wird vom Management Node die resolv.conf Datei übernommen und auf das Dateisystem der Compute Nodes kopiert:
+Damit die Compute Nodes über den Hostnamen angesprochen werden können, wird eine Domain Name System (DNS) Konfiguration benötigt. Die Auflösung findet über folgende Einstellung statt. Dabei wird vom Management Node die resolv.conf Datei übernommen und auf das Dateisystem der Compute Nodes kopiert:
 \begin{lstlisting}
 [root@nebula /]# cp -p /etc/resolv.conf $CHROOT/etc/resolv.conf
 \end{lstlisting}

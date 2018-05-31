@@ -17,10 +17,10 @@ Der PC kann mit dem \textbf{SSH Protokoll} auf den Management Node zugreifen. Da
 Der Management Node verteilt via \textbf{dnsmasq} und  \textbf {TFTP} das Betriebssystem an die Compute Nodes über das Netzwerk. Sogleich ist auch der \textbf{Slurm Controller} für die Jobsteuerung auf dem Management Node installiert, welcher mit den \textbf{Slurm Daemons} auf den Compute Nodes kommuniziert. Weiterhin sind die Monitoring Komponenten \textbf{Ganglia und Nagios} auf dem Management Node installiert, welche Monitoringdaten der Compute Nodes sammeln und zur Auswertung verarbeiten.
 
 \textbf{Verbindung 3} \newline
-Der Router verteilt via \textbf{DHCP} statische IP Adressen und Hostnamen, welche über die MAC Adressen definiert sind.
+Der Router verteilt via \textbf{Dynamic Host Configuration Protocol (DHCP)} statische IP Adressen und Hostnamen, welche über die MAC Adressen definiert sind.
 
 \textbf{Verbindung 4} \newline
-Der NAS Share wird über \textbf{SMB} auf den Compute Nodes und dem Master Node angehängt.
+Der NAS Share wird über \textbf{Network File System (NFS)} auf den Compute Nodes und dem Master Node angehängt.
 
 \subsubsection{Verwendete Protokolle}
 \begin{table}[H]
@@ -33,7 +33,7 @@ Der NAS Share wird über \textbf{SMB} auf den Compute Nodes und dem Master Node 
 3 & DHCP & UDP & 67 / 78 \\\hline
 4 & TFTP & UDP & 69 \\\hline
 5 & HTTP & TCP & 80 \\\hline
-6 & SMB & TCP & 445 \\\hline
+6 & NFS & TCP & 111 \\\hline
 \end{tabular}
 \caption{Protokolle}
 \end{table}
