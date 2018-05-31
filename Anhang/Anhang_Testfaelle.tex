@@ -947,6 +947,24 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss ein
 \label{Testfall I-002}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+Bezeichnung & \textbf{I-003} & Cluster & Wiederaufbau \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Cluster in einem Raum innerhalb von 15 Minuten wiederaufgebaut werden kann.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Cluster ist kompakt aufgebaut} \\ \hline
+Testschritte & \multicolumn{3}{p{12cm}|}{
+- Cluster herunterfahren.\newline
+- Externe physische Verbindungen trennen.\newline
+- Cluster in ein anderes Zimmer verschieben und wiederaufbauen (selbes Netzwerk).
+} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Wiederaufbau soll nicht länger als 15 Minuten dauern.} \\\hline
+\end{tabular}
+\caption{Testfall I-003}
+\label{Testfall I-003}
+\end{table}
+
 \subsection{Systemtests}
 \begin{table}[H]
 \centering
