@@ -23,9 +23,9 @@ Die Tests werden in folgende Kategorien eingestuft:
 \begin{tabular}{p{1cm}p{3cm}p{12cm}}
 \hline
 \rowcolor{heading} \textbf{Nr.} & \textbf{Testart} & \textbf{Beschreibung} \\\hline
-1 & Komponententest & Die Lauffähigkeit und Erreichbarkeit der einzelnen Hardware Komponenten wird überprüft.  \\\hline
-2 & Integrationstest & Es wird die Zusammenarbeit der aktiven und neu integrierten abhängigen Komponenten überprüft. \\\hline
-3 & Systemtest & Das System wird als Komplettlösung getestet. Hierbei soll geprüft werden, ob die Lösung den Anforderungen der Anwendbarkeit und Nutzbarkeit dem Auftrag entspricht.  \\\hline
+1 & Komponententest \newline K-[0-9]& Die Lauffähigkeit und Erreichbarkeit der einzelnen Hardware Komponenten wird überprüft.  \\\hline
+2 & Integrationstest \newline I-[0-9] & Es wird die Zusammenarbeit der aktiven und neu integrierten abhängigen Komponenten überprüft. \\\hline
+3 & Systemtest \newline S-[0-9] & Das System wird als Komplettlösung getestet. Hierbei soll geprüft werden, ob die Lösung den Anforderungen der Anwendbarkeit und Nutzbarkeit dem Auftrag entspricht.  \\\hline
 \end{tabular}
 \caption{Testarten}
 \end{table}
@@ -53,14 +53,14 @@ Die Tests werden abgebrochen, sobald Fehler auftauchen, welche Folgetests verhin
 \end{table}
 
 \subsubsection{Testhilfsmittel}
-Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests durchgeführt werden können wird ein PC oder Notebook als Testclient benötigt. Dieser Client muss sich im selben Netzwerk wie der Cluster befinden.
+Die Dokumentation der Tests wird im Testprotokoll nachgeführt. Damit die Tests durchgeführt werden können, wird ein PC oder Notebook als Testclient benötigt. Dieser Client muss sich im selben Netzwerk wie der Cluster befinden.
 
 
 \subsubsection{Testfazit}
-Die Tests wurden gemäss Testkonzept durchgeführt worden. Alle Testfälle sind im Anhang E dokumentiert. Das Testprotokoll befindet sich im Anhang F und beinhaltet alle Resultate der durchgegangenen Testfälle. Dem Testprotokoll ist zu entnehmen das ein gutes Resultat erzielt wurde. Dadurch sollten keine Hindernisse bei der Inbetriebnahme des Clusters anzutreffen sein. Während der Tests sind jedoch kleinere Probleme aufgefallen, welche behoben werden müssen.\newline
+Die Tests wurden gemäss Testkonzept durchgeführt worden. Alle Testfälle sind im Anhang E dokumentiert. Das Testprotokoll befindet sich im Anhang F und beinhaltet alle Resultate der durchgegangenen Testfälle. Dem Testprotokoll ist zu entnehmen, dass ein gutes Resultat erzielt wurde. Dadurch sollten keine Hindernisse bei der Inbetriebnahme des Clusters anzutreffen sein. Während der Tests sind jedoch kleinere Probleme aufgefallen, welche behoben werden müssen.\newline
 
 \textbf{K-037: Compute Node c35} \newline
-Der Compute Node c35 ist nicht mehr funktionsfähig und muss innerhalb von 6 Monaten ausgetauscht werden. Während dieser Zeit wird auf einen unbestimmten Reserve Node c[41-45] zugegriffen. Der Compute Node c35 soll vom Netzwerk und von der Stromversorgung abgekoppelt werden um Energie zu sparen. \newline
+Der Compute Node c35 ist nicht mehr funktionsfähig und muss innerhalb von 6 Monaten ausgetauscht werden. Während dieser Zeit wird auf einen unbestimmten Reserve Node c[41-45] zugegriffen. Der Compute Node c35 soll vom Netzwerk und von der Stromversorgung abgekoppelt werden, um Energie zu sparen. \newline
 
 \textbf{S-004: Ganglia Monitoring} \newline
-Es wurde festgestellt, dass Ganglia jeweils alle Daten zusammenfasst und auf einem Node darsellt. Die Ursache ist noch nicht bekannt und es müssen Analysen stattfinden.Da Ganglia als Performance Messungs Tool benutzt wird, ist dies nicht kritisch. Eine Lösung sollte dennoch innerhalb von 6 Monaten gefunden werden.
+Es wurde festgestellt, dass Ganglia jeweils alle Daten zusammenfasst und auf einem Node darstellt. Die Ursache ist noch nicht bekannt und es müssen Analysen stattfinden. Da Ganglia als Performance Messungs-Tool benutzt wird, ist dies nicht kritisch. Eine Lösung sollte dennoch innerhalb von 6 Monaten gefunden werden.

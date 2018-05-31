@@ -1235,8 +1235,8 @@ Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds  \\\hline
 \cellcolor{heading}\textbf{Test-ID:} & K-048 \\\hline
 \cellcolor{heading}\textbf{Testobjekt} & NAS \\\hline
 \cellcolor{heading}\textbf{Testschritte} & 
-- Den Befehl \grqq  pdsh -w c[1-45] ping -c 1 google.de\grqq \ auf dem\newline Management Node eingeben. \\\hline
-\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Der Rückgabewert muss pro Compute Node die Ausgabe \grqq 1 packets transmitted, 1 received, 0\% packet loss\grqq beinhalten. \\\hline
+Den Befehl \grqq ping 192.168.1.129\grqq \ \ auf dem Testclient ausführen und 2 Versuche abwarten. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Das NAS antwortet auf den Ping befehl mit: \grqq 2 packets transmitted, 2 received, 0\% packet loss\grqq. \\\hline
 \cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
 PING 192.168.1.129 (192.168.1.129) 56(84) bytes of data. \newline
 64 bytes from 192.168.1.129: icmp\_seq=1 ttl=64 time=0.539 ms \newline

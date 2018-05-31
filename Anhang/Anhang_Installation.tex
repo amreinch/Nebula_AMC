@@ -76,7 +76,7 @@ echo "server ${ntp_server[3]}" >> /etc/ntp.conf
 systemctl restart ntpd
 \end{lstlisting}
 
-Nun wird der Slurmcontroller installiert. Dieser dient dazu, die Jobs auf die Compute Nodes zu verteilen. Dieser steuert die Jobverwaltung und muss installiert und eingerichtet werden. Hierbei wird die Konfiguration für 45 Computenodes vorgenommen.
+Nun wird der Slurmcontroller installiert. Dieser dient dazu, die Jobs auf die Compute Nodes zu verteilen. Dieser steuert die Jobverwaltung und muss installiert und eingerichtet werden. Hierbei wird die Konfiguration für 45 Compute Nodes vorgenommen.
 
 \begin{lstlisting}
 yum -y install ohpc-slurm-server
@@ -303,7 +303,7 @@ May 17 20:32:56 nebula dnsmasq-dhcp[382]: 925035958 available DHCP range: 192.16
 May 17 20:32:56 nebula rpc.mountd[495]: authenticated mount request from 192.168.1.22:999 for /opt/ohpc/admin/images/centos7.4 (/opt/ohpc/admin/images/centos7.4)
 \end{lstlisting}
 
-Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Compute Node c12 gestartet wurde und nach dem Betriebssystem anfragt und dieses mounten will.
+Durch die letzte Zeile (authenticated mount request from 192.168.1.22) ist ersichtlich, dass der Compute Node c12 gestartet wurde und nach dem Betriebssystem angefragt hat und dieses mounten will.
 \newpage
 
 \subsection{Netzwerkshare einbinden}
@@ -503,7 +503,7 @@ Ohne Anpassung sieht die Ausgabe wie folgt aus:
 [2018-05-19 14:09:03] CPU #1: 1.85 H/s
 [2018-05-19 14:09:03] CPU #2: 1.85 H/s
 \end{lstlisting}
-Durch die Modifikation werden die Computenodenamen ausgegeben:
+Durch die Modifikation werden die Compute Node Namen ausgegeben:
 \begin{lstlisting}
 [2018-05-19 14:06:33] [c26] CPU #2: 1.86 H/s
 [2018-05-19 14:06:33] [c14] CPU #1: 1.86 H/s

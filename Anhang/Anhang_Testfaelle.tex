@@ -25,14 +25,14 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, I
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{K-002} & Management Node & Anmelden \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Management Node über das SSH Protokoll erreichbar ist.} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet, ob der Management Node über das SSH Protokoll erreichbar ist.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Management Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Management Node starten (Strom anschliessen).\newline
 - 30 Sekunden warten.\newline
 - Auf dem Testclient über Putty oder Shell den Befehl \grqq ssh root@nebula\grqq \ \ eingeben. \newline
 - Passwort eingeben.} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Zugriff auf den Management Node funktioniert} \\\hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Zugriff auf den Management Node funktioniert.} \\\hline
 \end{tabular}
 \caption{Testfall K-002}
 \label{Testfall K-002}
@@ -46,10 +46,10 @@ Bezeichnung & \textbf{K-003} & Compute Node c1 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.11\grqq \  eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.11\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-003}
@@ -65,10 +65,10 @@ Bezeichnung & \textbf{K-004} & Compute Node c2 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.12\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.12\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-004}
@@ -84,10 +84,10 @@ Bezeichnung & \textbf{K-005} & Compute Node c3 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.13\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.13\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-005}
@@ -103,10 +103,10 @@ Bezeichnung & \textbf{K-006} & Compute Node c4 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.14\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.14\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-006}
@@ -122,10 +122,10 @@ Bezeichnung & \textbf{K-007} & Compute Node c5 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.15\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.15\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-007}
@@ -141,10 +141,10 @@ Bezeichnung & \textbf{K-008} & Compute Node c6 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.16\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.16\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-008}
@@ -160,10 +160,10 @@ Bezeichnung & \textbf{K-009} & Compute Node c7 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.17\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.17\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-009}
@@ -179,10 +179,10 @@ Bezeichnung & \textbf{K-010} & Compute Node c8 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.18\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.18\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-010}
@@ -199,10 +199,10 @@ Bezeichnung & \textbf{K-011} & Compute Node c9 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.19\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.19\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-011}
@@ -218,10 +218,10 @@ Bezeichnung & \textbf{K-012} & Compute Node c10 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.20\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.20\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-012}
@@ -237,10 +237,10 @@ Bezeichnung & \textbf{K-013} & Compute Node c11 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.21\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.21\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-013}
@@ -256,10 +256,10 @@ Bezeichnung & \textbf{K-014} & Compute Node c12 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.22\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.22\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-014}
@@ -275,10 +275,10 @@ Bezeichnung & \textbf{K-015} & Compute Node c13 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.23\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.23\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-015}
@@ -294,10 +294,10 @@ Bezeichnung & \textbf{K-016} & Compute Node c14 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.24\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.24\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-016}
@@ -313,10 +313,10 @@ Bezeichnung & \textbf{K-017} & Compute Node c15 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.25\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.25\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-017}
@@ -332,10 +332,10 @@ Bezeichnung & \textbf{K-018} & Compute Node c16 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.26\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.26\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-018}
@@ -351,10 +351,10 @@ Bezeichnung & \textbf{K-019} & Compute Node c17 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.27\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.27\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-019}
@@ -370,10 +370,10 @@ Bezeichnung & \textbf{K-020} & Compute Node c18 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.28\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.28\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-020}
@@ -389,10 +389,10 @@ Bezeichnung & \textbf{K-021} & Compute Node c19 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.29\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.29\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-021}
@@ -409,10 +409,10 @@ Bezeichnung & \textbf{K-022} & Compute Node c20 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.30\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.30\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-022}
@@ -428,10 +428,10 @@ Bezeichnung & \textbf{K-023} & Compute Node c21 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.31\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.31\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-023}
@@ -447,10 +447,10 @@ Bezeichnung & \textbf{K-024} & Compute Node c22 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.32\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.32\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-024}
@@ -466,10 +466,10 @@ Bezeichnung & \textbf{K-025} & Compute Node c23 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.33\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.33\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-025}
@@ -485,10 +485,10 @@ Bezeichnung & \textbf{K-026} & Compute Node c24 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.34\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.34\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-026}
@@ -504,10 +504,10 @@ Bezeichnung & \textbf{K-027} & Compute Node c25 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.35\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.35\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-027}
@@ -523,10 +523,10 @@ Bezeichnung & \textbf{K-028} & Compute Node c26 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.36\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.36\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-028}
@@ -542,10 +542,10 @@ Bezeichnung & \textbf{K-029} & Compute Node c27 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.37\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.37\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-029}
@@ -561,10 +561,10 @@ Bezeichnung & \textbf{K-030} & Compute Node c28 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.38\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.38\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-030}
@@ -580,10 +580,10 @@ Bezeichnung & \textbf{K-031} & Compute Node c29 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.39\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.39\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-031}
@@ -599,10 +599,10 @@ Bezeichnung & \textbf{K-032} & Compute Node c30 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.40\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.40\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-032}
@@ -619,10 +619,10 @@ Bezeichnung & \textbf{K-033} & Compute Node c31 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.41\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.41\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-033}
@@ -638,10 +638,10 @@ Bezeichnung & \textbf{K-034} & Compute Node c32 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.42\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.42\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-034}
@@ -657,10 +657,10 @@ Bezeichnung & \textbf{K-035} & Compute Node c33 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.43\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.43\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-035}
@@ -676,10 +676,10 @@ Bezeichnung & \textbf{K-036} & Compute Node c34 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.44\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.44\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-036}
@@ -695,10 +695,10 @@ Bezeichnung & \textbf{K-037} & Compute Node c35 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.45\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.45\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-037}
@@ -714,10 +714,10 @@ Bezeichnung & \textbf{K-038} & Compute Node c36 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.46\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.46\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-038}
@@ -733,10 +733,10 @@ Bezeichnung & \textbf{K-039} & Compute Node c37 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.47\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.47\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-039}
@@ -752,10 +752,10 @@ Bezeichnung & \textbf{K-040} & Compute Node c38 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.48\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.48\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-040}
@@ -771,10 +771,10 @@ Bezeichnung & \textbf{K-041} & Compute Node c39 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.49\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.49\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-041}
@@ -790,10 +790,10 @@ Bezeichnung & \textbf{K-042} & Compute Node c40 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.50\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.50\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-042}
@@ -810,10 +810,10 @@ Bezeichnung & \textbf{K-043} & Compute Node c41 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.51\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.51\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-043}
@@ -829,10 +829,10 @@ Bezeichnung & \textbf{K-044} & Compute Node c42 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.52\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.52\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-044}
@@ -848,10 +848,10 @@ Bezeichnung & \textbf{K-045} & Compute Node c43 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.53\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.53\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-045}
@@ -867,10 +867,10 @@ Bezeichnung & \textbf{K-046} & Compute Node c44 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.54\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.54\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-046}
@@ -886,10 +886,10 @@ Bezeichnung & \textbf{K-047} & Compute Node c45 & Hostnamen / IP / MAC \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Der Compute Node wird auf die zugewiesene IP Adresse, MAC Adresse und den Hostnamen geprüft.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Compute Node und der Testclient befinden sich im selben Netzwerk.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
-- Compute Node starten (Strom anschliessen)\newline
-- 3 Minuten Sekunden warten\newline
-- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.55\grqq \ eingeben\newline
-- Prüfen ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
+- Compute Node starten (Strom anschliessen).\newline
+- 3 Minuten warten.\newline
+- Auf dem Testclient über Putty oder Shell mit dem Befehl \newline \grqq nmap -sn 192.168.1.55\grqq \ eingeben.\newline
+- Prüfen, ob die Zuweisung gemäss Hostnamenkonzept richtig ist.} \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, IP- und MAC-Adresse) sollen identisch mit deren im Hostnamenkonzept sein.} \\\hline
 \end{tabular}
 \caption{Testfall K-047}
@@ -903,8 +903,8 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Rückgabewerte (Hostnamen, I
 Bezeichnung & \textbf{K-048} & NAS & Erreichbarkeit \\ \hline
 Beschreibung & \multicolumn{3}{p{12cm}|}{Das NAS soll auf die Erreichbarkeit geprüft werden.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das NAS ist am Netzwerk angeschlossen.} \\ \hline
-Testschritte & \multicolumn{3}{p{12cm}|}{} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das NAS antwortet auf den Ping befehl mit: \grqq 2 packets transmitted, 2 received, 0\% packet loss\grqq } \\\hline
+Testschritte & \multicolumn{3}{p{12cm}|}{Den Befehl \grqq ping 192.168.1.129\grqq \ \ auf dem Testclient ausführen und 2 Versuche abwarten.} \\ \hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das NAS antwortet auf den Ping befehl mit: \grqq 2 packets transmitted, 2 received, 0\% packet loss\grqq. } \\\hline
 \end{tabular}
 \caption{Testfall K-048}
 \label{Testfall K-048}
@@ -918,11 +918,11 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Das NAS antwortet auf den Ping b
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{I-001} & Compute Nodes & Internet Zugang \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob alle Computenodes auf das Internet zugreifen können.} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet, ob alle Compute Nodes auf das Internet zugreifen können.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Das Routing ist eingerichtet.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Den Befehl \grqq  pdsh -w c[1-45] ping -c 1 google.de\grqq \ auf dem Management Node eingeben.} \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Rückgabewert muss pro Compute Node die Ausgabe \grqq 1 packets transmitted, 1 received, 0\% packet loss\grqq beinhalten. Damit der Test erfolgreich war.
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Rückgabewert muss pro Compute Node die Ausgabe \grqq 1 packets transmitted, 1 received, 0\% packet loss\grqq \ \ beinhalten. Damit der Test erfolgreich war.
 } \\\hline
 \end{tabular}
 \caption{Testfall I-001}
@@ -933,13 +933,13 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Rückgabewert muss pro Compu
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-Bezeichnung & \textbf{I-002} & NAS & Mountpoint \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Management Node  automatisch bei einem Systemstart sich mit dem Netzwerkshare verbindet.} \\ \hline
+Bezeichnung & \textbf{I-002} & NAS / Management Node & Mountpoint \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet, ob der Management Node sich automatisch bei einem Systemstart mit dem Netzwerkshare verbindet.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der fstab-Eintrag muss vorhanden sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Management Node starten.\newline
-- auf dem Management Node anmelden.\newline
-- Den Befehl \grqq ls -l /media/nebula\_data/ | wc -l \grqq \ eingeben.
+- Auf dem Management Node anmelden.\newline
+- Den Befehl \grqq ls -l /media/nebula\_data/ | wc -l \grqq\ eingeben.
 } \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss einen grösseren Wert als \grqq 1\grqq zurückgeben.} \\\hline
 \end{tabular}
@@ -952,14 +952,14 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss ein
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{I-003} & NAS / Compute Nodes & Mountpoint \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob die Compute Nodes  automatisch bei einem Systemstart sich mit dem Netzwerkshare verbinden.} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet, ob die Compute Nodes sich automatisch bei einem Systemstart mit dem Netzwerkshare verbinden.} \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der fstab-Eintrag muss vorhanden sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Compute Nodes starten.\newline
-- auf dem Management Node anmelden.\newline
-- Den Befehl \grqq pdsh -w c[1-45] ls -l /media/nebula\_data/ | wc -l \grqq \ eingeben.
+- Auf dem Management Node anmelden.\newline
+- Den Befehl \grqq pdsh -w c[1-45] ls -l /media/nebula\_data/ | wc -l\grqq \ eingeben.
 } \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss jewils einen grösseren Wert als \grqq 1\grqq zurückgeben.} \\\hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss jeweils einen grösseren Wert als \grqq 1\grqq zurückgeben.} \\\hline
 \end{tabular}
 \caption{Testfall I-003}
 \label{Testfall I-003}
@@ -970,8 +970,8 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Ausgabe des Befehls muss jew
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{I-004} & Cluster & Wiederaufbau \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet ob der Cluster in einem Raum innerhalb von 15 Minuten wiederaufgebaut werden kann.} \\ \hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Cluster ist kompakt aufgebaut} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird getestet, ob der Cluster in einem Raum innerhalb von 15 Minuten wiederaufgebaut werden kann.} \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Cluster ist kompakt aufgebaut.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Cluster herunterfahren.\newline
 - Externe physische Verbindungen trennen.\newline
@@ -989,8 +989,8 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Wiederaufbau soll nicht län
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{S-001} & Compute Nodes & CPU Last \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob die CPU während des Schürfens der Kryptowährungen zu über 90\% beansprucht wird. } \\ \hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster muss am Schürfen einer Kryptowährung sein. Dazu muss er bereits 15 Minuten am schürfen sein, bevor mit dem Test begonnen werden kann.} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft, ob die CPU während des Schürfens der Kryptowährungen zu über 90\% beansprucht wird. } \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster muss am Schürfen einer Kryptowährung sein. Dazu muss er bereits 15 Minuten am Schürfen sein, bevor mit dem Test begonnen werden kann.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 Die Tests finden vom Management Node aus statt.\newline
 - Den Befehl \grqq pdsh -w c[1-45] uptime\grqq \ eingeben. \newline
@@ -1007,14 +1007,14 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Die Loadaverage-Werte überschre
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{S-002} & Nodes & Nagios Monitoring \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob alle Nodes von Nagios überwacht werden. } \\ \hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Alle Nodes müssen einmal in Betrieb gewesen sein} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft, ob alle Nodes von Nagios überwacht werden. } \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Alle Nodes müssen einmal in Betrieb gewesen sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - \url{http://nebula/nagios} aufrufen. \newline
 - Bei Nagios anmelden. \newline
 - Auf den Reiter \grqq Hosts\grqq klicken.
 } \\ \hline
-Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Es werden alle Nodes aufgelistet. Unabhängig des Status ob der Node in Betrieb ist oder nicht.} \\\hline
+Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Es werden alle Nodes aufgelistet. Unabhängig des Status, ob der Node in Betrieb ist oder nicht.} \\\hline
 \end{tabular}
 \caption{Testfall S-002}
 \label{Testfall S-002}
@@ -1030,7 +1030,7 @@ Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster muss in Betrieb sein.}
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - Strom von Node c1 trennen. \newline
 - 5 Minuten warten. \newline
-- Email prüfen (christoph.amrein86@gmail.com)
+- Email prüfen (christoph.amrein86@gmail.com).
 } \\ \hline
 Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Es trifft eine Alarmierungs-Email ein.} \\\hline
 \end{tabular}
@@ -1043,8 +1043,8 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Es trifft eine Alarmierungs-Emai
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{S-004} & Nodes & Ganglia Monitoring \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob alle Nodes von Ganglia gemonitored werden. } \\ \hline
-Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Alle Nodes müssen einmal in Betrieb gewesen sein} \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft, ob alle Nodes von Ganglia gemonitored werden. } \\ \hline
+Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Alle Nodes müssen einmal in Betrieb gewesen sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 - \url{http://nebula/ganglia} aufrufen. \newline
 - Quelle \grqq  Nebula\grqq auswählen.
@@ -1060,7 +1060,7 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Es werden alle Nodes aufgelistet
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{S-005} & Nodes & Cluster Jobs \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob Jobs auf dem Cluster laufen. } \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft, ob Jobs auf dem Cluster laufen. } \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster muss in Betrieb sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 Auf dem Management Node sind folgende Befehle abzusetzen: \newline
@@ -1080,7 +1080,7 @@ Erwartetes Ergebnis & \multicolumn{3}{p{12cm}|}{Der Job wird in der Queue angeze
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 Bezeichnung & \textbf{S-006} & Nodes & Schürfen \\ \hline
-Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft ob über den Cluster Kryptowährung über einen Job geschürft werden kann. } \\ \hline
+Beschreibung & \multicolumn{3}{p{12cm}|}{Es wird geprüft, ob über den Cluster Kryptowährung über einen Job geschürft werden kann. } \\ \hline
 Testvoraussetzung & \multicolumn{3}{p{12cm}|}{Der Cluster muss in Betrieb sein.} \\ \hline
 Testschritte & \multicolumn{3}{p{12cm}|}{
 Auf dem Management Node sind folgende Befehle als root abzusetzen: \newline
