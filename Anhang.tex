@@ -1,5 +1,6 @@
 % !TEX root = ../Diplombericht.tex
 \section{Anhang}
+%\addcontentsline{toc}{chapter}{Anhang1}
 Die folgenden Kapitel gehören zum Anhang und ergänzen den Diplombericht.
 \input{Anhang/Anhang_Vorbereitungen}
 \include{Anhang/Anhang_Installation}
@@ -10,19 +11,27 @@ Die folgenden Kapitel gehören zum Anhang und ergänzen den Diplombericht.
 
 \bibliography{Bibliographie}
 \include{Anhang/Anhang_Projektplan}
-\bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
-\newpage
-\pdfpagewidth 210mm
-\pdfpageheight 297mm
+%\bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
+%\newpage
+
 \includepdf[pages=1,scale=.8,pagecommand={\section{Diplomeingabe}\label{pdf:Diplomeingabe}},linktodoc=true]{Anhang/Diplomarbeit_Eingabe.pdf}
 \includepdf[pages={2,3},scale=0.9,pagecommand={},linktodoc=true]{Anhang/Diplomarbeit_Eingabe.pdf}
 \include{Anhang/Anhang_Testfaelle}
 \include{Anhang/Anhang_Komponententests}
-
-\includepdf[pages=1,scale=.8,pagecommand={\section{Protokoll}\label{pdf:KickOff  Meeting Protokoll}},linktodoc=true]{Anhang/KickOffMeetingProtokoll.pdf}
+%\include{Anhang/Anhang_Komponententests2}
+%\include{Anhang/Anhang_Komponententests3}
+\includepdf[pages=1,scale=.8,pagecommand={\section{Kick-Off Protokoll}\label{pdf:KickOff  Meeting Protokoll}},linktodoc=true]{Anhang/KickOffMeetingProtokoll.pdf}
 \includepdf[pages={2},scale=0.9,pagecommand={},linktodoc=true]{Anhang/KickOffMeetingProtokoll.pdf}
 
 \include{Anhang/Anhang_Arbeitsjournal} 
+
+\phantomsection
+\listoftables
+\cleardoublepage
+
+\phantomsection
+\listoffigures
+\cleardoublepage
 
 \include{Anhang/Anhang_Quellen} 
 \include{Anhang/Anhang_Abkuerzungen} 

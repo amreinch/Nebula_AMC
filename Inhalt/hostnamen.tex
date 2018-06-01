@@ -1,6 +1,6 @@
 % !TEX root = ../Diplombericht.tex
 \subsection{Hostnamen}
-Die Compute Node Namen wurden nach einem überschaulichen Konzept definiert. Jeder Compute Node trägt den Prefix "c". Dies soll bei der Behebung von Problemen auf physicher Ebene, z.B. Austauschen, eines Nodes dienen. Zudem werden alle Hostnamen immer in kleinen Buchstaben geschrieben. 
+Die Compute Node Namen wurden nach einem überschaulichen Konzept definiert. Jeder Compute Node trägt den Prefix "c". Dies soll bei der Behebung von Problemen auf physicher Ebene, z.B. Austauschen eines Nodes, dienen. Zudem werden alle Hostnamen immer in kleinen Buchstaben geschrieben. 
 
 \subsubsection{Management Node Name}
 \begin{table}[H]
@@ -13,37 +13,19 @@ nebula & 192.168.1.10 & B8:27:EB:32:A9:1C \\\hline
 \caption{Management Node Name}
 \end{table}
 
-\subsubsection{Reserve Node Name}
-Die Reservenodes sind als Fallback für ausgefallene Compute Nodes vorgesehen.
-\begin{table}[H]
-\centering
-\begin{tabular}{p{1cm}p{2cm}p{6cm}p{6cm}}
-\hline
-\rowcolor{heading} \textbf{Nr.} & \textbf{Name} & \textbf{IP} & \textbf{MAC} \\\hline
-1 & c41 & 192.168.1.51 & B8:27:EB:DE:C9:69 \\\hline
-2 & c42 & 192.168.1.52 & B8:27:EB:7E:6F:48 \\\hline
-3 & c43 & 192.168.1.53 & B8:27:EB:5D:DD:FE \\\hline
-4 & c44 & 192.168.1.54 & B8:27:EB:A6:6D:4D \\\hline
-5 & c45 & 192.168.1.55 & B8:27:EB:0C:63:10 \\\hline
-\end{tabular}
-\caption{Reserve Node Namen}
-\end{table}
-
 \subsubsection{Compute Node Namen}
-\begin{table}[H]
-\centering
-\begin{tabular}{p{1cm}p{2cm}p{6cm}p{6cm}}
+\begin{longtable}{p{1cm}p{2cm}p{6cm}p{6cm}}
 \hline
 \rowcolor{heading} \textbf{Nr.} & \textbf{Name} & \textbf{IP} & \textbf{MAC} \\\hline
-1 & c1 & 192.168.1.11 & B8:27:EB:32:39:A7\\\hline
-2 & c2 & 192.168.1.12 & B8:27:EB:2E:A3:D1\\\hline
-3 & c3 & 192.168.1.13 & B8:27:EB:50:45:3F\\\hline
-4 & c4 & 192.168.1.14 & B8:27:EB:0D:E6:25\\\hline
-5 & c5 & 192.168.1.15 & B8:27:EB:3E:96:B5\\\hline
-6 & c6 & 192.168.1.16 & B8:27:EB:EE:77:DA\\\hline
-7 & c7 & 192.168.1.17 & B8:27:EB:21:63:E6\\\hline
-8 & c8 & 192.168.1.18 & B8:27:EB:2E:2E:CC\\\hline
-9 & c9 & 192.168.1.19 & B8:27:EB:17:32:96\\\hline
+01 & c1 & 192.168.1.11 & B8:27:EB:32:39:A7\\\hline
+02 & c2 & 192.168.1.12 & B8:27:EB:2E:A3:D1\\\hline
+03 & c3 & 192.168.1.13 & B8:27:EB:50:45:3F\\\hline
+04 & c4 & 192.168.1.14 & B8:27:EB:0D:E6:25\\\hline
+05 & c5 & 192.168.1.15 & B8:27:EB:3E:96:B5\\\hline
+06 & c6 & 192.168.1.16 & B8:27:EB:EE:77:DA\\\hline
+07 & c7 & 192.168.1.17 & B8:27:EB:21:63:E6\\\hline
+08 & c8 & 192.168.1.18 & B8:27:EB:2E:2E:CC\\\hline
+09 & c9 & 192.168.1.19 & B8:27:EB:17:32:96\\\hline
 10 & c10 & 192.168.1.20 & B8:27:EB:B2:1C:A9\\\hline
 11 & c11 & 192.168.1.21 & B8:27:EB:AF:63:1F\\\hline
 12 & c12 & 192.168.1.22 & B8:27:EB:43:00:2C\\\hline
@@ -75,6 +57,22 @@ Die Reservenodes sind als Fallback für ausgefallene Compute Nodes vorgesehen.
 38 & c38 & 192.168.1.48 & B8:27:EB:59:38:3C\\\hline
 39 & c39 & 192.168.1.49 & B8:27:EB:99:BB:8E\\\hline
 40 & c40 & 192.168.1.50 & B8:27:EB:8F:7A:0D\\\hline
-\end{tabular}
 \caption{Compute Node Namen}
+\end{longtable}
+
+
+\subsubsection{Reserve Node Name}
+Die Reservenodes sind als Fallback für ausgefallene Compute Nodes vorgesehen.
+\begin{table}[H]
+\centering
+\begin{tabular}{p{1cm}p{2cm}p{6cm}p{6cm}}
+\hline
+\rowcolor{heading} \textbf{Nr.} & \textbf{Name} & \textbf{IP} & \textbf{MAC} \\\hline
+1 & c41 & 192.168.1.51 & B8:27:EB:DE:C9:69 \\\hline
+2 & c42 & 192.168.1.52 & B8:27:EB:7E:6F:48 \\\hline
+3 & c43 & 192.168.1.53 & B8:27:EB:5D:DD:FE \\\hline
+4 & c44 & 192.168.1.54 & B8:27:EB:A6:6D:4D \\\hline
+5 & c45 & 192.168.1.55 & B8:27:EB:0C:63:10 \\\hline
+\end{tabular}
+\caption{Reserve Node Namen}
 \end{table}

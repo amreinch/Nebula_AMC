@@ -54,7 +54,7 @@ yum install http://build.openhpc.community/OpenHPC:/1.3/CentOS_7/aarch64/ohpc-re
 
 Von nun an können die benötigten Pakete über den Red Hat Package Manager (RPM-Paketmanager) installiert werden.
 
-Durch das neu angehängte Repository können nun die folgenden Pakete installiert werden.
+Durch das neu angehängte Repository können nun die folgenden Pakete installiert werden:
 
 \begin{lstlisting}
 yum -y install ohpc-base
@@ -180,7 +180,7 @@ dhcp-host=B8:27:EB:A6:6D:4D,c44,192.168.1.54
 dhcp-host=B8:27:EB:0C:63:10,c45,192.168.1.55
 \end{lstlisting}
 
-Boot-Verzeichnis erstellen. Aus diesem Verzeichnis wird der Kernel den Compute Nodes angeboten und übermittelt. Dabei wird das /boot Verzeichnis des Management- Nodes in dieses Verzeichnis kopiert, da es sich um das selbe Betriebssystem handelt.
+Boot-Verzeichnis erstellen. Aus diesem Verzeichnis wird der Kernel den Compute Nodes angeboten und übermittelt. Dabei wird das /boot Verzeichnis des Management Nodes in dieses Verzeichnis kopiert, da es sich um das selbe Betriebssystem handelt.
 
 \begin{lstlisting}
 [root@nebula /]# mkdir /tftpboot

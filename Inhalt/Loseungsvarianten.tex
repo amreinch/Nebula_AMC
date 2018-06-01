@@ -10,9 +10,9 @@ Die Informationen wurden über die folgenden Produkte gesammelt und zusammengest
 \begin{tabular}{p{1cm}p{4cm}p{11cm}}
 \hline
 \rowcolor{heading} \textbf{Nr.} & \textbf{Variante} & \textbf{Bezeichnung} \\\hline
-01 & OpenHPC & HPC Lösung entwickelt von der Linux Foundation \\\hline
-02 & TinyTitan & Open Source Lösung entwickelt von Oak Ridge Leadership Computing Facility \\\hline
-03 & Minimale Lösung & Simple 32-Bit Architekturlösung \\\hline
+1 & OpenHPC & HPC Lösung entwickelt von der Linux Foundation \\\hline
+2 & TinyTitan & Open Source Lösung entwickelt von Oak Ridge Leadership Computing Facility \\\hline
+3 & Minimale Lösung & Simple 32-Bit Architekturlösung \\\hline
 \end{tabular}
 \caption{Variantenübersicht}
 \end{table}
@@ -26,7 +26,7 @@ OpenHPC gilt als vorangeschrittenes OpenSource Projekt der Linux Foundation. Das
 Es existieren diverse Guides, Foren und Chats sowie eine E-Mail-Liste zu OpenHPC. Dadurch scheint die Unterstützung bei allfälligen Problemen vorhanden zu sein. Die Installationsanleitung, welche von der Linux Foundation geschrieben wurde, liest sich sehr gut und ist absolut ausreichend für die Installation. Der Betriebsaufwand wird als gering eingeschätzt, da es ein sehr ausgereiftes Produkt, welches stetig weiterentwickelt wird, ist.
 
 \textbf{Voraussetzungen, Abhängigkeiten}\newline
-Für die Cluster Software werden mindestens ein Masternode und 4 Computenodes vorausgesetzt. Das Betriebssystem bezieht sich hierbei auf ein CentOS7x. Jeder Computenode benötigt 2 Netzwerkschnittstellen. Das eine Interface wird für den Standard Ethernet Zugriff verwendet und das zweite Interface wird für die Kommunikation zu jedem BMC Host verwendet. Es werden zusätzliche Intel Bibliotheken benötigt. Dazu müssen Lizenzen für Parallel Studio XE von Intel besorgt werden. Die Lizenzen können mit einer offiziellen E-Mail-Adresse der Schule gratis bezogen werden. Die Linux Foundation erwähnt in ihrem Guide, dass sie die «Bring your own Licence» Strategie verfolgt.
+Für die Cluster Software werden mindestens ein Management Node und 4 Compute Nodes vorausgesetzt. Die Cluster Software wird nur durch die Betriebssysteme CentOS und Suse Linux Enterprise unterstützt. 
 
 \subsubsection{Variante V2 \flqq TinyTitan\frqq}
 \textbf{Beschreibung}\newline
@@ -73,9 +73,9 @@ Es werden 2 RPI's benötigt.
 0 = Keine Anleitung vorhanden.
  \\\hline
 2 & Partner & 0/2 & 2 = Viele Partner vorhanden. \newline
-0 = Keine Partner vorhanden \\\hline
-3 & Aktualität & 0/3/5 & 5 = Releases in den letzten 2 Monaten. \newline 3 = Releases in den letzten 6 Monaten \newline 0 = Keine Releases seit einem Jahr. \\\hline
-4 & Tools & 0/5 & 5 = Es werden Tools angeboten \newline 0 = Es werden keine Tools angeboten. \\\hline
+0 = Keine Partner vorhanden. \\\hline
+3 & Aktualität & 0/3/5 & 5 = Releases in den letzten 2 Monaten. \newline 3 = Releases in den letzten 6 Monaten. \newline 0 = Keine Releases seit einem Jahr. \\\hline
+4 & Tools & 0/5 & 5 = Es werden Tools angeboten. \newline 0 = Es werden keine Tools angeboten. \\\hline
 \end{tabular}
 \caption{Notenskala der Kriterien}
 \end{table}

@@ -3,12 +3,12 @@
 Der Cluster ist vollautomatisch eingerichtet. Deshalb gibt es nur beim Systemstart kleinere Tasks zu erledigen.
 
 \subsection{Systemstart}
-Es existieren noch kleinere Fehler, deshalb sind bei einem Systemstart folgende Punkte jeweils zu erledigen.
+Es existieren noch kleinere Fehler. Deshalb sind bei einem Systemstart folgende Punkte jeweils zu erledigen:
 
 \textbf{Hostnamen Computenodes}\newline
 Da gleichzeitig 45 Compute Nodes den Hostnamen zugewiesen erhalten, entstehen Komplikationen. Nicht jeder Compute Node erhält direkt einen Hostnamen. Dazu müssen folgende Tests nach einem Systemstart vollzogen werden:
 
-1. Prüfen ob der Compute Node einen Hostnamen zugewiesen erhalten hat.
+1. Prüfen, ob der Compute Node einen Hostnamen zugewiesen erhalten hat.
 \begin{lstlisting}
 [root@nebula ~]# pdsh -w c[1-45] hostname
 c4: c4
@@ -20,7 +20,7 @@ c5: 192.168.1.15
 c36: 192.168.1.46
 ...
 \end{lstlisting}
-2. Auslesen welche Hostnamen eine IP Adresse ausgeben.\newline
+2. Auslesen, welche Hostnamen eine IP Adresse ausgeben.\newline
 3. Die identifizierten Hosts neustarten.
 \begin{lstlisting}
 [root@nebula ~]# pdsh -w c[10,5,36] reboot
@@ -32,7 +32,7 @@ c10: Connection to c10 closed by remote host.
 pdsh@nebula: c10: ssh exited with exit code 255
 [root@nebula ~]#
 \end{lstlisting}
-4. Prüfen ob die Hosts nun einen Hostnamen erhalten haben.
+4. Prüfen, ob die Hosts nun einen Hostnamen erhalten haben.
 \begin{lstlisting}
 [root@nebula ~]# pdsh -w c[10,5,36] hostname
 c10: c10
@@ -40,11 +40,11 @@ c36: c36
 c5: c5
 [root@nebula ~]#
 \end{lstlisting}
-5. Falls nicht alle Hosts einen Hostnamen erhalten haben müssen die Schritte wiederholt werden.
+5. Falls nicht alle Hosts einen Hostnamen erhalten haben, müssen die Schritte wiederholt werden.
 
 \textbf{Internetzugang für die Compute Nodes}\newline
 Standardmässig können die Compute Nodes keine Verbindung zum Internet aufbauen. Deshalb muss das Routing jeweils eingerichtet werden. \newline
-1. Prüfen ob Compute Nodes das Internet erreichen können.
+1. Prüfen, ob Compute Nodes das Internet erreichen können.
 \begin{lstlisting}
 [root@nebula ~]# pdsh -w c1 ping -c 1 google.de
 c1: ping google.de
@@ -64,7 +64,7 @@ c1: --- google.de ping statistics ---
 c1: 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 c1: rtt min/avg/max/mdev = 16.925/16.925/16.925/0.000 ms
 \end{lstlisting}
-4. Um jeden Compute Node gleichzeitig zu bearbeiten kann folgendes eingegeben werden:
+4. Um jeden Compute Node gleichzeitig zu bearbeiten, kann folgendes eingegeben werden:
 \begin{lstlisting}
 [root@nebula ~]# pdsh -w c[1-45] route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.168.1.1 dev eth0
 \end{lstlisting}
