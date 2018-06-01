@@ -1,13 +1,17 @@
 % !TEX root = ../Diplombericht.tex
+
 \section{Schlussbetrachtung} 
 \label{sec:Schlussbetrachtung}
 Der Cluster kann parallele Berechnungen durchführen. Leider ist es nicht möglich, Kryptowährungen mit nur einem Prozess über den Cluster hinweg zu schürfen. Jedoch ergibt es hierbei keinen Unterschied, ob jeweils neue Prozesse pro Node gestartet werden oder ob diese in einen Prozess zusammengeführt sind. Dies würde erst eine Wichtigkeit erlangen, wenn es darum ginge, Währungen zu schürfen, welche in den Blockchains diverse Bountys bereithalten, welche Belohnungen für das Schürfen beinhalten.
 
+\subsection{Abweichungen}
+Leider konnte keine Software installiert werden, welche die Logdateien der Komponenten sammelt und zur Analyse bereitstellt. Dazu haben die Raspberry PI's schlichtweg zu wenig RAM-Ressourcen. Ich habe jedoch ein Compute Modul für ein Raspberry PI bestellt und werde es nach dem Projekt versuchen, zu installieren. Der Flaschenhals bei der Installation liegt darin, dass die Verwendung von Elastic Search unumgänglich ist und dafür die RAM-Ressourcen nicht ausreichen.
+
 \subsection{Arbeiten nach dem Projekt}
-Es gibt noch kleinere Bugs, welche behoben werden müssen. Diese verhindern aber die Inbetriebnahme des Clusters nicht. Zudem wird nach einer Virtualisierungssoftware gesucht, welche es ermöglicht, verschiedene Instanzen für andere Anwendungsgebiete in Betrieb zu nehmen.
+Generell gilt es den Cluster in Betrieb zu nehmen und Kryptowährungen nach dem Projektabschluss zu schürfen. Die festgestellten Mangel werden innerhalb von 6 Monaten beseitigt. Zudem soll die Stromversorgung optimiert werden. Die Compute Nodes sollen erst den Strom erhalten, nachdem der Management Node gestartet ist. Dieser soll dann über einen Stromstoss-Schalter das Signal an das Netzeil der Compute Nodes senden. Weiterhin gilt es ein zentrales Log Analyse Tool zu installieren, welches bei der Analyse von Problemen Zeit einsparen soll.
 
 \subsection{Persönliche Betrachtung}
-Generell ist es mir gelungen, eine grössere Anzahl von verschiedenen Komponenten zu einem einheitlichen Produkt zu verbinden. Dadurch habe ich nun private CPU Ressourcen, welche abgekoppelt von meinem PC sind. Das Produkt kann ich für meine nächsten persönlichen Vorhaben weiterhin benutzen und muss mir keine Webserver mieten.
+Generell ist es mir gelungen, eine grössere Anzahl von verschiedenen Komponenten zu einem einheitlichen Produkt zu verbinden. Dadurch habe ich nun private CPU Ressourcen, welche abgekoppelt von meinem PC sind. Den Cluster kann ich für meine Vorhaben in naher Zukunft benutzen und ich erhoffe mir durch Spekulationen beim Schürfen von Kryptowährungen ein zusätzliches Einkommen.
  
 \subsection{Danksagung}
 An dieser Stelle möchte ich mich speziell bei den unten aufgeführten Personen für die Unterstützung meiner Diplomarbeit bedanken:
