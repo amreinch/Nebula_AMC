@@ -1391,10 +1391,34 @@ Der Cluster konnte innerhalb von 12 Minuten wiederaufgebaut werden. \\\hline
 \cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
 \cellcolor{heading}\textbf{Datum des Tests} & 22.05.2018  \\\hline
 \cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
-\cellcolor{heading}\textbf{Fehlerbeschreibung} & Der Compute Node c35 wurde bereits bei den Komponententests als fehlerhaft erkannt. Deshalb ist das Ergebnis wie erwartet.  \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
 \end{tabular}
 \caption{I-004 Protokoll}
 \end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{4.5cm}p{11.5cm}}
+\hline
+\cellcolor{heading}\textbf{Test-ID:} & \textbf{I-005} \\\hline
+\cellcolor{heading}\textbf{Testobjekt} & Cluster \\\hline
+\cellcolor{heading}\textbf{Testschritte} & 
+- NAS ausschalten. \newline
+- Festplatte 1 abhängen. \newline
+- Prüfen ob Die Datei test.txt auf der Festplatte 2 ist. \newline
+- Festplatte 1 anhängen. \newline
+- Die obenstehenden Punkte mit der jeweils anderen Festplatte wiederholen. \\\hline
+\cellcolor{heading}\textbf{Erwartetes Ergebnis} & Die test.txt Datei ist auf beiden Festplatten vorhanden. \\\hline
+\cellcolor{heading}\textbf{Tatsächliches Ergebnis} &
+Die test.txt Datei war auf beiden Festplatten zu finden. \\\hline
+\cellcolor{heading}\textbf{Tester} & Christoph Amrein  \\\hline
+\cellcolor{heading}\textbf{Datum des Tests} & 22.05.2018  \\\hline
+\cellcolor{heading}\textbf{Testergebnis \newline (Fehlerklasse)} & 1 - Fehlerfrei, die Erwartungen sind erfüllt. \\\hline
+\cellcolor{heading}\textbf{Fehlerbeschreibung} &   \\\hline
+\end{tabular}
+\caption{I-005 Protokoll}
+\end{table}
+
 \newpage
 \subsection{Systemtests}
 \begin{longtable}{p{4.5cm}p{11.5cm}}
