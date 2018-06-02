@@ -34,7 +34,7 @@
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- Terminplan und Projektübersicht im Confluence erstellen. \newline
 - An der Projektplanung weitergearbeitet. \newline
 - Beginn mit dem Projektauftrag} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme} \newline & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 9 & \textbf{Datum:} 13.02.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- Am Projektauftrag weitergearbeitet.} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
@@ -134,7 +134,7 @@
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{WareWulf Komponente blockiert die PXE Boot Installation.} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 35 & \textbf{Datum:} 11.03.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- 10 MAC Adressen der RPI's ausgelesen. Dafür musste ich eine SD Karte, welche ein kompatibles OS für die RPI's besitzt, verwenden. Danach habe ich über nmap die MAC Adressen jeweils ausgelesen.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme}\newline \newline \newline \newline & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 36 & \textbf{Datum:} 12.03.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- Ich habe mit dem physischen Aufbau des Clusters begonnen. \newline
 - Distanzbolzen mit Raspberry PI's verbunden. \newline
@@ -161,7 +161,7 @@
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- Den PXE Boot mit einem NOOBS Betriebssystem aufgesetzt. Dies hat funktioniert. \newline
 - Dies habe ich versucht in Warewulf zu implementieren. Leider erfolglos. \newline
 Entschieden, den TFTBOOT / PXE ohne WareWulf auf dem Management Node einzurichten.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{} \\ \hline
+\textbf{Aufgetretene Probleme \newline \newline } & \multicolumn{2}{p{11cm}|}{} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 43 & \textbf{Datum:} 19.03.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Installationsscript geschrieben, welches alles automatisch installiert.} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{Es bestehen noch Probleme mit der Installation von CentOS auf den Raspberry PI's.} \\ \hline
@@ -176,7 +176,7 @@ Entschieden, den TFTBOOT / PXE ohne WareWulf auf dem Management Node einzurichte
 - Vermutlich kann der Kernel nicht richtig geladen werden oder ist nicht kompatibel.} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 46 & \textbf{Datum:} 22.03.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- Weitere fremde Images versucht zu installieren, z.B. Gentoo 64 Bit für Raspberry PI's, Fedora, usw.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline \newline } & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 47 & \textbf{Datum:} 23.03.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{- Ich habe nach einer alternativen 64 Bit Version für RPI's gesucht. Dabei bin ich auf diverse Images gestossen: \newline Fedora \url{https://fedoraproject.org/wiki/Architectures/ARM}, die Installation hat einwandfrei funktioniert. (CentOS nahe) \newline Gentoo https://github.com/sakaki-/gentoo-on-rpi3-64bit, die Installation haut auf anhieb funktioniert. Ich bin auf diesen Guide gestossen: \url{https://github.com/umiddelb/aarch64/wiki/Install-CentOS-7-on-your-favourite-ARMv8-ARM64-AArch64-board}. Mit diesem Guide habe ich den Durchbruch geschafft. Die Installation habe ich mit der Fedora Boot Partition leider nicht geschafft. Mit der Gentoo Lösung ging es aber. Ich bin dabei wie folgt vorgegangen: Beim Schreiben des Gentoo Images auf die SD Karte werden zwei Partitionen erstellt (Boot \& FileSystem). Die Boot Partition habe ich nicht angepasst. Wichtig dabei ist, dass das RPI ein Kernel8.img für ARMv8 in der Boot Partition benötigt. Dies musste ich also stehen lassen. Als zweiten Schritt habe ich aus dem CentOS Repos das Archiv CentOS-7-aarch64-rootfs-7.4.1708.tar.xz heruntergeladen. Darin ist das komplette FileSystem enthalten. Dies habe ich auf der FileSystem Partition mit dem Befehl tar --numeric-owner -xpJf .../CentOS-7-aarch64-rootfs-7.4.1708.tar.xz -C /home/camrein/Downloads/mnt2 niedergschrieben. (Achtung: Die Partition wurde nach /home/camrein/Downloads/mnt2 gemountet). Danach hatte ich ein funktionsfähiges CentOS 64 Bit auf dem Raspberry PI.} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
@@ -200,10 +200,11 @@ Da das CentOS nun erfolgreich auf dem RPI betrieben werden kann, habe ich versuc
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Ich habe mich für ein LaTeX Template von Macke entschieden und mit der Migration von Word nach LaText begonnen.} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 54 & \textbf{Datum:} 30.03.2018 & \\ \hline
-\textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Ausgangslage und Projektziele nach LaTeX migriert.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline\rowcolor{heading}\textbf{Tag:} 55 & \textbf{Datum:} 31.03.2018 & \\ \hline
+\textbf{Erledigte Arbeit } & \multicolumn{2}{p{11cm}|}{Ausgangslage und Projektziele nach LaTeX migriert.} \\ \hline
+\textbf{Aufgetretene Probleme\newline } & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\rowcolor{heading}\textbf{Tag:} 55 & \textbf{Datum:} 31.03.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Termine und Projektorganisation nach LaTeX migriert.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme } & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 56 & \textbf{Datum:} 01.04.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Überarbeitung der Darstellung der bereits migrierten Inhalte.} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
@@ -231,7 +232,7 @@ Da das CentOS nun erfolgreich auf dem RPI betrieben werden kann, habe ich versuc
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 64 & \textbf{Datum:} 09.04.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Überarbeitung bisheriger Dokumentation und Konzept Dokumentation migrieren.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme \newline \newline} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 65 & \textbf{Datum:} 10.04.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Entschieden, Warewulf auszulassen und mit dnsmasq und pxe boot fortzufahren. PXE Boot mit Centos eingerichtet. Alle Raspberry PI's können gestartet werden und beziehen das Betriebssystem über das Netzwerk.} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
@@ -314,10 +315,10 @@ Da das CentOS nun erfolgreich auf dem RPI betrieben werden kann, habe ich versuc
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 89 & \textbf{Datum:} 04.05.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{Dokumentation erweitert.} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme \newline \newline \newline \newline \newline } & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 90 & \textbf{Datum:} 05.05.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
-\textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
+\textbf{Aufgetretene Probleme } & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \rowcolor{heading}\textbf{Tag:} 91 & \textbf{Datum:} 06.05.2018 & \\ \hline
 \textbf{Erledigte Arbeit} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
 \textbf{Aufgetretene Probleme} & \multicolumn{2}{p{11cm}|}{-} \\ \hline
